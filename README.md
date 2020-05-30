@@ -23,4 +23,9 @@ Things you may want to cover:
 
 * ...
 
+<<<<<<< HEAD
 * biki
+=======
+
+<!-- テストをします -->
+>>>>>>> d02e42813ab315d5463c72be9f206ef8ac9b15f7
