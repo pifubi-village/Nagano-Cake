@@ -5,7 +5,7 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version 2.26.2
+* Ruby version
 
 * System dependencies
 
@@ -22,6 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+<<<<<<< HEAD
+=======
 
 <<<<<<< HEAD
 * biki
@@ -29,3 +31,4 @@ Things you may want to cover:
 
 <!-- テストをします -->
 >>>>>>> d02e42813ab315d5463c72be9f206ef8ac9b15f7
+>>>>>>> f88900c66aa829944eac1c53e946f40ad4e1ba47
