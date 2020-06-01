@@ -22,13 +22,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-<<<<<<< HEAD
-=======
-
-<<<<<<< HEAD
-* biki
-=======
-
-<!-- テストをします -->
->>>>>>> d02e42813ab315d5463c72be9f206ef8ac9b15f7
->>>>>>> f88900c66aa829944eac1c53e946f40ad4e1ba47
