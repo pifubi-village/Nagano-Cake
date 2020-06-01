@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  end_user_id: 1
+  postage: 1
+  amount_price: 1
+  oeder_status: 1
+  address: MyString
+  name: 
+  post_code: MyString
+
+two:
+  end_user_id: 1
+  postage: 1
+  amount_price: 1
+  oeder_status: 1
+  address: MyString
+  name: 
+  post_code: MyString
