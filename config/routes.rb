@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   delete 'cart_products/destroy_all'
   resources :products,only: [:index,:show]
   resources :addresses
-  devise_for :users
+  devise_for :end_users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
