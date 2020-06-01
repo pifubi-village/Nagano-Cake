@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_01_084146) do
+ActiveRecord::Schema.define(version: 2020_06_01_114055) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "end_user_id"
@@ -21,12 +21,36 @@ ActiveRecord::Schema.define(version: 2020_06_01_084146) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
   create_table "cart_products", force: :cascade do |t|
     t.integer "end_user_id"
     t.integer "product_id"
     t.integer "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "castams", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_castams_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_castams_on_reset_password_token", unique: true
   end
 
   create_table "end_users", force: :cascade do |t|
@@ -38,7 +62,6 @@ ActiveRecord::Schema.define(version: 2020_06_01_084146) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "first_name"
-    t.string "family_name"
     t.string "first_name_kana"
     t.string "family_name_kana"
     t.string "phone_number"
