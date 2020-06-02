@@ -12,22 +12,8 @@
   </head>
 
   <body>
-     <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-
-        <nav class="nav navbar-nav navbar-left">
-          <span>Nagano Cake</span>
-        </nav>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <!--if文でサインインとアウト時の表示を変更-->
-           <li class="glyphicon glyphicon-home home">aaaa</li>
-           <li class="glyphicon glyphicon-link about">bbbb</li>
-          </ul>
-        </nav>
-
-      </div>
-    </header>
+     <%= render 'layouts/header' %>
     <%= yield %>
+     <%= render 'layouts/footer' %>
   </body>
 </html>
