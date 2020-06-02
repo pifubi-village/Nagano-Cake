@@ -15,3 +15,90 @@
  */
     @import "bootstrap-sprockets";
     @import "bootstrap";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.userheadline {
+	text-align: center;
+	padding-top: 20px;
+}
+.field{
+	display: inline-block;
+}
+.tableline{
+	padding-right: 350px;
+}
+
+.tableline1{
+	padding-right: 500px;
+}
+.tableline2{
+	padding-right: 325px;
+}
+.sinupheadline{
+	padding-left: 100px;
+}
+.sinuphead{
+	padding-top: 13px;
+}
+.up{
+	padding-left: 200px;
+	padding-top: 100px;
+}
+.pu{
+	padding-top: 50px;
+}
+.pu1{
+	padding-left: 30px;
+}
+.botton{
+	padding-right: 400px;
+}
+.loginheadline{
+    text-align: center;
+    padding-top: 150px;
+}
+.logintext {
+    padding-right: 500px;
+    padding-bottom: 30px;
+}
+.submitlogin {
+	padding-right: 250px;
+	padding-top: 5px;
+}
+.passwordlogin{
+	padding-left: 300px;
+}
+.emaillogin{
+	padding-bottom: 8px;
+	padding-right: 25px;
+}
+.sinuplogin{
+	padding-right: 580px;
+	padding-bottom: 10px;
+}
+.loginline {
+	padding-right: 250px;
+}
+.userpage {
+	display: inline-block;
+}
+table td {
+	padding: 15px;
+}
+ td {
+	border:solid 2px #333333;
+	width: 30%;
+}
+ th {
+	border:solid 2px #333333; 
+	background-color: #EEEEEE;
+	width: 10%;
+}
+table {
+	width: 40%;
+}
