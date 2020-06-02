@@ -8,7 +8,7 @@ class AddressesController < ApplicationController
   def create
     @addresses = Address.all
     @address = Address.new(address_params)
-    @address.user_id = current_user.id
+    @address.end_user_id = current_user.id
 
       if @address.save
         redirect_to addresses_path(@address), notice: "successfully create addresse!"
