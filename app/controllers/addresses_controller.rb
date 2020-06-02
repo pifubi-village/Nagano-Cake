@@ -20,7 +20,6 @@ class AddressesController < ApplicationController
   def edit
     @address = Address.find(params[:id])
     @address.end_user_id != current_end_user.id
-    redirect_to addresses_path
   end
 
   def update

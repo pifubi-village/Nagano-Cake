@@ -39,7 +39,8 @@
 					<td><%= address.post_code %></td>
 					<td><%= address.address %></td>
 					<td><%= address.name %></td>
-					<td><%= link_to 'edit', edit_address_path(address.end_user.id)%></td>
+					<td><%= link_to 'edit', edit_address_path(address.id) %></td>
+					
 				</tr>
 				<% end %>
 			</tbody>
