@@ -1,5 +1,6 @@
 class EndUsersController < ApplicationController
 	def show
+		@end_user = current.user
 	end
 
 	def edit
