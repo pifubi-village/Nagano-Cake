@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_01_121809) do
+ActiveRecord::Schema.define(version: 2020_06_01_114055) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "end_user_id"
@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 2020_06_01_121809) do
     t.string "post_code"
     t.string "address"
     t.boolean "is_active"
-    t.string "family_name"
     t.index ["email"], name: "index_end_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
   end
