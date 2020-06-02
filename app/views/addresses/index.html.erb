@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<h2>配達先一覧</h2>
+		<h2>配達先登録/一覧</h2>
 		<table class='table'>
 
 		<%= form_for @address do |f| %>
@@ -36,10 +36,10 @@
 			<tbody>
 				<% @addresses.each do |address|%>
 				<tr>
-					<td><%= address.postcode %></td>
+					<td><%= address.post_code %></td>
 					<td><%= address.address %></td>
 					<td><%= address.name %></td>
-					<td><%= link_to 'edit', edit_address_path(address.id)%></td>
+					<td><%= link_to 'edit', edit_address_path(address.end_user.id)%></td>
 				</tr>
 				<% end %>
 			</tbody>

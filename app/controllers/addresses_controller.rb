@@ -9,16 +9,17 @@ class AddressesController < ApplicationController
     @addresses = Address.all
     @address = Address.new(address_params)
     @address.end_user_id = current_end_user.id
-      if @address.save
-        redirect_to addresses_path(@address), notice: "successfully create addresse!"
-      else @addresse = Address.all
-        render 'index'
-      end
+    if @address.save
+      redirect_to addresses_path(@address), notice: "successfully create addresse!"
+    else
+      @addresse = Address.all
+      render 'index'
+    end
   end
 
   def edit
     @address = Address.find(params[:id])
-    @address.end_user_id != current_user.id
+    @address.end_user_id != current_end_user.id
     redirect_to addresses_path
   end
 
