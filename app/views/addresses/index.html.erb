@@ -1,2 +1,47 @@
-<h1>Addresses#index</h1>
-<p>Find me in app/views/addresses/index.html.erb</p>
+<div class="container">
+	<div class="row">
+		<h2>配達先一覧</h2>
+
+		<%= form_for @address do |f| %>
+			<div class="field row">
+				<%= f.label :post_code %>
+				<%= f.text_field :post_code %>
+			</div>
+			<div class="field row">
+				<%= f.label :address %>
+				<%= f.text_field :address %>
+			</div>
+			<div class="field row">
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			</div>
+			<div class="actions">
+			  <%= f.submit '登録する' %>
+			</div>
+		<%end%>
+
+
+
+		<table class="table table-hover table-inverse">
+			<thead>
+				<tr>
+					<th>郵便番号</th>
+					<th>住所</th>
+					<th>宛名</th>
+					<th></th>
+					<th colspan="4"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @addresses.each do |address|%>
+				<tr>
+					<td><%= address.postcode %></td>
+					<td><%= address.address %></td>
+					<td><%= address.name %></td>
+					<td><%= link_to 'edit', edit_address_path(address.id)%></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
