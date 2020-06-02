@@ -1,7 +1,8 @@
 <div class="container">
 	<div class="row">
 		<h2>配達先一覧</h2>
-		<%= form_for address do |f| %>
+
+		<%= form_for @address do |f| %>
 			<div class="field row">
 				<%= f.label :post_code %>
 				<%= f.text_field :post_code %>
@@ -13,6 +14,9 @@
 			<div class="field row">
 				<%= f.label :name %>
 				<%= f.text_field :name %>
+			</div>
+			<div class="actions">
+			  <%= f.submit '登録する' %>
 			</div>
 		<%end%>
 
@@ -29,13 +33,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<!-- 変数入れる 後ほど -->
+				<% @addresses.each do |address|%>
 				<tr>
-					<td>184-0015</td>
-					<td>東京都小金井市北町11-11-11</td>
-					<td>山田太郎</td>
-					<td>編集　削除</td>
+					<td><%= address.postcode %></td>
+					<td><%= address.address %></td>
+					<td><%= address.name %></td>
+					<td><%= link_to 'edit', edit_address_path(address.id)%></td>
 				</tr>
+				<% end %>
 			</tbody>
 		</table>
 	</div>
