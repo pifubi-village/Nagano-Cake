@@ -1,24 +1,42 @@
 <div class="container">
 	<div class="row">
-      <div class="col-3">
-	    <h3>ジャンル一覧</h3>
-      </div>
-      <div class="col-9">
-		<h4>ようこそ 、NaganoCakeへ！<br>
-			このサイトは、ケーキ販売のECサイトになります。<br>
-			会員でない方も商品の観覧はできますが、<br>
-			購入には会員登録が必要になります。
-        </h4>
-			<div class="table">
-				<h1>おすすめ商品</h1>
-				<tr>
-					<td>イメージ変数</td>
-					<td>表品名</td>
-					<td>料金</td>
-				</tr>
+		<h2>配達先一覧</h2>
+		<%= form_for address do |f| %>
+			<div class="field row">
+				<%= f.label :post_code %>
+				<%= f.text_field :post_code %>
 			</div>
-		</div>
+			<div class="field row">
+				<%= f.label :address %>
+				<%= f.text_field :address %>
+			</div>
+			<div class="field row">
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			</div>
+		<%end%>
+
+
+
+		<table class="table table-hover table-inverse">
+			<thead>
+				<tr>
+					<th>郵便番号</th>
+					<th>住所</th>
+					<th>宛名</th>
+					<th></th>
+					<th colspan="4"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- 変数入れる 後ほど -->
+				<tr>
+					<td>184-0015</td>
+					<td>東京都小金井市北町11-11-11</td>
+					<td>山田太郎</td>
+					<td>編集　削除</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </div>
-
-
