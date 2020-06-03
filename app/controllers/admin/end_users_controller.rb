@@ -1,5 +1,6 @@
 class Admin::EndUsersController < ApplicationController
   def index
+  	@end_users = EndUser.find
   end
 
   def show

@@ -8,19 +8,18 @@ class AddressesController < ApplicationController
   def create
     @addresses = Address.all
     @address = Address.new(address_params)
-    @address.user_id = current_user.id
-
-      if @address.save
-        redirect_to addresses_path(@address), notice: "successfully create addresse!"
-      else @addresse = Address.all
-        render 'index'
-      end
+    @address.end_user_id = current_end_user.id
+    if @address.save
+      redirect_to addresses_path(@address), notice: "successfully create addresse!"
+    else
+      @addresse = Address.all
+      render 'index'
+    end
   end
 
   def edit
     @address = Address.find(params[:id])
-    @address.end_user_id != current_user.id
-    redirect_to addresses_path
+    @address.end_user_id != current_end_user.id
   end
 
   def update

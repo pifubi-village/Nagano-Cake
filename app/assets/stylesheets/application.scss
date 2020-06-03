@@ -85,6 +85,26 @@
 	padding-right: 250px;
 }
 
+
 body {
 	margin-top: 70px;
+}
+  
+.userpage {
+	display: inline-block;
+}
+table td {
+	padding: 15px;
+}
+ td {
+	border:solid 2px #333333;
+	width: 30%;
+}
+ th {
+	border:solid 2px #333333; 
+	background-color: #EEEEEE;
+	width: 10%;
+}
+table {
+	width: 40%;
 }

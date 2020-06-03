@@ -1,5 +1,6 @@
 class EndUsersController < ApplicationController
 	def show
+		@end_user = current_end_user
 	end
 
 	def edit
@@ -13,4 +14,4 @@ class EndUsersController < ApplicationController
 
 	def withdraw
 	end
-end
+ end
