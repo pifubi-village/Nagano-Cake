@@ -1,0 +1,30 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+
+    <nav class="nav navbar-nav navbar-left">
+      <span>Nagano Cakes</span>
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <!--if文でadmin,end_userを判別し、さらにif文でそれぞれのログイン状況を判別してheaderに表示する項目を変化させる-->
+        <%if admin_signed_in?%>
+          <li><%= link_to '注文履歴一覧',admin_orders_path, class: "btn btn-success" %></li>
+          <li><%= link_to '会員一覧', admin_end_users_path, class: "btn btn-success" %></li>
+          <li><%= link_to '商品一覧', admin_products_path, class: "btn btn-success" %></li>
+          <li><%= link_to 'ジャンル一覧', admin_genres_path, class: "btn btn-success" %></li>
+          <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "btn btn-success" %></li>
+        <% elsif end_user_signed_in? %>
+           <li><%= link_to '商品一覧', products_path, class: "btn btn-success" %></li>
+           <li><%= link_to 'マイページ', end_users_path, class: "btn btn-success" %></li>
+           <li><%= link_to 'カート', cart_products_path, class:
+            "btn btn-success" %></li>
+           <li><%= link_to "ログアウト", destroy_end_user_session_path, method: :delete, class: "btn btn-success" %> </li>
+        <% else %>
+           <li><%= link_to '商品一覧', products_path,class: "btn btn-success" %></li>
+           <li ><%= link_to '新規登録', new_end_user_registration_path, class: "btn btn-success" %></li>
+           <li><%= link_to 'ログイン', new_end_user_session_path, class: "btn btn-success"%></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

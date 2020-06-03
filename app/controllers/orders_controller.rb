@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @order = Order.find(params[:order_id])
   end
 
   def confirm

@@ -33,14 +33,15 @@
 		    <h1>オススメ商品</h1>
 			<tbody>
 			<tr>
-				<td><%= attachment_image_tag @product, :product_image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%><br>
-					商品めい<br>
-				    値段
+				 <% @products.each do |product| %>
+				<td><%= attachment_image_tag(product, :product_image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %>
+					<%= product.name %>
+				   <%= product.price_tax_exclude %>
 				</td>
+				<% end %>
 			</tr>
 		</tbody>
 
 		</div>
 	</div>
 </div>
-  <%= link_to "logout", destroy_end_user_session_path, method: :delete %>
