@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_06_02_084636) do
-
+ActiveRecord::Schema.define(version: 2020_06_03_105753) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "end_user_id"
@@ -39,6 +37,11 @@ ActiveRecord::Schema.define(version: 2020_06_02_084636) do
     t.integer "end_user_id"
     t.integer "product_id"
     t.integer "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,6 +73,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_084636) do
     t.string "post_code"
     t.string "address"
     t.boolean "is_active"
+    t.string "family_name"
     t.index ["email"], name: "index_end_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
   end
@@ -79,6 +83,15 @@ ActiveRecord::Schema.define(version: 2020_06_02_084636) do
     t.boolean "is_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "cart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_line_items_on_cart_id"
+    t.index ["item_id"], name: "index_line_items_on_item_id"
   end
 
   create_table "order_products", force: :cascade do |t|
