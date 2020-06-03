@@ -1,0 +1,18 @@
+<div class="container"> 
+   <div class="row">
+      <div class="unsubscribedline">
+      	<div class="unsubscribedline1">
+          <h2>本当に退会しますか？</h2>
+        </div>
+          <h4>退会すると、会員登録情報や</h4>
+          <h4>これまでの購入履歴が閲覧できなくなります。</h4>
+          <h4>退会する場合は、「退会する」をクリックしてください。</h4>
+        <div class="unsubscribedline2">
+          <a href= "http://localhost:3000/end_users" class="btn btn-primary btn-md" role="botton">退会しない</a>
+          <div class="use">
+          <%= button_to "退会する", end_users_withdraw_path(current_end_user),class: "btn btn-danger btn-md", data: { confirm: "Are you sure?" }, method: :patch %>
+          </div>
+        </div>
+      </div>
+   </div>
+</div>

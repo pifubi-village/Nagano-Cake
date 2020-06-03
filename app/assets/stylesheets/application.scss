@@ -98,13 +98,43 @@ table td {
 }
  td {
 	border:solid 2px #333333;
-	width: 30%;
+
 }
  th {
 	border:solid 2px #333333; 
 	background-color: #EEEEEE;
-	width: 10%;
+
 }
 table {
 	width: 40%;
+}
+.top{
+	margin-top: 20px;
+}
+.top1{
+	margin-left: 90px;
+}
+.use {
+	padding-left: 350px;
+}
+.unsubscribedline{
+	text-align: center;
+	padding-top: 100px;
+}
+.unsubscribedline1{
+	padding-bottom: 50px;
+}
+.unsubscribedline2{
+     padding-top: 10px;
+	.btn-primary{
+	margin-right: 20px;
+	}
+.body {
+	margin: 20px;
+}
+.box{
+	padding:50px;
+}
+.box_headline{
+	 border: 5px solid black;
 }
