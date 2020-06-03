@@ -1,2 +1,51 @@
-<h1>Admin::EndUsers#show</h1>
-<p>Find me in app/views/admin/end_users/show.html.erb</p>
+<!-- <h1>Admin::EndUsers#show</h1>
+<p>Find me in app/views/admin/end_users/show.html.erb</p> -->
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-6">
+
+			<h2><%= @end_user.family_name %><%= @end_user.first_name %>の会員詳細</h2>
+
+			<table class="table">
+				<tbody>
+					<tr>
+						<td>顧客ID</td>
+						<td><%= @end_user.id %><%= @end_user.is_active %></td>
+					</tr>
+					<tr>
+						<td>氏名</td>
+						<td><%= @end_user.family_name %> <%= @end_user.first_name %></td>
+					</tr>
+					<tr>
+						<td>フリガナ</td>
+						<td><%= @end_user.family_name_kana %> <%= @end_user.first_name_kana %></td>
+					</tr>
+					<tr>
+						<td>郵便番号</td>
+						<td><%= @end_user.post_code %></td>
+					</tr>
+					<tr>
+						<td>住所</td>
+						<td><%= @end_user.address %></td>
+					</tr>
+					<tr>
+						<td>電話番号</td>
+						<td><%= @end_user.phone_number %></td>
+					</tr>
+					<tr>
+						<td>メールアドレス</td>
+						<td><%= @end_user.email %></td>
+					</tr>
+
+				</tbody>
+			</table>
+
+		<%= link_to "編集する", edit_admin_end_user_path %>
+
+		<%= link_to "注文履歴一覧を見る", admin_orders_path %>
+
+		</div>
+
+	</div>
+</div>
