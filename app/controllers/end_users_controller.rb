@@ -3,12 +3,6 @@ class EndUsersController < ApplicationController
 		@end_user = current_end_user
 	end
 
-	def edit
-	end
-
-	def update
-	end
-
 	def unsubscribed
 	end
 
