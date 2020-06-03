@@ -92,13 +92,23 @@ table td {
 }
  td {
 	border:solid 2px #333333;
-	width: 30%;
+	
 }
  th {
 	border:solid 2px #333333; 
 	background-color: #EEEEEE;
-	width: 10%;
+	
 }
 table {
 	width: 40%;
+}
+.body {
+	margin: 20px;
+}
+.box{
+	padding:50px;
+}
+.box_headline{
+	 border: 5px solid black;
+	
 }
