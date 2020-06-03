@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2020_06_03_095002) do
+=======
 ActiveRecord::Schema.define(version: 2020_06_03_105753) do
+>>>>>>> 83040a89fd22bcfe793edb3ff2d20f7c22e6e31b
 
   create_table "addresses", force: :cascade do |t|
     t.integer "end_user_id"
@@ -74,6 +78,11 @@ ActiveRecord::Schema.define(version: 2020_06_03_105753) do
     t.string "address"
     t.boolean "is_active"
     t.string "family_name"
+<<<<<<< HEAD
+    t.string "datetime"
+    t.index ["datetime"], name: "index_end_users_on_datetime"
+=======
+>>>>>>> 83040a89fd22bcfe793edb3ff2d20f7c22e6e31b
     t.index ["email"], name: "index_end_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
   end
@@ -124,18 +133,6 @@ ActiveRecord::Schema.define(version: 2020_06_03_105753) do
     t.integer "selling_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

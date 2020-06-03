@@ -1,9 +1,12 @@
 <div class="container"> 
       <div class="row">
       	 <div class="userpage">
+      	 	<div class="top1">
 　　　　　　<h2>マイページ</h2>
-　　　　　　　<h4>登録情報<%= link_to  "編集する", edit_end_users_path %>
-             <%= link_to  "パスワード変更する", new_end_user_password_path %></br></h4>
+            </div>
+　　　　　　　<h4>登録情報</h4>
+            <%= link_to "編集する", edit_end_user_path, class: "btn btn-primary btn-md", role: "botton" %>
+             <%= link_to "パスワード", edit_end_user_registration_path, class: "btn btn-primary btn-md", role: "botton" %>
            </div>
          <table>
 	    <tr>
@@ -25,9 +28,10 @@
            <th>メールアドレス</th><td><%= @end_user.email %></td></br>
          </tr>   
      </table>
-
-	<h4>配送先<%= link_to submit_tag "一覧を見る", class:"btn btn-primary  btn-md" %></h4>
-   <h4>注文履歴<%= link_to submit_tag "一覧を見る", class:"btn btn-primary  btn-md" %></h4></br>
+    <div class=top>
+	<h4>配送先<a href="http://localhost:3000/addresses" class="btn btn-primary btn-md" role="botton">一覧を見る</a></h4>
+   <h4>注文履歴  <a href="http://localhost:3000/orders" class="btn btn-primary btn-md" role="botton">一覧を見る</a></h4></br>
+</div>
 </div>
 </div>
 
