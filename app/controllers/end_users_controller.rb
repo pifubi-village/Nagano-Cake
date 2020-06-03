@@ -2,10 +2,30 @@ class EndUsersController < ApplicationController
 	def show
 		@end_user = current_end_user
 	end
+	def edit
+		@end_user = current_end_user
+	end
+	def update
+		@end_user = current_end_user
+		@end_user.update(end_users_params)
+		redirect_to end_users_path
+
+	end 
 
 	def unsubscribed
+		@end_user = current_end_user
 	end
 
 	def withdraw
+		@end_user = current_end_user
+        @end_user = Enduser.with_deleted
+        redirect_to root_path
 	end
+
+	private
+	 def end_users_params
+    	params.require(:end_user).permit(:email, :family_name, :first_name,
+	     :family_name_kana, :first_name_kana, :phone_number, :post_code,
+	     :address, :is_active)
+  	end
  end

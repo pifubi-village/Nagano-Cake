@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class EndUsers::RegistrationsController < Devise::RegistrationsController
+  before_action :configure_permitted_parameters, only: [:create]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -39,12 +40,9 @@ class EndUsers::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
-  def update_resource(resource, params)
-    resource.update_without_password(params)
-  end
 
-  def after_update_path_for(resource)
-    end_users_path
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up,keys: [:first_name, :first_name_kana, :family_name, :family_name_kana, :phone_number, :email, :post_code, :address])
   end
   
   # If you have extra params to permit, append them to the sanitizer.
