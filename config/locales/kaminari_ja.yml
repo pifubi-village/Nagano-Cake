@@ -1,10 +1,10 @@
 ja:
   views:
     pagination:
-      first: <i class="fas fa-circle"></i>
-      last: <i class="fas fa-circle"></i>
-      previous: <i class="fas fa-circle"></i>
-      next: <i class="fas fa-circle"></i>
+      first: "&laqui; ・"
+      last: "・ &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
       truncate: "..."
   helpers:
     page_entries_info:
