@@ -10,7 +10,7 @@ class EndUsersController < ApplicationController
 		@end_user.update(end_users_params)
 		redirect_to end_users_path
 
-	end 
+	end
 
 	def unsubscribed
 		@end_user = current_end_user
@@ -18,6 +18,7 @@ class EndUsersController < ApplicationController
 
 	def withdraw
 		@end_user = current_end_user
+
         @end_user.update(is_active: false)
         reset_session
         redirect_to root_path

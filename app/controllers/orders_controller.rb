@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def index
     @orders = Order.all
+    @order = Order.find(params[:id])
   end
 
   def show
@@ -8,11 +9,16 @@ class OrdersController < ApplicationController
   end
 
   def new
-    
+    @addresses = Address.all
+    @orders = Order.all
+    @order = Order.new
   end
 
   def create
-    @order = Order.find(params[:order_id])
+    @order = Order.find(params[:id])
+    if @order.save
+      redirect_to orders_confirm_path
+    end
   end
 
   def confirm
