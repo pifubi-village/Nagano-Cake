@@ -1,2 +1,33 @@
-<h1>CartProducts#index</h1>
-<p>Find me in app/views/cart_products/index.html.erb</p>
+<div class= "container">
+	<div class="row">
+		<div class="col-xs-9">
+		    <h1>ショッピングカート</h1>
+		    カートをからにする　めっそっど？
+		    <%=link_to"カートを空にする",cart_products_destroy_all_path,method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%>
+		    <table class="table">
+			<thead>
+				<tr>
+					<th>商品名</th>
+					<th>単価（税込）</th>
+					<th>数量</th>
+					<th>小計</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<% @products.each do |product| %>
+				<td><%= attachment_image_tag(crat_product.product, :product_image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %></td>
+					<td><%= product.name %><td>
+				    <td> <%= product.price_tax_exclude %><td>
+				  	<td><%=link_to "削除する",cart_product(@cart_product.product.id),method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%></td>
+			</tr>
+		    </tbody>
+			<% end %>
+		</table>
+			<td><%=link_to "買い物を続ける",products_path, class: 'btn btn-primary' %></td>
+			<th>合計金額</th><td><%@product_total_price%>円</td>
+			<span><%=link_to "購入情報に進む",new_order_path, class: 'btn btn-primary' %></span>
+		</div>
+	</div>
+</div>

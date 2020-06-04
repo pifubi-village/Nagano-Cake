@@ -7,22 +7,22 @@
          <div class="col-xs-3">
             <div class="sinupheadline">
               <div class="sinuphead">
-                <p>名前</p>
+                <h4>名前</h4>
               </div>
               <div class="sinuphead">
-                <p>フリガナ</p>
+                <h4>フリガナ</h4>
               </div>
               <div class="sinuphead">
-                <p>メールアドレス</p>
+                <h4>メールアドレス</h4>
               </div>
               <div class="sinuphead">
-                <p>郵便番号(ハイフンなし)</p>
+                <h4>郵便番号</h4>
               </div>
               <div class="sinuphead">
-                <P>住所</P>
+                <h4>住所</h4>
               </div>
               <div class="sinuphead">
-                <p>電話番号(ハイフンなし)</p>
+                <h4>電話番号</h4>
               </div>
             </div>
               <div class="pu"> 
@@ -82,7 +82,7 @@
            <div class="actions">
              <%= f.submit "編集内容を保存する", class:"btn btn-primary btn-md" %>
             <div class="use">
-             <a href= "http://localhost:3000/end_users/unsubscribed" class="btn btn-danger btn-md" role="botton">退会する</a>
+             <%= link_to  "退会する", end_users_unsubscribed_path, class: "btn btn-danger btn-md", role: "botton" %>
            </div>
          </div>
 

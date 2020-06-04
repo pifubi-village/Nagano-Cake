@@ -13,8 +13,8 @@
  *= require_tree .
  *= require_self
  */
-    @import "bootstrap-sprockets";
-    @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 * {
     margin: 0;
@@ -24,7 +24,6 @@
 
 .userheadline {
 	text-align: center;
-	padding-top: 20px;
 }
 .field{
 	display: inline-block;
@@ -47,7 +46,7 @@
 }
 .up{
 	padding-left: 200px;
-	padding-top: 100px;
+	padding-top: 20px;
 }
 .pu{
 	padding-top: 50px;
@@ -101,13 +100,14 @@ table td {
 
 }
  th {
-	border:solid 2px #333333; 
+	border:solid 2px #333333;
 	background-color: #EEEEEE;
 
 }
 table {
 	width: 40%;
 }
+
 .top{
 	margin-top: 20px;
 }
@@ -130,6 +130,7 @@ table {
 	.btn-primary{
 	margin-right: 20px;
 	}
+}
 .body {
 	margin: 20px;
 }
@@ -138,4 +139,7 @@ table {
 }
 .box_headline{
 	 border: 5px solid black;
+}
+.ckdf{
+	padding: 300px;
 }

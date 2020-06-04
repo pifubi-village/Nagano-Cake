@@ -6,6 +6,5 @@ class AddFirstNameToEndUsers < ActiveRecord::Migration[5.2]
     add_column :end_users, :phone_number, :string
     add_column :end_users, :post_code, :string
     add_column :end_users, :address, :string
-    add_column :end_users, :is_active, :boolean, dafault: true
   end
 end
