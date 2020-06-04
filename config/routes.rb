@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
    devise_for :end_users,controllers: {
     sessions: 'end_users/sessions',
     passwords: 'end_users/passwords',
@@ -12,11 +11,9 @@ Rails.application.routes.draw do
     passwords: 'admins/passwords',
     registrations: 'admins/registrations'
   }
-=======
-  resources :line_items
-  resources :carts
->>>>>>> 83040a89fd22bcfe793edb3ff2d20f7c22e6e31b
-  namespace :admin do
+    resources :line_items
+    resources :carts
+    namespace :admin do
     get 'homes/top'
     resources :genres,only: [:index,:show,:edit,:create,:update]
     resources :orders,only: [:index,:show,:update]
@@ -32,7 +29,7 @@ Rails.application.routes.draw do
   resources :cart_products,only: [:index,:edit,:update,:destroy]
   post 'cart_products/add_product'
   delete 'cart_products/destroy_all'
-  resources :products,only: [:index,:show]
+  resources :products,only: [:index,:show,]
   resources :addresses
   
   resource :end_users, only: [:show,:update]

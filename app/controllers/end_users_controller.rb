@@ -18,7 +18,8 @@ class EndUsersController < ApplicationController
 
 	def withdraw
 		@end_user = current_end_user
-        @end_user = Enduser.with_deleted
+        @end_user.update(is_active: false)
+        reset_session
         redirect_to root_path
 	end
 
