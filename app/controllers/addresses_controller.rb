@@ -24,8 +24,8 @@ class AddressesController < ApplicationController
 
   def update
     @address = Address.find(params[:id])
-    @address.update(@address_params)
-    redirect_to addresses_path, notice: "successfully updated addresse!"
+    @address.update(address_params)
+    redirect_to addresses_path
   end
 
   def destroy
