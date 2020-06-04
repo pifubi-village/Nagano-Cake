@@ -8,7 +8,11 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+<<<<<<< HEAD
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+=======
     <%= f.label :新パスワード %><br />
+>>>>>>> origin/develop
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
