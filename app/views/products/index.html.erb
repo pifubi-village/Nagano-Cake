@@ -1,2 +1,41 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<div class= "container">
+	<div class="row">
+		<div class="col-xs-3">
+			<table >
+				<thead>
+					<tr>
+						<th>ジャンル検索</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>ケーキ</td>
+					</tr>
+					<tr>
+						<td>焼き菓子</td>
+					</tr>
+					<tr>
+						<td>キャンディ</td>
+					</tr>
+					<tr>
+						<td>プリン</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+       <h1>商品一覧(全×全)</h1>
+         <div class="col-xs9">
+           <% @products.each do |products|%>
+             <th>
+               <td><%= product.image_id %></td>
+             </th>
+             <th>
+               <td><%= link_to product.name, product_path(product.id) %></td>
+             </th>
+             <th>
+               <td><%= product.price_tax_excluded %></td>
+             </th>
+          </div>
+          <% end %>
+     </div>
+</div>
