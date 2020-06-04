@@ -12,10 +12,10 @@ Rails.application.routes.draw do
     registrations: 'admins/registrations'
   }
 
-  resources :line_items
-  resources :carts
+    resources :line_items
+    resources :carts
 
-  namespace :admin do
+    namespace :admin do
 
     resources :line_items
     resources :carts
@@ -36,14 +36,15 @@ Rails.application.routes.draw do
   resources :cart_products,only: [:index,:edit,:update,:destroy]
   post 'cart_products/add_product'
   delete 'cart_products/destroy_all'
-  resources :products,only: [:index,:show,]
+  resources :products,only: [:index,:show]
   resources :addresses
   
-  resource :end_users, only: [:show,:update]
+  resource :end_users, only: [:show,:update,:edit]
   get "end_users/edit_info" => "end_users#edit", as: "edit_end_user"
   patch "end_users/info" => "end_users#update", as: "end_user_update"
   get 'end_users/unsubscribed'
   patch 'end_users/withdraw'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+end
 end
