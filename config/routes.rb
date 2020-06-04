@@ -16,11 +16,6 @@ Rails.application.routes.draw do
   resources :carts
 
   namespace :admin do
-
-    resources :line_items
-    resources :carts
-    namespace :admin do
-
     get 'homes/top'
     resources :genres,only: [:index,:show,:edit,:create,:update]
     resources :orders,only: [:index,:show,:update]
