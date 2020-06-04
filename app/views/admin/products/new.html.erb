@@ -1,2 +1,25 @@
 <h1>Admin::Products#new</h1>
 <p>Find me in app/views/admin/products/new.html.erb</p>
+商品新規登録
+
+<%= form_for(@product,:url => admin_products_path) do |f| %>
+<table>
+	<tr>
+		<th><%= f.label :商品名 %></th>
+		<th><%= f.text_field :name %></th>
+	</tr>
+	<tr>
+		<th><%= f.label :商品説明 %></th>
+		<th><%= f.text_area :detail %></th>
+	</tr>
+	<tr>
+		<th><%= f.label :ジャンル %></th>
+		<th><%= f.collection_select :genre_id, Genre.all, :id, :name, :prompt => "選択してください" %></th>
+	</tr>
+</table>
+
+<%= f.submit "新規登録" %>
+<% end %>
+
+
+<%= link_to "商品管理一覧", admin_products_path %>
