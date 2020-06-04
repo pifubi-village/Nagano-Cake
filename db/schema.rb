@@ -9,9 +9,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
-
-ActiveRecord::Schema.define(version: 2020_06_03_105753) do
+ActiveRecord::Schema.define(version: 2020_06_04_060355) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "end_user_id"
@@ -82,10 +80,10 @@ ActiveRecord::Schema.define(version: 2020_06_03_105753) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.boolean "is_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.boolean "is_active", default: true
   end
 
   create_table "line_items", force: :cascade do |t|

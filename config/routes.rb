@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 >>>>>>> 83040a89fd22bcfe793edb3ff2d20f7c22e6e31b
   namespace :admin do
     get 'homes/top'
-    resources :genres,only: [:index,:show,:edit,:create,:update]
+    resources :genres,only: [:index,:edit,:create,:update,:destroy]
     resources :orders,only: [:index,:show,:update]
     patch 'order_products' #制作ステータスのところです。
     resources :end_users,only: [:index,:show,:edit,:update]

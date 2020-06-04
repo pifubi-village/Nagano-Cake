@@ -4,6 +4,13 @@
 <%= form_for(@genre,:url => admin_genres_path) do |f| %>
 	<%= f.label :ジャンル %>
 	<%= f.text_field :name %>
+	<label>
+		<%= f.radio_button :is_active, :true %>有効
+	</label>
+	<label>
+		<%= f.radio_button :is_active, :false %>無効
+	</label>
+	
 	<%= f.submit "追加" %>
 <% end %>
 
@@ -19,8 +26,10 @@
 	<tbody>
 		<tr>
 			<td><%= genre.name %></td>
-			<td>有効</td>
-			<td><%= link_to "編集", edit_admin_genre_path(genre.id) %></td>
+			<td><%= genre.is_active %></td>
+			<td><%= link_to "編集", edit_admin_genre_path(genre.id) %>
+				<%= link_to "削除", admin_genre_path(genre.id), method: :delete, class: "btn-sm btn-danger", "data-confirm" => "本当に削除しますか？" %>
+			</td>
 		</tr>
 	</tbody>
 	<% end %>
