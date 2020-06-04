@@ -1,2 +1,59 @@
-<h1>Admin::Orders#show</h1>
-<p>Find me in app/views/admin/orders/show.html.erb</p>
+<!-- <h1>Admin::Orders#show</h1>
+<p>Find me in app/views/admin/orders/show.html.erb</p> -->
+
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-7">
+			<h2>注文履歴詳細</h2>
+
+			<table class="table">
+				<tbody>
+					<tr>
+						<td>購入者</td>
+						<td><%= @order.family_name %> <%= @order.first_name %></td>
+					</tr>
+					<tr>
+						<td>配送先</td>
+						<td><%= @order.post_code %> <%= @order.address %><br><%= @order.name %></td>
+					</tr>
+					<tr>
+						<td>支払い方法</td>
+						<td><%= @order.payment_method %></td>
+					</tr>
+					<tr>
+						<td>注文ステータス</td>
+						<td><!-- enumのボタン追加 --></td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+
+	</div>
+
+	<div class="row">
+		<div class="col-md-9">
+
+			<table class="table">
+				<thead>
+					<tr>
+						<td>商品名</td>
+						<td>単価(税込)</td>
+						<td>数量</td>
+						<td>小計</td>
+						<td>制作ステータス</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>以下、実装中</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+
+</div>
+
