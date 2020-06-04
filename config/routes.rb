@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     registrations: 'admins/registrations'
   }
 
+
     namespace :admin do
 
     get 'homes/top'
