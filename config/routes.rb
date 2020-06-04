@@ -13,13 +13,10 @@ Rails.application.routes.draw do
     registrations: 'admins/registrations'
   }
 
-    resources :line_items
-    resources :carts
-
     namespace :admin do
 
     get 'homes/top'
-    resources :genres,only: [:index,:show,:edit,:create,:update]
+    resources :genres,only: [:index,:edit,:create,:update,:destroy]
     resources :orders,only: [:index,:show,:update]
     patch 'order_products' #制作ステータスのところです。
     resources :end_users,only: [:index,:show,:edit,:update]
