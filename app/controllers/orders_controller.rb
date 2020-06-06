@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
   def index
     @orders = Order.all
-    @order = Order.find(params[:id])
+    @end_user = EndUser.all
+
   end
 
   def show
@@ -12,6 +13,7 @@ class OrdersController < ApplicationController
     @addresses = Address.all
     @orders = Order.all
     @order = Order.new
+    @end_user = current_end_user
   end
   def update
     @order = Order.find(params[:id])
@@ -37,6 +39,6 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit()
+    params.require(:order).permit(:postage,:amount_price,:oeder_status,:address,:name,:post_code,:payment_method)
   end
 end

@@ -3,6 +3,7 @@ class AddressesController < ApplicationController
   def index
     @addresses = Address.all
     @address = Address.new
+    @address.end_user_id == current_end_user.id
   end
 
   def create
