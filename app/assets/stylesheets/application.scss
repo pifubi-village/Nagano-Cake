@@ -132,14 +132,25 @@ table {
 	}
 
 .body {
-	margin: 20px;
+	margin-top: 30px;
 }
 .box{
-	padding:50px;
+	padding:80px;
 }
 .box_headline{
-	 border: 5px solid black;
+	 border: 1px solid black;
+	 padding:50px 0 ;
 }
 .ckdf{
 	padding: 300px;
+}
+header {
+	text-align: center;
+	position: relative;
+	height: 80px;
+}
+.logo{
+	top: 1px;
+	right: 1px;
+
 }
