@@ -13,8 +13,12 @@
  *= require_tree .
  *= require_self
  */
+<<<<<<< HEAD
  @import "bootstrap-sprockets";  
- @import "bootstrap";    
+=======
+ @import "bootstrap-sprockets";
+>>>>>>> c416e71b978a4fb57f8c7902cbf80d48d23e8c8c
+ @import "bootstrap";
 
  * {
     margin: 0;
@@ -121,18 +125,27 @@ table {
      padding-top: 10px;
 	.btn-primary{
 	margin-right: 20px;
-
-	}
  }
-body {
+}
+.body {
 	margin: 20px;
 }
 .box{
-	padding:50px;
+	padding:80px;
 }
 .box_headline{
-	 border: 5px solid black;
+	 border: 1px solid black;
+	 padding:50px 0 ;
 }
 .ckdf{
 	padding: 300px;
+}
+header {
+	text-align: center;
+	position: relative;
+	height: 80px;
+}
+.logo{
+	top: 1px;
+	right: 1px;
 }

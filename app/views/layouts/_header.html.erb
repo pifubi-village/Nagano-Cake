@@ -2,11 +2,10 @@
   <div class="container">
 
     <nav class="nav navbar-nav navbar-left">
-      <span>Nagano Cakes</span>
+      <span class="logo"> Nagano Cakes</span>
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <!--if文でadmin,end_userを判別し、さらにif文でそれぞれのログイン状況を判別してheaderに表示する項目を変化させる-->
         <%if admin_signed_in?%>
           <li><%= link_to '注文履歴一覧',admin_orders_path, class: "btn btn-success" %></li>
           <li><%= link_to '会員一覧', admin_end_users_path, class: "btn btn-success" %></li>
@@ -28,3 +27,4 @@
     </nav>
   </div>
 </header>
+

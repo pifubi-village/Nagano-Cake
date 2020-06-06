@@ -2,8 +2,7 @@
 	<div class="row">
 		<div class="col-xs-9">
 		    <h1>ショッピングカート</h1>
-		    カートをからにする　めっそっど？
-		    <%=link_to"カートを空にする",cart_products_destroy_all_path,method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%>
+		    <%=button_to "カートを空にする",cart_products_destroy_all_path,method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%>
 		    <table class="table">
 			<thead>
 				<tr>
@@ -27,7 +26,7 @@
 			<% end %>
 		</table>
 			<td><%=link_to "買い物を続ける",products_path, class: 'btn btn-primary' %></td>
-			<th>合計金額</th><td><%@product_total_price%>円</td>
+			<th>合計金額</th><td><%@product_total_price %>円</td>
 			<span><%=link_to "購入情報に進む",new_order_path, class: 'btn btn-primary' %></span>
 		</div>
 	</div>
