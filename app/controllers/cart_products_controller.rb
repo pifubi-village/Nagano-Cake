@@ -1,7 +1,9 @@
 class CartProductsController < ApplicationController
   def index
-
-    @products = Product.all
+      @products = Product.all
+      @total_price = 0
+      @products.each do |product|
+      @total_price += product.product_price
   end
 
   def add_product
@@ -34,5 +36,6 @@ class CartProductsController < ApplicationController
   end
   def cart_product_params
       params.require(:cart_product).permit(:product_id,:end_user_id,:number)
-    end
+  end
+end
 end
