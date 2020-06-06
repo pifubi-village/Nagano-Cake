@@ -36,5 +36,6 @@ class CartProductsController < ApplicationController
   end
   def cart_product_params
       params.require(:cart_product).permit(:product_id,:end_user_id,:number)
-    end
+  end
+end
 end
