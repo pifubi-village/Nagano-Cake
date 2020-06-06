@@ -4,9 +4,10 @@ class Product < ApplicationRecord
 	has_many :order_products, dependent: :destroy
 
 	belongs_to :genre
+	attachment :image
 
-	enum selling_status:{
-		selling: 0,
+	enum selling_status: {
+		販売中: 0,
 		stopping: 1,
 		finished: 2
 	}
