@@ -3,6 +3,7 @@
 商品詳細
 
 <table>
+	<%= attachment_image_tag @product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %>
 		<tr>
 			<td>商品名</td>
 			<td><%= @product.name %></td>
@@ -17,11 +18,11 @@
 		</tr>
 		<tr>
 			<td>税込価格（税抜価格）</td>
-			<td><%= @product.price_tax_excluded*1.1 %>
+			<td><%= (@product.price_tax_excluded*1.1).round(0) %>
 				(<%= @product.price_tax_excluded %>)円
 			</td>
 		</tr>
-		<%= attachment_image_tag @product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %>
+		
 </table>
 
 <%= link_to "編集する", edit_admin_product_path %>

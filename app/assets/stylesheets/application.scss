@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
@@ -121,18 +122,27 @@ table {
      padding-top: 10px;
 	.btn-primary{
 	margin-right: 20px;
-
-	}
  }
-body {
+}
+.body {
 	margin: 20px;
 }
 .box{
-	padding:50px;
+	padding:80px;
 }
 .box_headline{
-	 border: 5px solid black;
+	 border: 1px solid black;
+	 padding:50px 0 ;
 }
 .ckdf{
 	padding: 300px;
+}
+header {
+	text-align: center;
+	position: relative;
+	height: 80px;
+}
+.logo{
+	top: 1px;
+	right: 1px;
 }

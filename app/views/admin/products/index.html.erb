@@ -16,12 +16,11 @@
 	<tbody>
 		<% @products.each do |product| %>
 		<tr>
-
 			<td><%= product.id %></td>
 			<td><%= link_to product.name, admin_product_path(product.id) %></td>
 			<td><%= product.price_tax_excluded %></td>
 			<td><%= product.genre.name %></td>
-			
+			<td><%= product.selling_status %></td>
 		</tr>
 		<% end %>
 	</tbody>
