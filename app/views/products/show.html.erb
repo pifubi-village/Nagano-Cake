@@ -1,6 +1,7 @@
 <div class= "container">
 	<div class="row">
 		<div class="col-xs-3">
+			<div class="genleline">
 			<table >
 				<thead>
 					<tr>
@@ -22,28 +23,26 @@
 					</tr>
 				</tbody>
 			</table>
+		  </div>
 		</div>
 	 <div class="col-xs9">
-		<% @products.each do |products|%>
-          <th>
-            <td><%= product.image_id %></td>
+	 	<div class="productline">
+          <th> 
+            <td><%= attachment_image_tag @product, :imege, format: "jpeg", size: "40x40" %></td>
           </th>
           <th>
-            <td><%= link_to product.name, product_path(product.id) %></td>
+            <td><%= @product.name %></td>
           </th>
            <th>
-            <td><%= link_to product.detail %></td>
+            <td><%= @product.detail %>税込</td>
           </th>
           <th>
-            <td><%= product.price_tax_excluded %></td>
+            <td><%= @product.price_tax_excluded %></td>
           </th>
-          <th>
-          	<td><%= select_tag product.selling_status%></td>
-          <th>
-        <% end %>
+          <th>zw
         <div class="ckdf">
-            <td><%= link_to 'カートに入れる', cart_products_path, class: "btn btn-primary", role: "botton" %></td>
+            <td><%= button_to 'カートに入れる', cart_products_path(@ptoduct.id), class: "btn btn-primary", role: "botton" %></td>
           </th>
-
+         </div>
         </div>
      </div>

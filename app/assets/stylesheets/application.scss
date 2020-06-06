@@ -14,7 +14,8 @@
  *= require_self
  */
  @import "bootstrap-sprockets";  
- @import "bootstrap";          
+ @import "bootstrap";    
+
  * {
     margin: 0;
     padding: 0;
@@ -83,9 +84,6 @@
 body {
 	margin-top: 70px;
 }
-.userpage {
-	display: inline-block;
-}
 table td {
 	padding: 15px;
 }
@@ -102,8 +100,12 @@ table {
 .top{
 	margin-top: 20px;
 }
+.userpage {
+	display: inline-block;
+}
 .top1{
-	margin-left: 90px;
+	margin-left: 20px;
+    padding-top: 30px;
 }
 .use {
 	padding-left: 350px;
@@ -133,8 +135,3 @@ body {
 .ckdf{
 	padding: 300px;
 }
-
-
-
-
-

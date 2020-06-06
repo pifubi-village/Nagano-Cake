@@ -2,11 +2,13 @@
       <div class="row">
       	 <div class="userpage">
       	 	<div class="top1">
-　　　　      <h2>マイページ</h2>
+            <h2>マイページ</h2>
               </div>
+              <div class="top2">
 　　　　　　　  <h3>登録情報</h3>
             <%= link_to "編集する", edit_end_user_path, class: "btn btn-primary btn-md", role: "botton" %>
              <%= link_to "パスワード", edit_end_user_registration_path, class: "btn btn-primary btn-md", role: "botton" %>
+           </div>
            </div>
          <table>
 	    <tr>
@@ -26,7 +28,7 @@
          </tr>
          <tr>
            <th>メールアドレス</th><td><%= @end_user.email %></td></br>
-         </tr>   
+         </tr>
      </table>
     <div class=top>
 	<h4>配送先<%= link_to "一覧を見る",  addresses_path, class: "btn btn-primary btn-md", role: "botton" %></h4>
