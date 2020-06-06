@@ -16,4 +16,6 @@ class Order < ApplicationRecord
 		derivering: 3,
 		derivered: 4
 	}
+
+	Order.order_products.all.sum(:price_tax_included)
 end

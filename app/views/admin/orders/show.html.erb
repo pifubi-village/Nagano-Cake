@@ -22,8 +22,10 @@
 						<td><%= @order.payment_method %></td>
 					</tr>
 					<tr>
+						<%= form_for @order, url:"/admin/order/#{@order.id}" do |f| %>
 						<td>注文ステータス</td>
-						<td><!-- enumのボタン追加 --></td>
+						<td>order_status 後ほど追加</td>
+						<% end %>
 					</tr>
 				</tbody>
 			</table>
@@ -55,8 +57,8 @@
 						<td><%= f.price_tax_included %></td>
 						<td><%= f.number %></td>
 						<td><%= f.price_tax_included * f.number %></td>
-						<td>着手不可<!-- enumとform_for --></td>
-						<td>submit</td>
+						<td>着手不可、後ほど追加<!-- enumとform_for --></td>
+						<td>submit、後ほど追加</td>
 					</tr>
 					<% end %>
 
@@ -64,6 +66,26 @@
 			</table>
 
 		</div>
+
+		<div class="col-md-4">
+			<table class="table">
+				<thead>
+					<tr>
+						<td>商品合計</td>
+						<td><% @order_products.each do |f| %><% f.price_tax_included %><%= puts f.sum %><% end %></td>
+					</tr>
+					<tr>
+						<td>送料</td>
+						<td><%= @order.postage %></td>
+					</tr>
+					<tr>
+						<td>請求金額合計</td>
+						<td><%= @order.postage + sum %></td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+
 	</div>
 
 </div>
