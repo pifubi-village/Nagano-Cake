@@ -5,6 +5,10 @@
 <%= form_for(@product,:url => admin_products_path) do |f| %>
 <table>
 	<tr>
+		<th><%= f.label :商品画像 %></th>
+		<th><%= f.attachment_field :image %></th>
+	</tr>
+	<tr>
 		<th><%= f.label :商品名 %></th>
 		<th><%= f.text_field :name %></th>
 	</tr>
@@ -16,6 +20,16 @@
 		<th><%= f.label :ジャンル %></th>
 		<th><%= f.collection_select :genre_id, Genre.all, :id, :name, :prompt => "選択してください" %></th>
 	</tr>
+	<tr>
+		<th><%= f.label :税抜価格 %></th>
+		<th><%= f.text_field :price_tax_excluded %>円</th>
+	</tr>
+	<tr>
+		<th><%= f.label :販売ステータス %></th>
+		<th><%= f.select :selling_status,
+		 		Product.selling_statuses.keys, :prompt => "選択してください" %></th>	
+	</tr>
+
 </table>
 
 <%= f.submit "新規登録" %>
