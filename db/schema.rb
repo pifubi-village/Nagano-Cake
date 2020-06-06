@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2020_06_04_061451) do
-
 
   create_table "addresses", force: :cascade do |t|
     t.integer "end_user_id"
@@ -69,34 +67,16 @@ ActiveRecord::Schema.define(version: 2020_06_04_061451) do
     t.string "phone_number"
     t.string "post_code"
     t.string "address"
-    t.string "family_name"
-<<<<<<< HEAD
-    t.string "datetime"
-    t.index ["datetime"], name: "index_end_users_on_datetime"
-=======
     t.boolean "is_active", default: true
->>>>>>> origin/develop
     t.index ["email"], name: "index_end_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
   end
 
   create_table "genres", force: :cascade do |t|
-    t.boolean "is_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-<<<<<<< HEAD
-=======
-  end
-
-  create_table "line_items", force: :cascade do |t|
-    t.integer "item_id"
-    t.integer "cart_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_line_items_on_cart_id"
-    t.index ["item_id"], name: "index_line_items_on_item_id"
->>>>>>> origin/develop
+    t.boolean "is_active", default: true
   end
 
   create_table "order_products", force: :cascade do |t|
@@ -130,18 +110,6 @@ ActiveRecord::Schema.define(version: 2020_06_04_061451) do
     t.integer "selling_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

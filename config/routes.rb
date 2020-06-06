@@ -13,11 +13,10 @@ Rails.application.routes.draw do
     registrations: 'admins/registrations'
   }
 
-
     namespace :admin do
 
     get 'homes/top'
-    resources :genres,only: [:index,:show,:edit,:create,:update]
+    resources :genres,only: [:index,:edit,:create,:update,:destroy]
     resources :orders,only: [:index,:show,:update]
     patch 'order_products' #制作ステータスのところです。
     resources :end_users,only: [:index,:show,:edit,:update]
@@ -33,8 +32,7 @@ Rails.application.routes.draw do
   delete 'cart_products/destroy_all'
   resources :products,only: [:index,:show]
   resources :addresses
-
-  resource :end_users, only: [:show,:update]
+  resource :end_users, only: [:show,:update,:edit]
   get "end_users/edit_info" => "end_users#edit", as: "edit_end_user"
   patch "end_users/info" => "end_users#update", as: "end_user_update"
   get 'end_users/unsubscribed'

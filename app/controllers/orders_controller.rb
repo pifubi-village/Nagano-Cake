@@ -13,6 +13,12 @@ class OrdersController < ApplicationController
     @orders = Order.all
     @order = Order.new
   end
+  def update
+    @order = Order.find(params[:id])
+    if @order.save
+      redirect_to order_path
+    end
+  end
 
   def create
     @order = Order.find(params[:id])

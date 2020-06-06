@@ -1,7 +1,8 @@
-<h4>注文情報確認</h4>
+<div class="container">
+	<div class="row">
+		<h4>注文情報確認</h4>
 
-
-<table class="table table-hover table-inverse">
+		<table class="table table-hover table-inverse">
 			<thead>
 				<tr>
 					<th>商品名</th>
@@ -11,19 +12,37 @@
 				</tr>
 			</thead>
 			<tbody>
+				<%= @order each do |order|%>
 				<tr>
-					<td>あああ</td>
-					<td>東京都小金井市北町11-11-11</td>
-					<td>山田太郎</td>
-					<td>編集削除</td>
+					<td><%= attachment_image_tag(order.cart_product, :product_image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %></td>
+					<td><%= order.product.name%></td>
+					<td><%= order.product.price_tax_exclude %></td>
 				</tr>
-			</tbody>
-			<thead>
+				</tbody>
 				<tr>
-					<th>合計値段</th>
-					<th></th>
+					<th>送料</th>
+					<td><%=postage%></td>
 				</tr>
-			</thead>
+				<tr>
+					<th>商品合計</th>
+					<td><%= amount_price %></td>
+				</tr>
+				<tr>
+					<th>請求金額</th>
+					<td><%= postage + amount_price %></td>
+				</tr>
 		</table>
-		<h4>支払い方法</h4>
-		<h4>お届け先</h4>
+		<table>
+			<tr>
+				<th>支払い方法</th>
+				<td><%= @order.order_status %></td>
+			</tr>
+			<tr>
+				<th>お届け先</th>
+				<td><%= @order.address%></td>
+			</tr>
+			<tr>
+		</table>
+		<%=link_to "購入を確定する",orders_complete_path %>
+	</div>
+</div>
