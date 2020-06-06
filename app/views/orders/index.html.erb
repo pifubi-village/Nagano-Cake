@@ -14,14 +14,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% @orders.eacd do |order| %>
+				<% @orders.each do |order| %>
 				<tr>
 					<td> <%= order.created_at %> </td>
 					<td> <%= order.address %></td>
 					<td> <%= order.product_name %></td>
-					<td> <%= order.sum.price? %></td>
-					<td> <%= link_to "注文詳細",order_path (@order),class: 'btn btn-primary' %></td>
+					<td> <%= order.sum.price %></td>
+					<td> <%= link_to "注文詳細",order_path ,class: 'btn btn-primary' %></td>
 				</tr>
+				<% end %>
 			</tbody>
 		</table>
 	</div>

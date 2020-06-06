@@ -3,7 +3,7 @@ class CartProductsController < ApplicationController
       @products = Product.all
       @total_price = 0
       @products.each do |product|
-      @total_price += product.product_price
+      @total_price += price_tax_excluded
   end
 
   def add_product
