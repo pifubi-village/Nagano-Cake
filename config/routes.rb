@@ -31,6 +31,10 @@ Rails.application.routes.draw do
   post 'cart_products/add_product'
   delete 'cart_products/destroy_all'
   resources :products,only: [:index,:show]
+  get "genre/:product_id/cakes" => "genres#cakes", as:'product_cakes'
+  get "genre/:product_id/bakedgoods" => "genres#bakedgoods", as:'product_bakedgoods'
+  get "genre/:product_id/candys" => "genres#candys", as:'product_candys'
+  get "genre/:product_id/puddings" => "genres#puddings", as:'product_puddings'
   resources :addresses
   resource :end_users, only: [:show,:update,:edit]
   get "end_users/edit_info" => "end_users#edit", as: "edit_end_user"
