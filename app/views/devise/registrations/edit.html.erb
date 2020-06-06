@@ -25,10 +25,11 @@
     <%= f.label :旧パスワード %><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
-
+  <div class="backbottun">
   <div class="actions">
-    <%= f.submit "編集内容を保存する", class:"btn btn-primary btn-md" %>
+    <%= f.submit "編集内容を保存する", class:"btn btn-primary" %>
   </div>
+</div>
 <% end %>
 
 <%= link_to "戻る", :back %>

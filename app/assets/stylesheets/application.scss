@@ -13,15 +13,14 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
-@import "bootstrap";
+ @import "bootstrap-sprockets";  
+ @import "bootstrap";    
 
-* {
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 .userheadline {
 	text-align: center;
 }
@@ -31,7 +30,6 @@
 .tableline{
 	padding-right: 350px;
 }
-
 .tableline1{
 	padding-right: 500px;
 }
@@ -83,36 +81,31 @@
 .loginline {
 	padding-right: 250px;
 }
-
-
 body {
 	margin-top: 70px;
-}
-  
-.userpage {
-	display: inline-block;
 }
 table td {
 	padding: 15px;
 }
  td {
 	border:solid 2px #333333;
-
 }
  th {
 	border:solid 2px #333333;
 	background-color: #EEEEEE;
-
 }
 table {
 	width: 40%;
 }
-
 .top{
 	margin-top: 20px;
 }
+.userpage {
+	display: inline-block;
+}
 .top1{
-	margin-left: 90px;
+	margin-left: 20px;
+    padding-top: 30px;
 }
 .use {
 	padding-left: 350px;
@@ -126,13 +119,12 @@ table {
 }
 .unsubscribedline2{
      padding-top: 10px;
-}
 	.btn-primary{
 	margin-right: 20px;
 
 	}
-
-.body {
+ }
+body {
 	margin: 20px;
 }
 .box{
