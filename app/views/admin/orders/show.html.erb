@@ -33,7 +33,7 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col-md-8">
 
 			<table class="table">
 				<thead>
@@ -43,12 +43,23 @@
 						<td>数量</td>
 						<td>小計</td>
 						<td>制作ステータス</td>
+						<td></td>
 					</tr>
 				</thead>
+
 				<tbody>
+
+					<% @order_products.each do |f| %>
 					<tr>
-						<td>以下、実装中</td>
+						<td><%= f.products_id.name %></td>
+						<td><%= f.price_tax_included %></td>
+						<td><%= f.number %></td>
+						<td><%= f.price_tax_included * f.number %></td>
+						<td>着手不可<!-- enumとform_for --></td>
+						<td>submit</td>
 					</tr>
+					<% end %>
+
 				</tbody>
 			</table>
 

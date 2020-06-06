@@ -4,6 +4,8 @@ class Admin::OrdersController < ApplicationController
   end
 
   def show
+  	@order = Order.find(params[:id])
+  	@order_products = OrderProduct.all
   end
 
   def update
