@@ -8,7 +8,7 @@ class Product < ApplicationRecord
 
 	enum selling_status: {
 		販売中: 0,
-		stopping: 1,
-		finished: 2
+		在庫切れ: 1,
+		販売停止: 2
 	}
 end
