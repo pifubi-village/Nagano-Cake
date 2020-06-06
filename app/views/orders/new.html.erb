@@ -13,11 +13,11 @@
 						<tr>
 							<%= f.label :お届け先 %>
 						<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :address,"ご自身の住所" %>ご自身の住所</label>
+						<%= @end_user.address%>
 						<label style =" display:block;position:relative;padding-left:1em;"><%= f.radio_button :address,"登録済住所から選択"%>登録済住所から選択</label>
 						 <%= f.collection_select(:address, Address.all, :id, :address, include_blank: "選択して下さい") %>
 						<!-- 　選択肢の中に変数を入れるのか？ -->
 	  					<label style =" display:block;position:relative;padding-left:1em;"><%= f.radio_button :address,"新しいお届け先"%>新しいお届け先</label>
-						<%= @address%>
 						</tr>
 						<tr class="row">
 							<th> <%= f.label "郵便番号(ハイフンなし)" %> </th>

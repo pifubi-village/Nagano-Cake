@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def index
     @orders = Order.all
-    @order = Order.find(params[:id])
+
   end
 
   def show
@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
     @addresses = Address.all
     @orders = Order.all
     @order = Order.new
+    @ebd_user = EndUser.all
   end
   def update
     @order = Order.find(params[:id])
