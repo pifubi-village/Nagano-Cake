@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_06_04_061451) do
 
-
   create_table "addresses", force: :cascade do |t|
     t.integer "end_user_id"
     t.string "address"
