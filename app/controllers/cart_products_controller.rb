@@ -40,6 +40,7 @@ class CartProductsController < ApplicationController
     @cart_product.product.destroy.all
     redirect_to cart_products_path
   end
+
   def cart_product_params
       params.require(:cart_product).permit(:product_id,:end_user_id,:number)
   end

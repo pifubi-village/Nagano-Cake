@@ -41,5 +41,6 @@ Rails.application.routes.draw do
   patch "end_users/info" => "end_users#update", as: "end_user_update"
   get 'end_users/unsubscribed'
   patch 'end_users/withdraw'
+  resources :genres, only: [:index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

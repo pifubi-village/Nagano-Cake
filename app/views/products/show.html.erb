@@ -41,10 +41,11 @@
             <tr>
               <td>¥<%= @products.price_tax_excluded%>(税込)</td>
             </tr>
-            <th>
-              <td><%= f.number_field :number %></td>
-            </th>
-               <%= f.hidden_field :product_id, :value => @products.id %>
+            <tr>
+              <td><%= f.number_field :number, class: "hoge", min: 0, max: 100 %></td>
+            </tr>
+              <%= f.hidden_field :product_id, :value => @products.id %>
+            <tr>
             <td><%= f.submit 'カートに入れる', class: "btn btn-primary", role: "botton" %></td>
             </tr>
           </table>  

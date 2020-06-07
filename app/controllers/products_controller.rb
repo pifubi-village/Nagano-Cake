@@ -15,6 +15,12 @@ class ProductsController < ApplicationController
   	redirect_to cart_product_path
   end
 
+  def add_to_cart
+  	products = Product.find(params[:id])
+  	@cart_product = find_cart
+  	@cart.add_product(product)
+  end
+
   private
 def cart_product_params
     params.require(:cart_product).permit(:end_user_id, :product_id, :number)

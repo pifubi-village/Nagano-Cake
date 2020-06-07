@@ -16,9 +16,11 @@
 			<tbody>
 			<tr>
 			<% @cart_products.each do |cp| %>
-				<td><%= attachment_image_tag(cp.product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %></td>
-					<td><%= cp.product.name %><td>
-				    	<td> </td>
+				<td><%= attachment_image_tag(cp.product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %><%= cp.product.name %></td>
+					<td><%= cp.product.price_tax_excluded%></td>
+					<td><%= cp.number%></td>
+					<td><%= cp.product.price_tax_excluded%></td>
+				  	<td><%=link_to "削除する",  cart_product_path(cp), method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%></td>
 			</tr>
 		    </tbody>
 			<% end %>
