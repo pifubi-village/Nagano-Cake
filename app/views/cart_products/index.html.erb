@@ -15,12 +15,10 @@
 			</thead>
 			<tbody>
 			<tr>
-			<% @products.each do |product| %>
-				<td><%= attachment_image_tag(crat_product.product, :product_image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %></td>
-					<td><%= product.name %><td>
-				    <td> <%= product.price_tax_exclude %><td>
+			<% @cart_products.each do |cp| %>
+				<td><%= attachment_image_tag(cp.product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %></td>
+					<td><%= cp.product.name %><td>
 				    	<td> </td>
-				  	<td><%=link_to "削除する",cart_product(@cart_product.product.id),method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%></td>
 			</tr>
 		    </tbody>
 			<% end %>

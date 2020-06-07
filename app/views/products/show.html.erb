@@ -27,21 +27,27 @@
 		</div>
 	 <div class="col-xs9">
 	 	<div class="productline">
-          <th> 
-            <td><%= attachment_image_tag @products, :image, format: "jpeg", size: "200x200" %></td>
-          </th>
-          <th>
-            <td><%= @products.name %></td>
-          </th>
-           <th>
-            <td><%= @products.detail %></td>
-          </th>
-          <th>
-            <td><%= @products.price_tax_excluded %>税込</td>
-          </th>
-        <div class="ckdf">
-            <td><%= link_to 'カートに入れる', cart_products_path(@ptoducts), class: "btn btn-primary", role: "botton" %></td>
-          </th>
-         </div>
-        </div>
+	 		  <%= form_for(@cart_product) do |f| %>
+	 	  <table> 
+            <tr>
+              <td><%= attachment_image_tag @products, :image, format: "jpeg", size: "200x200" %></td>
+            </tr>
+            <tr>
+              <td><%= @products.name %></td>
+            </tr>
+            <tr>
+              <td><%= @products.detail %></td>
+            </tr>
+            <tr>
+              <td>¥<%= @products.price_tax_excluded%>(税込)</td>
+            </tr>
+            <th>
+              <td><%= f.number_field :number %></td>
+            </th>
+               <%= f.hidden_field :product_id, :value => @products.id %>
+            <td><%= f.submit 'カートに入れる', class: "btn btn-primary", role: "botton" %></td>
+            </tr>
+          </table>  
+        <% end %>
+       </div>
      </div>
