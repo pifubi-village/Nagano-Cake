@@ -3,6 +3,7 @@
 		<h4>注文情報確認</h4>
 
 		<table class="table table-hover table-inverse">
+			<%= @orders.each do |order| %>
 			<thead>
 				<tr>
 					<th>商品名</th>
@@ -12,37 +13,38 @@
 				</tr>
 			</thead>
 			<tbody>
-				<%= @order each do |order|%>
 				<tr>
-					<td><%= attachment_image_tag(order.cart_product, :product_image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %></td>
-					<td><%= order.product.name%></td>
+					<td><%= attachment_image_tag(order.product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %></td>
+					<td><%= order.product.name %></td>
 					<td><%= order.product.price_tax_exclude %></td>
 				</tr>
 				</tbody>
 				<tr>
 					<th>送料</th>
-					<td><%=postage%></td>
+					<td><%=order.postage%></td>
 				</tr>
 				<tr>
 					<th>商品合計</th>
-					<td><%= amount_price %></td>
+					<td><%= order.amount_price %></td>
 				</tr>
 				<tr>
 					<th>請求金額</th>
-					<td><%= postage + amount_price %></td>
+					<td><%= oprder.postage + amount_price %></td>
 				</tr>
 		</table>
 		<table>
 			<tr>
 				<th>支払い方法</th>
-				<td><%= @order.order_status %></td>
+				<td><%= order.order_status %></td>
 			</tr>
 			<tr>
 				<th>お届け先</th>
-				<td><%= @order.address%></td>
+				<td><%= order.address%></td>
 			</tr>
 			<tr>
+			<% end %>
 		</table>
 		<%=link_to "購入を確定する",orders_complete_path %>
+
 	</div>
 </div>

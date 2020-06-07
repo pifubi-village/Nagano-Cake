@@ -36,8 +36,8 @@ class CartProductsController < ApplicationController
   end
 
   def destroy_all
-    @cart_product = CartProduct.find_by(id: @end_user.product_id)
-    @cart_product.product.destroy.all
+    @cart_product = CartProduct.all
+    @cart_product.destroy_all
     redirect_to cart_products_path
   end
 

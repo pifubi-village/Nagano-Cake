@@ -4,11 +4,11 @@
 		<h4>注文情報入力</h4>
 			<table class="table">
 				<tbody>
-					<%= form_for @order do |f| %>
+					<%= form_for(@order,url: confirm_orders_path, method: :GET) do |f| %>
 						<tr>
 							<%= f.label :支払い方法　%>
-							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method,"1"%> 現金</label>
-							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method,"2"%>クレジットカード</label>
+							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method,"0"%> 現金</label>
+							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method,"1"%>クレジットカード</label>
 						</tr>
 						<tr>
 							<%= f.label :お届け先 %>
@@ -31,6 +31,7 @@
 							<td><%= f.text_field :name %></td>
 						</tr>
 				</tbody>
+				<%= hidden_field_tag :id, @end_user.id %>
 			</table>
 			<%= f.submit "確認画面に進む",class: 'btn btn-primary' %>
 			<% end %>
