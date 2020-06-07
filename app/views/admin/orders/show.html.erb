@@ -1,6 +1,10 @@
 <!-- <h1>Admin::Orders#show</h1>
 <p>Find me in app/views/admin/orders/show.html.erb</p> -->
 
+<br>
+<br>
+<br>
+
 <div class="container">
 	<div class="row">
 
@@ -24,7 +28,7 @@
 					<tr>
 						<%= form_for @order, url:"/admin/order/#{@order.id}" do |f| %>
 						<td>注文ステータス</td>
-						<td>order_status 後ほど追加</td>
+						<td><%= f.select :order_status, Order.order_statuses.keys, :prompt => "選択してください" %><br><%= f.submit "更新" %></td>
 						<% end %>
 					</tr>
 				</tbody>
@@ -67,12 +71,12 @@
 
 		</div>
 
-		<!-- 研究中 ! <div class="col-md-4">
+		<div class="col-md-4">
 			<table class="table">
 				<thead>
 					<tr>
 						<td>商品合計</td>
-						<td><% @order_products.each do |f| %><% f.price_tax_included %><%= puts f.sum %><% end %></td>
+						<td><%= @order.amount_price %></td>
 					</tr>
 					<tr>
 						<td>送料</td>
@@ -80,11 +84,11 @@
 					</tr>
 					<tr>
 						<td>請求金額合計</td>
-						<td><%= @order.postage + sum %></td>
+						<td><%= @order.amount_price + @order.postage %></td>
 					</tr>
 				</thead>
 			</table>
-		</div> -->
+		</div>
 
 	</div>
 

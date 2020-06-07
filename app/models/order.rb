@@ -10,10 +10,10 @@ class Order < ApplicationRecord
 	}
 
 	enum order_status:{
-		waiting: 0,
-		paid: 1,
-		preparing: 2,
-		derivering: 3,
-		derivered: 4
+		入金待ち: 0,
+		入金確定: 1,
+		制作中自動更新: 2,
+		発送準備中: 3,
+		発送済み: 4
 	}
 end
