@@ -5,6 +5,7 @@ class Admin::ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    
   end
 
   def new
@@ -28,7 +29,6 @@ class Admin::ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.update(product_params)
     redirect_to admin_products_path(@product.id)
-
   end
 
   private

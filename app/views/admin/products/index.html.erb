@@ -3,6 +3,7 @@
 商品一覧
 
 
+<%= link_to "", new_admin_product_path, class: "glyphicon glyphicon-plus-sign" %>
 <table>
 	<thead>
 		<tr>
@@ -18,7 +19,7 @@
 		<tr>
 			<td><%= product.id %></td>
 			<td><%= link_to product.name, admin_product_path(product.id) %></td>
-			<td><%= product.price_tax_excluded %></td>
+			<td><%= number_to_currency(product.price_tax_excluded) %></td>
 			<td><%= product.genre.name %></td>
 			<td><%= product.selling_status %></td>
 		</tr>
@@ -27,5 +28,3 @@
 </table>
 
 
-
-<%= link_to "新規商品登録", new_admin_product_path %>
