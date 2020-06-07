@@ -30,12 +30,13 @@
 					<% @end_users.each do |user| %>
 					<tr>
 						<td><%= user.id %></td>
-						<td><%= user.family_name %><%= user.first_name %></td>
+						<td><%= link_to admin_end_user_path(user.id) do %><%= user.family_name %> <%= user.first_name %> <% end %></td>
 						<td><%= user.email %></td>
-						<td><%= user.is_active %></td>
+						<td><% if user.is_active == true %>有効<% else %>退会済<% end %></td>
 					</tr>
 					<% end %>
 				</tbody>
+
 			</table>
 
 			<div class='p-eu__paginate'>

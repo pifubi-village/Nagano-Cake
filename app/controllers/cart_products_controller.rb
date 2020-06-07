@@ -2,8 +2,13 @@ class CartProductsController < ApplicationController
   def index
       @products = current_end_user.cart_products
       @total_price = 0
-      @products.each do |product|
-      @total_price += price_tax_excluded
+  end
+
+   def create
+    @cart_product = CartProduct.new(cart_product_params)
+    @cart_product.end_user_id = current_end_user.id
+    @cart_product.save
+    redirect_to cart_products_path
   end
 end
 
@@ -44,4 +49,3 @@ end
   def cart_product_params
       params.require(:cart_product).permit(:product_id,:end_user_id,:number)
   end
-end
