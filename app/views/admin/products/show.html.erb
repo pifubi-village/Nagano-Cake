@@ -18,8 +18,8 @@
 		</tr>
 		<tr>
 			<td>税込価格（税抜価格）</td>
-			<td><%= number_to_currency(@product.price_tax_excluded) %>
-				(<%= number_to_currency(@product.price_tax_excluded)%>)円
+			<td><%= number_to_currency(@price_tax_included) %>
+				(<%= number_to_currency(@product.price_tax_excluded)%>)
 			</td>
 		</tr>
 		

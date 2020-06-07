@@ -1,11 +1,11 @@
 class Admin::ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.page(params[:page])
   end
 
   def show
     @product = Product.find(params[:id])
-    
+    @price_tax_included = (@product.price_tax_excluded*1.1).round(0)
   end
 
   def new
