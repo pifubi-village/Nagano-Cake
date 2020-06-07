@@ -32,7 +32,6 @@
                <table>
                  <%= attachment_image_tag product, :image, format: "jpeg", size: "100x100" %>
                  <%= link_to product.name, product_path(product.id) %>
-              
                  <%= product.price_tax_excluded %>
                </table>
           </div>

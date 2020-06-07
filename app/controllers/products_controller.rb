@@ -5,6 +5,14 @@ class ProductsController < ApplicationController
   end
 
   def show
-  	@products = Product.find(params[:id])
+  	@products = Product.all
+  	@product = Product.find(params[:id])
   end
+   def create
+   	@product = Product.find(params[:id])
+   	if  @product.save
+   		redirect_to cart_products_path
+   	end
+   end
+
 end

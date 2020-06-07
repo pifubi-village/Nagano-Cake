@@ -34,10 +34,18 @@
 			<tbody>
 			<tr>
 				 <% @products.each do |product| %>
-				<td><%= attachment_image_tag(product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %>
+				<th><%= attachment_image_tag(product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %></th>
+			</tr>
+			<tr>
+				<td>
 					<%= product.name %>
+					</td>
+				</tr>
+				<tr>
+				<td>
 				   <%= product.price_tax_excluded %>
 				</td>
+			</tr>
 				<% end %>
 			</tr>
 		</tbody>

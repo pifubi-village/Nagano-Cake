@@ -16,7 +16,7 @@
 			<tbody>
 			<tr>
 			<% @products.each do |product| %>
-				<td><%= attachment_image_tag(crat_product.product, :product_image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %></td>
+				<td><%= attachment_image_tag(product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %></td>
 					<td><%= product.name %><td>
 				    <td> <%= product.price_tax_exclude %><td>
 				    	<td> </td>

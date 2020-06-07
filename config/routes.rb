@@ -27,10 +27,10 @@ Rails.application.routes.draw do
   resources :orders,only: [:index,:show,:new,:create,]
   post 'orders/confirm'
   get 'orders/complete'
-  resources :cart_products,only: [:index,:edit,:update,:destroy]
+  resources :cart_products,only: [:index,:edit,:update,:destroy,:create]
   post 'cart_products/add_product'
   delete 'cart_products/destroy_all'
-  resources :products,only: [:index,:show]
+  resources :products,only: [:index,:show,:create]
   get "genre/:product_id/cakes" => "genres#cakes", as:'product_cakes'
   get "genre/:product_id/bakedgoods" => "genres#bakedgoods", as:'product_bakedgoods'
   get "genre/:product_id/candys" => "genres#candys", as:'product_candys'
