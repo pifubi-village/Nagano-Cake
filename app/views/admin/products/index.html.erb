@@ -24,6 +24,9 @@
 			<td><%= product.selling_status %></td>
 		</tr>
 		<% end %>
+		<div class='p-eu__paginate'>
+		<%= paginate @products %>
+		</div>
 	</tbody>
 </table>
 
