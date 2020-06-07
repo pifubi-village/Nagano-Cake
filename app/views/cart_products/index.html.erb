@@ -2,7 +2,8 @@
 	<div class="row">
 		<div class="col-xs-9">
 		    <h1>ショッピングカート</h1>
-		    <%=button_to "カートを空にする",cart_products_destroy_all_path,method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%>
+	
+		    <%= button_to "全て削除", destroy_all_cart_products_path(@cart_product_id), method: :delete %>
 		    <table class="table">
 			<thead>
 				<tr>
