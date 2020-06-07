@@ -18,12 +18,12 @@
 		</tr>
 		<tr>
 			<td>税込価格（税抜価格）</td>
-			<td><%= (@product.price_tax_excluded*1.1).round(0) %>
-				(<%= @product.price_tax_excluded %>)円
+			<td><%= number_to_currency(@product.price_tax_excluded) %>
+				(<%= number_to_currency(@product.price_tax_excluded)%>)円
 			</td>
 		</tr>
 		
 </table>
 
-<%= link_to "編集する", edit_admin_product_path %>
+<%= link_to "編集する", edit_admin_product_path, class: "btn btn-primary" %>
 <%= link_to "商品管理一覧", admin_products_path %>
