@@ -18,19 +18,21 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.save
-      redirect_to order_path
-    end
-  end
-
-  def create
-    @order = Order.find(params[:id])
-    if @order.save
       redirect_to orders_confirm_path
     end
   end
 
+  def create
+    @order = Order.new(order_params)
+    @order.end_user_id = current_end_user.id
+    redirect_to orders_confirm_path(@order.id)
+    end
+
   def confirm
+    @products = Product.all
     @order = Order.find(params[:id])
+
+
   end
 
   def complete
