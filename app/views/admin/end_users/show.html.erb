@@ -10,13 +10,13 @@
 
 		<div class="col-md-6">
 
-			<h2><%= @end_user.family_name %><%= @end_user.first_name %>の会員詳細</h2>
+			<h2><%= @end_user.family_name %><%= @end_user.first_name %>さんの会員詳細</h2>
 
-			<table class="table">
+			<table class="table" border="0" style="border-collapse: collapse">
 				<tbody>
 					<tr>
 						<td>顧客ID</td>
-						<td><%= @end_user.id %> <% if user.is_active == true %>有効<% else %>退会済<% end %></td>
+						<td><%= @end_user.id %> <% if @end_user.is_active == true %>有効会員<% else %>退会済<% end %></td>
 					</tr>
 					<tr>
 						<td>氏名</td>
