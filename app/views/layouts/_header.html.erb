@@ -13,6 +13,7 @@
           <li><%= link_to 'ジャンル一覧', admin_genres_path, class: "glyphicon glyphicon-tags" %></li>
           <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %></li>
         <% elsif end_user_signed_in? %>
+          <li><%= current_end_user.family_name %><%= current_end_user.first_name %></li>
            <li><%= link_to '商品一覧', products_path, class: "glyphicon glyphicon-cutlery" %></li>
            <li><%= link_to 'マイページ', end_users_path, class: "glyphicon glyphicon-home" %></li>
            <li><%= link_to 'カート', cart_products_path, class:
