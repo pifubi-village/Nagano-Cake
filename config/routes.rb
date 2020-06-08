@@ -41,9 +41,10 @@ Rails.application.routes.draw do
   resources :orders,only: [:index,:show,:new,:create,] do
     collection do
     get :confirm
-    get :complete
+    post :complete
  end
 end
+
   resources :cart_products do
     collection do
       delete "destroy_all"
