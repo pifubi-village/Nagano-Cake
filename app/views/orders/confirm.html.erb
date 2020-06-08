@@ -3,7 +3,7 @@
 		<h4>注文情報確認</h4>
 
 		<table class="table table-hover table-inverse">
-			<%= @orders.each do |order| %>
+			<%= @cart_products.each do |cp| %>
 			<thead>
 				<tr>
 					<th>商品名</th>
@@ -14,37 +14,37 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><%= attachment_image_tag(order.product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %></td>
-					<td><%= order.product.name %></td>
-					<td><%= order.product.price_tax_exclude %></td>
+					<td><%= attachment_image_tag(cp.product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %></td>
+					<td><%= cp.product.name %></td>
+					
 				</tr>
 				</tbody>
 				<tr>
 					<th>送料</th>
-					<td><%=order.postage%></td>
+					
 				</tr>
 				<tr>
 					<th>商品合計</th>
-					<td><%= order.amount_price %></td>
+					
 				</tr>
 				<tr>
 					<th>請求金額</th>
-					<td><%= oprder.postage + amount_price %></td>
+					
 				</tr>
 		</table>
 		<table>
 			<tr>
 				<th>支払い方法</th>
-				<td><%= order.order_status %></td>
+				<
 			</tr>
 			<tr>
 				<th>お届け先</th>
-				<td><%= order.address%></td>
+				
 			</tr>
 			<tr>
 			<% end %>
 		</table>
-		<%=link_to "購入を確定する",orders_complete_path %>
+		<%=button_to "購入を確定する",complete_orders_path %>
 
 	</div>
 </div>
