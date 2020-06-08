@@ -38,12 +38,14 @@ Rails.application.routes.draw do
   resources :products,only: [:index,:show,:create]
   resources :addresses
   resource :end_users, only: [:show,:update,:edit]
+
   resources :orders,only: [:index,:show,:new,:create,] do
     collection do
     get :confirm
-    get :complete
+    post :complete
  end
 end
+
   resources :cart_products do
     collection do
       delete "destroy_all"
