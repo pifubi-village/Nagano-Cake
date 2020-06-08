@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.end_user_id = current_end_user.id
     redirect_to orders_confirm_path(@order.id)
-    end
+  end
 
   def confirm
 
@@ -34,23 +34,19 @@ class OrdersController < ApplicationController
     @orders = Order.all
     session[:order] = params[:order]
     #binding.pry
-
-    @order =Order.new
-    if params[:order][:payment_method] == "0"
-      @order.payment_method = "cash"
-    else params[:order][:payment_method] == "1"
-      @order.payment_method = "クレジット"
-    end
+    #params[:order][:payment_method]
+    #@order.payment_method = "cash"
+    #params[:order][:payment_method] == "1"
+    #@order.payment_method = "クレジット"
+  
 
     @order = Order.new
     if params[:order][:address_status] == "0"
-      @order.address = current_end_user.post_code
       @order.address = current_end_user.address
     elsif  params[:order][:address_status] == "1"
-   # binding.pry
-      @address = Address.find(params[:order][:address])
-     # @order.address = addresses.current_end_user.address_id.
-    elsif address_status == "2"
+      @order.address = Address.find(params[:order][:address])
+    elsif params[:order][:address_status] == "2"
+      @order.address = params[:order]
     end
   end
 
