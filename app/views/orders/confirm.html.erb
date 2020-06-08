@@ -17,9 +17,7 @@
 					<tr>
 						<td><%= attachment_image_tag(cp.product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %></td>
 						<td><%= cp.product.name %></td>
-						<td><%= cp.product.price_tax_included %></td>
-						<td><%= cp.product.number %></td>
-						<td><%= cp.product.price_tax_included * cp.product.number %></td>
+
 					</tr>
 					<% end %>
 				</tbody>
@@ -31,15 +29,15 @@
 				<tbody>
 					<tr>
 						<th>送料</th>
-						<%= Order.postage %>
+						
 					</tr>
 					<tr>
 						<th>商品合計</th>
-						<%= @total_price %>
+						
 					</tr>
 					<tr>
 						<th>請求金額</th>
-						<%= Order.postage + @total_price %>
+						
 					</tr>
 				</tbody>
 			</table>
@@ -57,10 +55,10 @@
 				</tr>
 				<tr>
 					<th>お届け先</th>
+					<%= @order.post_code%>
 					<%= @order.address %>
 				</tr>
-			</table>
-		</div>
+
 
 	</div>
 
