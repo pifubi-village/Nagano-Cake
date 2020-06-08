@@ -2,49 +2,70 @@
 	<div class="row">
 		<h4>注文情報確認</h4>
 
-		<table class="table table-hover table-inverse">
-			<%= @cart_products.each do |cp| %>
-			<thead>
-				<tr>
-					<th>商品名</th>
-					<th>単価（仕込）</th>
-					<th>数量</th>
-					<th>小計</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><%= attachment_image_tag(cp.product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %></td>
-					<td><%= cp.product.name %></td>
-					
-				</tr>
+		<div class="col-md-8">
+			<table class="table table-hover table-inverse">
+				<thead>
+					<tr>
+						<th>商品名</th>
+						<th>単価（税込）</th>
+						<th>数量</th>
+						<th>小計</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @cart_products.each do |cp| %>
+					<tr>
+						<td><%= attachment_image_tag(cp.product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %></td>
+						<td><%= cp.product.name %></td>
+
+					</tr>
+					<% end %>
 				</tbody>
-				<tr>
-					<th>送料</th>
-					
-				</tr>
-				<tr>
-					<th>商品合計</th>
-					
-				</tr>
-				<tr>
-					<th>請求金額</th>
-					
-				</tr>
-		</table>
-		<table>
-			<tr>
-				<th>支払い方法</th>
-				<%= @order.payment_method %>
-			</tr>
-			<tr>
-				<th>お届け先</th>
-				<td><%= @order.address%></td>
-			</tr>
-			<tr>
-			<% end %>
-		</table>
-		<%=button_to "購入を確定する",complete_orders_path %>
+			</table>
+		</div>
+
+		<div class="col-md-4">
+			<table class="table">
+				<tbody>
+					<tr>
+						<th>送料</th>
+						
+					</tr>
+					<tr>
+						<th>商品合計</th>
+						
+					</tr>
+					<tr>
+						<th>請求金額</th>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
 
 	</div>
+
+	<div class="row">
+
+		<div class="col-md-7">
+			<table>
+				<tr>
+					<th>支払い方法</th>
+					<%= @order.payment_method %>
+				</tr>
+				<tr>
+					<th>お届け先</th>
+					<%= @order.post_code%>
+					<%= @order.address %>
+				</tr>
+
+
+	</div>
+
+	<div class="row">
+		<div style="margin:0 auto;">
+			<%= button_to "購入を確定する",complete_orders_path %>
+		</div>
+	</div>
+
 </div>

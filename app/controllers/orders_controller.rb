@@ -38,15 +38,18 @@ class OrdersController < ApplicationController
     @order =Order.new
     if params[:order][:payment_method] == "0"
       @order.payment_method = "cash"
-    else @order.payment_method = "クレジット"
+    else params[:order][:payment_method] == "1"
+      @order.payment_method = "クレジット"
     end
 
     @order = Order.new
     if params[:order][:address_status] == "0"
+      @order.address = current_end_user.post_code
       @order.address = current_end_user.address
     elsif  params[:order][:address_status] == "1"
-      #@order.address = addresses.current_end_user.address_id.
-
+   # binding.pry
+      @address = Address.find(params[:order][:address])
+     # @order.address = addresses.current_end_user.address_id.
     elsif address_status == "2"
     end
   end
