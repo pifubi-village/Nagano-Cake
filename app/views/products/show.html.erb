@@ -10,16 +10,16 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>ケーキ</td>
+						<td><%= link_to "ケーキ" , products_cake_path %></td>
 					</tr>
 					<tr>
-						<td>焼き菓子</td>
+						<td><%= link_to "焼き菓子",  products_bakedgoods_path %></td>
 					</tr>
 					<tr>
-						<td>キャンディ</td>
+                        <td><%= link_to "キャンディ",  products_candy_path %></td>
 					</tr>
 					<tr>
-						<td>プリン</td>
+						<td><%= link_to "プリン",  products_pudding_path %></td>
 					</tr>
 				</tbody>
 			</table>
@@ -42,7 +42,7 @@
               <td>¥<%= @products.price_tax_excluded%>(税込)</td>
             </tr>
             <tr>
-              <td><%= f.number_field :number, class: "hoge", min: 0, max: 100 %></td>
+              <td><%= f.select :number, options_for_select((1..20).to_a), include_blank: "個数選択" %></td>
             </tr>
               <%= f.hidden_field :product_id, :value => @products.id %>
             <tr>

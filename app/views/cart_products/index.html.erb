@@ -1,9 +1,10 @@
 <div class= "container">
 	<div class="row">
 		<div class="col-xs-9">
-		    <h1>ショッピングカート</h1>
-	
-		    <%= button_to "全て削除", destroy_all_cart_products_path(@cart_product_id), method: :delete %>
+		    <h3>ショッピングカート</h3>
+	        <div class="cateline">
+		    <%= button_to "カートを空にする", destroy_all_cart_products_path(@cart_product_id), method: :delete, class: "btn btn-danger btn-md" %>
+		    </div>
 		    <table class="table">
 			<thead>
 				<tr>
@@ -18,17 +19,30 @@
 			<tr>
 			<% @cart_products.each do |cp| %>
 				<td><%= attachment_image_tag(cp.product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %><%= cp.product.name %></td>
+
 					<td><%= cp.product.price_tax_excluded%></td>
-					<td><%= cp.number%></td>
-					<td><%= cp.product.price_tax_excluded%></td>
-				  	<td><%=link_to "削除する",  cart_product_path(cp), method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%></td>
+　　　　　　　　　　　<%= form_for(cp) do |f| %>
+					<td><%= f.number_field :number,  min:1, max:20%>
+						<%= f.submit '変更', class: "btn btn-primary", role: "botton" %></td>
+                 <% end %>
+					<td><%= cp.product.price_tax_excluded*cp.number%></td>
+
+				  	<td><%=link_to "削除する", cart_product_path(cp), method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%></td>
 			</tr>
 		    </tbody>
-			<% end %>
+		    <% end %>
 		</table>
+		<div class="ses">
+		<table align="right">
+		<th>合計金額</th><td><%= @sum %>円</td>
+	    </table>
+	    </br>
+	    </div>
 			<td><%=link_to "買い物を続ける",products_path, class: 'btn btn-primary' %></td>
-			<th>合計金額</th><td><%@product_total_price %>円</td>
-			<span><%=link_to "購入情報に進む",new_order_path, class: 'btn btn-primary' %></span>
+		<div class="ses1">
+		</br>
+			<td><%=link_to "購入情報に進む",new_order_path, class: 'btn btn-success btn-lg' %></td>
+		</div>
 		</div>
 	</div>
 </div>
