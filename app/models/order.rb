@@ -3,7 +3,7 @@ class Order < ApplicationRecord
 	belongs_to :end_user
 
 	has_many :order_products, dependent: :destroy
-	
+
 	enum peyment_method:{
 		cash: 0,
 		credit_card: 1
@@ -16,4 +16,7 @@ class Order < ApplicationRecord
 		発送準備中: 3,
 		発送済み: 4
 	}
+	#enum address_status:{
+
+	#}
 end
