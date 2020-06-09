@@ -5,22 +5,25 @@
 		<table class="table table-hover table-inverse">
 			<thead>
 				<tr>
-					<th>注文</th>
+					<th>注文日</th>
 					<th>配達先</th>
 					<th>注文商品</th>
 					<th>支払い金額</th>
 					<th>ステータス</th>
 					<th>注文詳細</th>
-					<th colspan="５"></th>
 				</tr>
 			</thead>
 			<tbody>
+				<% @orders.each do |order| %>
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td><%= link_to '注文詳細', order_path(@order.id)%></td>
+					<td> <%= order.created_at %> </td>
+					<td> <%= order.address %></td>
+					<td> <%= order.product_name %></td>
+					<td> <%= order.sum.price %></td>
+					<td> <%= order.order_status %></td>
+					<td> <%= link_to "注文詳細",order_path ,class: 'btn btn-primary' %></td>
 				</tr>
+				<% end %>
 			</tbody>
 		</table>
 	</div>

@@ -13,18 +13,17 @@
  *= require_tree .
  *= require_self
  */
-    @import "bootstrap-sprockets";
-    @import "bootstrap";
 
-* {
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 .userheadline {
 	text-align: center;
-	padding-top: 20px;
 }
 .field{
 	display: inline-block;
@@ -32,7 +31,6 @@
 .tableline{
 	padding-right: 350px;
 }
-
 .tableline1{
 	padding-right: 500px;
 }
@@ -47,7 +45,7 @@
 }
 .up{
 	padding-left: 200px;
-	padding-top: 100px;
+	padding-top: 20px;
 }
 .pu{
 	padding-top: 50px;
@@ -84,21 +82,67 @@
 .loginline {
 	padding-right: 250px;
 }
-.userpage {
-	display: inline-block;
+body {
+	margin-top: 70px;
 }
 table td {
 	padding: 15px;
 }
  td {
 	border:solid 2px #333333;
-	width: 30%;
 }
  th {
-	border:solid 2px #333333; 
+	border:solid 2px #333333;
 	background-color: #EEEEEE;
-	width: 10%;
 }
 table {
 	width: 40%;
+}
+.top{
+	margin-top: 20px;
+}
+.userpage {
+	display: inline-block;
+}
+.top1{
+	margin-left: 20px;
+    padding-top: 30px;
+}
+.use {
+	padding-left: 350px;
+}
+.unsubscribedline{
+	text-align: center;
+	padding-top: 100px;
+}
+.unsubscribedline1{
+	padding-bottom: 50px;
+}
+.unsubscribedline2{
+     padding-top: 10px;
+	.btn-primary{
+	margin-right: 20px;
+ }
+}
+.body {
+	margin: 20px;
+}
+.box{
+	padding:80px;
+}
+.box_headline{
+	 border: 1px solid black;
+	 padding:50px 0 ;
+}
+.ckdf{
+	padding: 300px;
+}
+header {
+	text-align: center;
+	position: relative;
+	height: 80px;
+}
+.logo{
+	top: 1px;
+	right: 1px;
 }

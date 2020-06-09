@@ -1,1 +1,92 @@
-tottemo
+ <div class="up">
+     <h3>登録情報編集</h3>
+   </div>
+   <div class="userheadline">
+     <div class="container"> 
+       <div class="row"> 
+         <div class="col-xs-3">
+            <div class="sinupheadline">
+              <div class="sinuphead">
+                <h4>名前</h4>
+              </div>
+              <div class="sinuphead">
+                <h4>フリガナ</h4>
+              </div>
+              <div class="sinuphead">
+                <h4>メールアドレス</h4>
+              </div>
+              <div class="sinuphead">
+                <h4>郵便番号</h4>
+              </div>
+              <div class="sinuphead">
+                <h4>住所</h4>
+              </div>
+              <div class="sinuphead">
+                <h4>電話番号</h4>
+              </div>
+            </div>
+              <div class="pu"> 
+               </div>
+         </div>
+         <div class="col-xs-9">
+          <%= form_for(@end_user, url: end_user_update_path) do |f| %>
+            <div class="tableline">
+              <table class="table">
+                <div class="field">
+                  <%= f.label :姓 %>
+                  <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name" %>
+                </div>
+                <div class="field">
+                  <%= f.label :名 %>
+                  <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+                </div>
+              </table>
+              <table class="table">
+                <div class="field">
+                  <%= f.label :セイ %>
+                  <%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana" %>
+                </div>
+                <div class="field">
+                  <%= f.label :メイ %>
+                  <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
+               </div>
+             </table>
+           </div>
+           <div class="tableline1">
+             <table class="table">
+               <div class="field">
+                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+               </div>
+             </table>
+             <table class="table">
+               <div class="field">
+                 <%= f.text_field :post_code, autofocus: true, autocomplete: "post_code" %>
+               </div>
+             </table>
+          </div>
+          <div class="tableline2">
+            <table class="table">
+              <div class="field">
+                <%= f.text_field :address, autofocus: true, autocomplete: "address", :size => "45" %>
+              </div>
+            </table>
+          </div>
+          <div class="tableline1">
+            <table class="table">
+              <div class="field">
+                <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
+              </div>
+            </table>
+         <div class="botton">
+            <table class="table">
+           <div class="actions">
+             <%= f.submit "編集内容を保存する", class:"btn btn-primary btn-md" %>
+            <div class="use">
+             <%= link_to  "退会する", end_users_unsubscribed_path, class: "btn btn-danger btn-md", role: "botton" %>
+           </div>
+         </div>
+
+         </div>
+         </table>
+        </div>
+        <% end %>

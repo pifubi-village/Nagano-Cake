@@ -1,2 +1,41 @@
-<h1>Orders#new</h1>
-<p>Find me in app/views/orders/new.html.erb</p>
+<div class= "container">
+	<div class="row">
+      <div class="col-xs-9">
+		<h4>注文情報入力</h4>
+			<table class="table">
+				<tbody>
+					<%= form_for(@order,url: confirm_orders_path, method: :GET) do |f| %>
+						<tr>
+							<%= f.label :支払い方法　%>
+							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method,"0"%> 現金</label>
+							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method,"1"%>クレジットカード</label>
+						</tr>
+						<tr>
+							<%= label_tag :お届け先 %>
+						<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :address_status,"0"%>
+						ご自身の住所</label> <%= @end_user.address %>
+
+						<label style =" display:block;position:relative;padding-left:1em;"><%= f.radio_button :address_status,"1"%>登録済住所から選択</label>
+						 <%= f.collection_select(:address, Address.all, :id, :address, include_blank: "選択して下さい") %>
+	  					<label style =" display:block;position:relative;padding-left:1em;"><%= f.radio_button :address_status,"2"%>新しいお届け先</label>
+						</tr>
+
+						<tr class="row">
+							<th> <%= f.label "郵便番号(ハイフンなし)" %> </th>
+							<td ><%= text_field_tag :post_code %></td>
+						</tr>
+						<tr class="row">
+							<th><%= f.label :住所 %> </th>
+							<td><%= text_field_tag :address %></td>
+						</tr>
+						<tr class="row">
+							<th> <%= f.label :宛名 %> </th>
+							<td><%= text_field_tag :name %></td>
+						</tr>
+				</tbody>
+			</table>
+			<%= f.submit "確認画面に進む",class: 'btn btn-primary' %>
+			<% end %>
+		</div>
+	</div>
+</div>

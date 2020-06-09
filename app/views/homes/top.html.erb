@@ -1,28 +1,48 @@
 <div class= "container">
 	<div class="row">
 		<div class="col-xs-3">
-			ジャンル部分テンプレート
+			<table >
+				<thead>
+					<tr>
+						<th>ジャンル検索</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= link_to "ケーキ" , products_cake_path %></td>
+					</tr>
+					<tr>
+						<td><%= link_to "焼き菓子",  products_bakedgoods_path %></td>
+					</tr>
+					<tr>
+                        <td><%= link_to "キャンディ",  products_candy_path %></td>
+					</tr>
+					<tr>
+						<td><%= link_to "プリン",  products_pudding_path %></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 		<div class="col-xs-9">
 			<div class="box">
-				<!-- 後ほどcssでマージン調整 -->
-			  <h4>
+			  <h4 class="box_headline">
 				ようこそ、NaganoCakeへ！<br>このサイトは、ケーキの販売サイトになります。<br>
 			    会員でない方も商品の観覧はできますが、<br>購入には会員登録が必要となります。
 		      </h4>
 		    </div>
-		    <h1>おすすめ商品</h1>
+		    <h1>オススメ商品</h1>
 			<tbody>
-				変数名が入ります。
 			<tr>
-				<td>商品イメージ<br>
-					商品めい<br>
-				    値段
+				 <% @products.each do |product| %>
+				<td><%= attachment_image_tag(product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %>
+					<%= product.name %>
+				   <%= product.price_tax_excluded %>
 				</td>
+				<% end %>
 			</tr>
 		</tbody>
+		<%= paginate @products %>
 
 		</div>
 	</div>
 </div>
-  <%= link_to "logout", destroy_end_user_session_path, method: :delete %>

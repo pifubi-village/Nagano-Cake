@@ -1,2 +1,39 @@
-<h1>Admin::Products#index</h1>
-<p>Find me in app/views/admin/products/index.html.erb</p>
+<div class="container">
+  <div class="row">
+  	<h1>商品一覧</h1>
+
+
+<div class="col-xs-10 col-xs-offset-1">
+
+
+<table class="col-xs-12">
+	<thead>
+		<tr>
+			<th>商品ID</th>
+			<th>商品名</th>
+			<th>税抜価格</th>
+			<th>ジャンル</th>
+			<th>ステータス</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @products.each do |product| %>
+		<tr>
+			<td><%= product.id %></td>
+			<td><%= link_to product.name, admin_product_path(product.id) %></td>
+			<td><%= number_to_currency(product.price_tax_excluded) %></td>
+			<td><%= product.genre.name %></td>
+			<td><%= product.selling_status %></td>
+		</tr>
+		<% end %>
+		<div class='p-eu__paginate'>
+		<%= paginate @products %>
+		</div>
+	</tbody>
+</table>
+<%= link_to "", new_admin_product_path, class: "glyphicon glyphicon-plus-sign" %>
+</div>
+</div>
+</div>
+
+

@@ -1,3 +1,17 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.productline{
+	margin-top: 50px;
+}
+.genleline {
+	margin-top: 50px;
+}
+.noborder {
+  border: 0px none;
+}
+.torunbox {
+  display: inline-flex;
+  margin: 5px;
+  padding: 10px;
+}

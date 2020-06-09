@@ -3,6 +3,7 @@ class AddressesController < ApplicationController
   def index
     @addresses = Address.all
     @address = Address.new
+    @address.end_user_id == current_end_user.id
   end
 
   def create
@@ -24,8 +25,8 @@ class AddressesController < ApplicationController
 
   def update
     @address = Address.find(params[:id])
-    @address.update(@address_params)
-    redirect_to addresses_path, notice: "successfully updated addresse!"
+    @address.update(address_params)
+    redirect_to addresses_path
   end
 
   def destroy
