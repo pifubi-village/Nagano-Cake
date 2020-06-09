@@ -30,6 +30,7 @@
 }
 .tableline{
 	padding-right: 350px;
+	padding-top: 12px;
 }
 .tableline1{
 	padding-right: 500px;
@@ -38,20 +39,21 @@
 	padding-right: 325px;
 }
 .sinupheadline{
-	padding-left: 100px;
+	padding-left: 80px;
 }
 .sinuphead{
 	padding-top: 13px;
 }
 .up{
 	padding-left: 200px;
-	padding-top: 20px;
+	padding-top: 18px;
 }
 .pu{
 	padding-top: 50px;
 }
 .pu1{
-	padding-left: 30px;
+	padding-top: 5px;
+	padding-left: 100px;
 }
 .botton{
 	padding-right: 400px;
@@ -96,10 +98,7 @@ table td {
 	background-color: #EEEEEE;
 }
 table {
-	width: 40%;
-}
-.top{
-	margin-top: 20px;
+	width: 50%;
 }
 .userpage {
 	display: inline-block;
@@ -132,7 +131,7 @@ table {
 }
 .box_headline{
 	 border: 1px solid black;
-	 padding:50px 0 ;
+	 padding:50px 0;
 }
 .ckdf{
 	padding: 300px;
@@ -145,4 +144,7 @@ header {
 .logo{
 	top: 1px;
 	right: 1px;
+}
+.gray{
+	background-color: #EEEEEE;
 }
