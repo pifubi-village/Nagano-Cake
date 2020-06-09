@@ -42,7 +42,7 @@ end
       @cart_product.end_user_id = current_end_user.id
       @cart_product.update(cart_product_params)
       redirect_to cart_products_path
-    end
+  end
 
   def destroy
     @cart_product = CartProduct.find(params[:id])

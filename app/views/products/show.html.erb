@@ -10,45 +10,48 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><%= link_to "ケーキ" , products_cake_path %></td>
+				        <td height="80"><%= link_to "ケーキ" , products_cake_path %></td>
 					</tr>
 					<tr>
-						<td><%= link_to "焼き菓子",  products_bakedgoods_path %></td>
+						<td height="80"><%= link_to "焼き菓子",  products_bakedgoods_path %></td>
 					</tr>
 					<tr>
-                        <td><%= link_to "キャンディ",  products_candy_path %></td>
+                        <td height="80"><%= link_to "キャンディ",  products_candy_path %></td>
 					</tr>
 					<tr>
-						<td><%= link_to "プリン",  products_pudding_path %></td>
+						<td height="80"><%= link_to "プリン",  products_pudding_path %></td>
 					</tr>
 				</tbody>
 			</table>
 		  </div>
 		</div>
-	 <div class="col-xs9">
 	 	<div class="productline">
-	 		  <%= form_for(@cart_product) do |f| %>
-	 	  <table> 
-            <tr>
-              <td><%= attachment_image_tag @products, :image, format: "jpeg", size: "200x200" %></td>
-            </tr>
-            <tr>
-              <td><%= @products.name %></td>
-            </tr>
-            <tr>
-              <td><%= @products.detail %></td>
-            </tr>
-            <tr>
-              <td>¥<%= @products.price_tax_excluded%>(税込)</td>
-            </tr>
-            <tr>
-              <td><%= f.select :number, options_for_select((1..20).to_a), include_blank: "個数選択" %></td>
-            </tr>
-              <%= f.hidden_field :product_id, :value => @products.id %>
-            <tr>
-            <td><%= f.submit 'カートに入れる', class: "btn btn-primary", role: "botton" %></td>
-            </tr>
-          </table>
-        <% end %>
-       </div>
-     </div>
+	 	  <%= form_for(@cart_product) do |f| %>
+	 	  <%= f.hidden_field :product_id, :value => @products.id %>
+	 		<div class="col-xs-5">
+              <th><%= attachment_image_tag @products, :image, format: "jpeg", size: "400x300" %>
+            </div>
+            <div class="col-xs-4">
+            <table class="col-xs-10">
+              <tr>
+                <td><%= @products.name %></td>
+              </tr>
+              <tr>
+                <td><%= @products.detail %></td>
+              </tr>
+              <tr>
+                <td>¥<%= number_to_currency(@products.price_tax_excluded)%>(税込)</td>
+              </tr>
+              <tr>
+                 <td><%= f.select :number, options_for_select((1..20).to_a), include_blank: "個数選択" %></td>
+              </tr>
+              <tr>
+                <td><%= f.submit 'カートに入れる', class: "btn btn-primary", role: "botton" %></td>
+             </tr>
+            </table>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
