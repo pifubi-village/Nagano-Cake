@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-  	@products = Product.all
+  	@products = Product.all.page(params[:page]).per(5).reverse_order
   end
 
   def show
@@ -15,14 +15,24 @@ class ProductsController < ApplicationController
   	redirect_to cart_product_path
   end
 
-  def add_to_cart
-  	products = Product.find(params[:id])
-  	@cart_product = find_cart
-  	@cart.add_product(product)
+  def cake
+  	@products = Product.where(genre_id: 1).page(params[:page]).per(5).reverse_order
+  end
+
+  def pudding
+    @products = Product.where(genre_id: 2).page(params[:page]).per(5).reverse_order
+  end
+
+  def candy
+    @products = Product.where(genre_id: 3).page(params[:page]).per(5).reverse_order
+  end
+
+  def bakedgoods
+    @products = Product.where(genre_id: 4).page(params[:page]).per(5).reverse_order
   end
 
   private
 def cart_product_params
-    params.require(:cart_product).permit(:end_user_id, :product_id, :number)
+    params.require(:cart_product).permit(:end_user_id, :product_id, :number).reverse_order
 end
 end
