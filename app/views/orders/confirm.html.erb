@@ -29,15 +29,15 @@
 				<tbody>
 					<tr>
 						<th>送料</th>
-						
+						<%= Order.postage %>
 					</tr>
 					<tr>
 						<th>商品合計</th>
-						
+						<%= total_price %>
 					</tr>
 					<tr>
 						<th>請求金額</th>
-						
+					    <%= @order.postage + @total_price %>
 					</tr>
 				</tbody>
 			</table>
@@ -57,6 +57,8 @@
 					<th>お届け先</th>
 					<%= @order.post_code%>
 					<%= @order.address %>
+					<%= @order.name%>
+
 				</tr>
 
 
@@ -64,7 +66,7 @@
 
 	<div class="row">
 		<div style="margin:0 auto;">
-			<%= button_to "購入を確定する",complete_orders_path %>
+			<%= button_to "購入を確定する"%>
 		</div>
 	</div>
 
