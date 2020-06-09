@@ -4,9 +4,40 @@ class OrdersController < ApplicationController
     @end_user = EndUser.all
 
   end
+   def confirm
+    @cart_products = CartProduct.all
+     @sum = 0
+      @cart_products.each do |cp|
+        @sum += cp.product.price_tax_excluded*cp.number.to_i
+    end
+    session[:order] = params[:order]
+    #binding.pry
+    @order = Order.new
+    @order.payment_method = params[:order][:payment_method]
+    if params[:order][:address_status] == "0"
+      @order.address = current_end_user.address
+      @order.post_code = current_end_user.post_code
+      @order.family_name = current_end_user.family_name
+      @order.first_name = current_end_user.first_name
+    elsif  params[:order][:address_status] == "1"
+      @address = Address.find(params[:order][:address])
+      @order.address = @address.address
+      @order.post_code = @address.post_code
+      @order.family_name = current_end_user.family_name
+      @order.first_name = current_end_user.first_name
+    elsif params[:order][:address_status] == "2"
+      @order.address = params[:address]
+      @order.post_code = params[:post_code]
+      @order.name = params[:name]
+    end
+     @postage = "800"
+     @order.amount_price = @postage + @sum
+  end
 
-  def show
-    @order = Order.find(params[:id])
+  def complete
+    @order = Order.new(order_params)
+    @order.end_user_id =current_end_user.id
+    @order.save
   end
 
   def new
@@ -18,43 +49,17 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.save
-      redirect_to orders_confirm_path
     end
   end
-
+  def show
+    @order = Order.find(params[:id])
+    
+  end
   def create
     @order = Order.new(order_params)
-    @order.end_user_id = current_end_user.id
-    redirect_to orders_confirm_path(@order.id)
-  end
-
-  def confirm
-
-    @cart_products = CartProduct.all
-    @orders = Order.all
-    session[:order] = params[:order]
-    #binding.pry
-    #params[:order][:payment_method]
-    #@order.payment_method = "cash"
-    #params[:order][:payment_method] == "1"
-    #@order.payment_method = "クレジット"
-  
-
-    @order = Order.new
-    if params[:order][:address_status] == "0"
-      @order.address = current_end_user.address
-    elsif  params[:order][:address_status] == "1"
-      @order.address = Address.find(params[:order][:address])
-    elsif params[:order][:address_status] == "2"
-      @order.address = params[:order]
-    end
-  end
-
-  def complete
-    @order = Order.new(Order_params)
     @order.save
-    redirect_to orders_path
   end
+
 
   private
   def order_params

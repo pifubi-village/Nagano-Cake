@@ -15,11 +15,15 @@
 				<tbody>
 					<% @cart_products.each do |cp| %>
 					<tr>
-						<td><%= attachment_image_tag(cp.product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %></td>
-						<td><%= cp.product.name %></td>
-
+						<td><%= attachment_image_tag(cp.product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %>
+						    <%= cp.product.name %>
+						</td>
+						<td><%= cp.product.price_tax_excluded%></td>
+						<td><%= cp.number %></td>
+						<td><%= cp.product.price_tax_excluded*cp.number%></td>
 					</tr>
 					<% end %>
+
 				</tbody>
 			</table>
 		</div>
@@ -27,17 +31,18 @@
 		<div class="col-md-4">
 			<table class="table">
 				<tbody>
+					　
 					<tr>
 						<th>送料</th>
-						
+						<td><%= @postage %></td>
 					</tr>
 					<tr>
 						<th>商品合計</th>
-						
+						<td><%= @sum %></td>
 					</tr>
 					<tr>
 						<th>請求金額</th>
-						
+						<td><% @amount_price %></td>
 					</tr>
 				</tbody>
 			</table>
@@ -46,26 +51,38 @@
 	</div>
 
 	<div class="row">
-
 		<div class="col-md-7">
 			<table>
 				<tr>
 					<th>支払い方法</th>
-					<%= @order.payment_method %>
+					<td><%= @order.payment_method %></td>
 				</tr>
 				<tr>
 					<th>お届け先</th>
+					<td>
 					<%= @order.post_code%>
 					<%= @order.address %>
+					<%= @order.family_name%>
+					<%= @order.first_name%>
+					<%= @order.name%>
+				    </td>
 				</tr>
+				<div style="margin:0 auto;">
 
-
-	</div>
-
-	<div class="row">
-		<div style="margin:0 auto;">
-			<%= button_to "購入を確定する",complete_orders_path %>
+					<%= form_for(@order,url: complete_orders_path, method: :POST) do |f| %>
+					<%= f.hidden_field :post_code, :value => @order.post_code %>
+					<%= f.hidden_field :address, :value => @order.address%>
+					<%= f.hidden_field :name, :value => @order.name %>
+					<%= f.hidden_field :amount_price, :value => @order.amount_price %>
+					<%= f.hidden_field :postage, :value => @order.postage %>
+					<%= f.hidden_field :amount_price, :value => @order.amount_price %>
+			        <%= f.hidden_field :oeder_status, :value => @order.oeder_status %>
+			<%=  f.submit "購入を確定する" %></div>
+			<%end%>
 		</div>
+		</table>
+		</div>
+	</div>
 	</div>
 
 </div>
