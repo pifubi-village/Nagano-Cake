@@ -1,6 +1,9 @@
-<h1>Admin::Genres#index</h1>
-<p>Find me in app/views/admin/genres/index.html.erb</p>
-ジャンル一覧・追加
+<div class="container">
+  <div class="row">
+  	<h1>ジャンル一覧・追加</h1>
+
+
+<div class="col-xs-10 col-xs-offset-1">
 <%= form_for(@genre,:url => admin_genres_path) do |f| %>
 	<%= f.label :ジャンル %>
 	<%= f.text_field :name %>
@@ -11,7 +14,7 @@
 		<%= f.radio_button :is_active, :false %>無効
 	</label>
 	
-	<%= f.submit "追加" %>
+	<%= f.submit "追加",class: "btn btn-primary"  %>
 <% end %>
 
 <table>
@@ -34,3 +37,6 @@
 	</tbody>
 	<% end %>
 </table>
+</div>
+</div>
+</div>

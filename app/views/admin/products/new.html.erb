@@ -1,13 +1,17 @@
-<h1>Admin::Products#new</h1>
-<p>Find me in app/views/admin/products/new.html.erb</p>
-商品新規登録
+<div class="container">
+  <div class="row">
+<h1>商品新規登録</h1>
+
 
 <%= form_for(@product,:url => admin_products_path) do |f| %>
-<table>
-	<tr>
-		<th><%= f.label :商品画像 %></th>
-		<th><%= f.attachment_field :image %></th>
-	</tr>
+<div class="col-xs-4">
+		<%= attachment_image_tag @product, :image, size:'300x300',  fallback: "no_image.jpg" %>
+		<%= f.attachment_field :image %>
+</div>
+
+<div class="col-xs-7">
+<table class="col-xs-12">
+	
 	<tr>
 		<th><%= f.label :商品名 %></th>
 		<th><%= f.text_field :name %></th>
@@ -26,14 +30,17 @@
 	</tr>
 	<tr>
 		<th><%= f.label :販売ステータス %></th>
-		<th><%= f.select :selling_status,
-		 		Product.selling_statuses.keys, :prompt => "選択してください" %></th>	
+		<th><%= f.select :selling_status,Product.selling_statuses.keys, :prompt => "選択してください" %></th>
 	</tr>
-
 </table>
+</div>
 
+<div class="col-xs-1">
 <%= f.submit "新規登録", class: "btn btn-primary" %>
+</div>
+
 <% end %>
 
 
-<%= link_to "商品管理一覧", admin_products_path %>
+</div>
+</div>

@@ -1,12 +1,18 @@
-<h1>Admin::Products#edit</h1>
-<p>Find me in app/views/admin/products/edit.html.erb</p>
-商品編集
+<div class="container">
+  <div class="row">
+
+
+<h1>商品編集</h1>
+
 
 <%= form_for @product, url: "/admin/products/#{@product.id}" do |f| %>
-	<%= attachment_image_tag @product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %>
+<div class="col-xs-4">
+	<%= attachment_image_tag @product, :image, size:'300x300', fallback: "no_image.jpg" %>
 		<th><%= f.attachment_field :image %></th>
-<table>
-	
+</div>
+
+<div class="col-xs-7">
+<table class="col-xs-12">
 	<tr>
 		<th><%= f.label :商品名 %></th>
 		<th><%= f.text_field :name %></th>
@@ -25,14 +31,16 @@
 	</tr>
 	<tr>
 		<th><%= f.label :販売ステータス %></th>
-		<th><%= f.select :selling_status,
-		 		Product.selling_statuses.keys, :prompt => "選択してください" %></th>	
+		<th><%= f.select :selling_status, Product.selling_statuses.keys, :prompt => "選択してください" %></th>
 	</tr>
-
 </table>
+</div>
 
-<%= f.submit "変更を保存する" %>
+<div class="col-xs-1">
+<%= f.submit "変更を保存する", class: "btn btn-primary" %>
+</div>
 <% end %>
 
 
-<%= link_to "商品管理一覧", admin_products_path %>
+</div>
+</div>

@@ -1,17 +1,19 @@
-<h1>Admin::Products#index</h1>
-<p>Find me in app/views/admin/products/index.html.erb</p>
-商品一覧
+<div class="container">
+  <div class="row">
+  	<h1>商品一覧</h1>
 
 
-<%= link_to "", new_admin_product_path, class: "glyphicon glyphicon-plus-sign" %>
-<table>
+<div class="col-xs-10 col-xs-offset-1">
+
+
+<table class="col-xs-12">
 	<thead>
 		<tr>
 			<th>商品ID</th>
 			<th>商品名</th>
 			<th>税抜価格</th>
 			<th>ジャンル</th>
-			<th>販売ステータス</th>
+			<th>ステータス</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -29,5 +31,9 @@
 		</div>
 	</tbody>
 </table>
+<%= link_to "", new_admin_product_path, class: "glyphicon glyphicon-plus-sign" %>
+</div>
+</div>
+</div>
 
 
