@@ -44,14 +44,13 @@
                <tr>
                  <td class="noborder">¥<%= number_to_currency(product.price_tax_excluded) %></td>
                </tr>
-          </table>
          </div>
        <% end %>
 		</tbody>
-		 <div class='p-eu__paginate'>
+		 <td class="noborder"><div class='p-eu__paginate'>
 		<%= paginate @products %>
-		</div>
-
+		</div></td>
+        </table>
 		</div>
 	</div>
 </div>
