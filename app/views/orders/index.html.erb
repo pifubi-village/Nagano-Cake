@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="row">
 		<h2>注文履歴一覧</h2>
+		<div class= "col-md-10">
 		<table class="table table-hover table-inverse">
 			<thead>
 				<tr>
@@ -15,15 +16,16 @@
 			<tbody>
 				<% @orders.each do |order| %>
 					<tr>
-						<td> <%= order.updated_at.strftime("%Y-%m-%d %H:%M") %> </td>
-						<td>〒<%= order.post_code %>
-							<%= order.address %>
-					       <%= order.name %> 様</td>
-				
-						    <td><% order.order_products.each do |item| %>
+						<td> <%= order.updated_at.strftime("%Y年%m月%d日") %> </td>
+						<td>〒<%= order.post_code %><br>
+							  <%= order.address %><br>
+					          <%= order.name %> 様
+					    </td>
+						    <td>
+						     <% order.order_products.each do |item| %>
 						     <%= item.product.name %><br>
-						     <% end %><td>
-
+						     <% end %>
+						    </td>
 						    <td> <%= order.amount_price %> </td>
 							<td> <%= order.oeder_status %></td>
 							<td> <%= link_to "注文詳細", order_path(order),class: "btn btn-success"  %></td>
@@ -32,8 +34,5 @@
 			</tbody>
 		</table>
 	</div>
+	</div>
 </div>
-
-変えました
-
-変えました

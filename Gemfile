@@ -75,3 +75,6 @@ gem 'paranoia'
 gem 'rails-i18n'
 
 gem 'pry-byebug'
+
+gem 'jp_prefecture'
+gem 'jquery-rails'

@@ -1,7 +1,6 @@
 <div class="container">
+	<h1>注文情報確認</h1>
 	<div class="row">
-		<h4>注文情報確認</h4>
-
 		<div class="col-md-8">
 			<table class="table table-hover table-inverse">
 				<thead>
@@ -23,15 +22,12 @@
 						<td><%= cp.product.price_tax_excluded*cp.number%></td>
 					</tr>
 					<% end %>
-
 				</tbody>
 			</table>
 		</div>
-
 		<div class="col-md-4">
 			<table class="table">
 				<tbody>
-					　
 					<tr>
 						<th>送料</th>
 						<td><%= session[:order]["postage"] %></td>
@@ -47,18 +43,14 @@
 				</tbody>
 			</table>
 		</div>
-
-	</div>
-
-	<div class="row">
 		<div class="col-md-7">
 					<h4>支払い方法</h4>
 					<p><%= session[:order]["payment_method"] %></p>
 					<h4>お届け先</h4>
 					<p>
-						<%= session[:order]["post_code"] %>
+						〒<%= session[:order]["post_code"] %>
 						<%= session[:order]["address"] %>
-						<%= session[:order]["name"] %>
+						<%= session[:order]["name"] %>様
 				    </p>
 				<div class = "text-center">
 					<%=  link_to "購入を確定する", complete_orders_path,class: 'btn btn-success' %>
