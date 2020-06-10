@@ -2,7 +2,7 @@
   <div class="container">
 
     <nav class="nav navbar-nav navbar-left">
-      <span class="logo navbar-brand mb-0 h1"> <h1 class="logo">Nagano Cakes</h1></span>
+       <%= link_to root_path do %> <h1 class="logo"> Nagano Cakes</h1> <% end %>
     </nav>
 
     <nav>
@@ -21,10 +21,11 @@
         <% elsif end_user_signed_in? %>
             </ul>
             <ul class="nav navbar-nav navbar-center">
-              <span class="navbar-brand mb-0 h1">
-                <div style="margin:0">ようこそ<%= current_end_user.family_name %><%= current_end_user.first_name %>さん！</h4>
-              </span>
+              <p style="text-align:right; padding: 35px 0 0 100px; color:#694D49;">
+                ようこそ<%= current_end_user.family_name %><%= current_end_user.first_name %>さん！
+              </p>
             </ul>
+
 
       <ul class="nav navbar-nav navbar-right">
            <li><%= link_to '商品一覧', products_path, class: "glyphicon glyphicon-cutlery" %></li>

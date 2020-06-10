@@ -4,7 +4,7 @@ class Order < ApplicationRecord
 
 	has_many :order_products, dependent: :destroy
 
-	enum peyment_method:{
+	enum payment_method:{
 		cash: 0,
 		credit_card: 1
 	}
@@ -16,5 +16,4 @@ class Order < ApplicationRecord
 		発送準備中: 3,
 		発送済み: 4
 	}
-	
 end
