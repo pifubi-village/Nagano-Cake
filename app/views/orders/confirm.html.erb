@@ -1,7 +1,6 @@
 <div class="container">
+	<h1>注文情報確認</h1>
 	<div class="row">
-		<h4>注文情報確認</h4>
-
 		<div class="col-md-8">
 			<table class="table table-hover table-inverse">
 				<thead>
@@ -13,61 +12,49 @@
 					</tr>
 				</thead>
 				<tbody>
-					<% @cart_products.each do |cp| %>
+					<% current_end_user.cart_products.each do |cp| %>
 					<tr>
-						<td><%= attachment_image_tag(cp.product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %></td>
-						<td><%= cp.product.name %></td>
-
+						<td><%= attachment_image_tag(cp.product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %>
+						    <%= cp.product.name %>
+						</td>
+						<td><%= cp.product.price_tax_excluded%></td>
+						<td><%= cp.number %></td>
+						<td><%= cp.product.price_tax_excluded*cp.number%></td>
 					</tr>
 					<% end %>
 				</tbody>
 			</table>
 		</div>
-
 		<div class="col-md-4">
 			<table class="table">
 				<tbody>
 					<tr>
 						<th>送料</th>
-						<%= Order.postage %>
+						<td><%= session[:order]["postage"] %></td>
 					</tr>
 					<tr>
 						<th>商品合計</th>
-						<%= total_price %>
+						<td><%= session[:order]["amount_price"].to_i - session[:order]["postage"].to_i %></td>
 					</tr>
 					<tr>
 						<th>請求金額</th>
-					    <%= @order.postage + @total_price %>
+						<td><%= session[:order]["amount_price"] %></td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
-
-	</div>
-
-	<div class="row">
-
 		<div class="col-md-7">
-			<table>
-				<tr>
-					<th>支払い方法</th>
-					<%= @order.payment_method %>
-				</tr>
-				<tr>
-					<th>お届け先</th>
-					<%= @order.post_code%>
-					<%= @order.address %>
-					<%= @order.name%>
-
-				</tr>
-
-
-	</div>
-
-	<div class="row">
-		<div style="margin:0 auto;">
-			<%= button_to "購入を確定する"%>
+					<h4>支払い方法</h4>
+					<p><%= session[:order]["payment_method"] %></p>
+					<h4>お届け先</h4>
+					<p>
+						〒<%= session[:order]["post_code"] %>
+						<%= session[:order]["address"] %>
+						<%= session[:order]["name"] %>様
+				    </p>
+				<div class = "text-center">
+					<%=  link_to "購入を確定する", complete_orders_path,class: 'btn btn-success' %>
+			</div>
 		</div>
 	</div>
-
 </div>

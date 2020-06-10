@@ -2,8 +2,9 @@
   <div class="container">
 
     <nav class="nav navbar-nav navbar-left">
-      <span class="logo navbar-brand mb-0 h1"> <h1>Nagano Cakes</h1></span>
+       <%= link_to root_path do %> <h1 class="logo"> Nagano Cakes</h1> <% end %>
     </nav>
+
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <%if admin_signed_in?%>
@@ -12,19 +13,32 @@
           <li><%= link_to ' 商品一覧', admin_products_path, class: "glyphicon glyphicon-cutlery" %></li>
           <li><%= link_to ' ジャンル一覧', admin_genres_path, class: "glyphicon glyphicon-tags" %></li>
           <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %></li>
-        <% elsif end_user_signed_in? %>
+            <%= form_tag(admin_end_users_path, :method => 'get', class: "text-align") do %>
+              <%= text_field_tag :search %>
+              <%= submit_tag 'Search', :name => nil %>
+            <% end %>
 
-          <li><%= current_end_user.family_name %><%= current_end_user.first_name %></li>
+        <% elsif end_user_signed_in? %>
+            </ul>
+            <ul class="nav navbar-nav navbar-center">
+              <p style="text-align:right; padding: 35px 0 0 100px; color:#694D49;">
+                ようこそ<%= current_end_user.family_name %><%= current_end_user.first_name %>さん！
+              </p>
+            </ul>
+
+
+      <ul class="nav navbar-nav navbar-right">
            <li><%= link_to '商品一覧', products_path, class: "glyphicon glyphicon-cutlery" %></li>
            <li><%= link_to 'マイページ', end_users_path, class: "glyphicon glyphicon-home" %></li>
-           <li><%= link_to 'カート', cart_products_path, class:
-            "glyphicon glyphicon-shopping-cart" %></li>
+           <li><%= link_to 'カート', cart_products_path, class: "glyphicon glyphicon-shopping-cart" %></li>
            <li><%= link_to " ログアウト", destroy_end_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %> </li>
+
         <% else %>
            <li><%= link_to ' 商品一覧', products_path,class: "glyphicon glyphicon-cutlery" %></li>
            <li ><%= link_to ' 新規登録', new_end_user_registration_path, class: "glyphicon glyphicon-check" %></li>
            <li><%= link_to ' ログイン', new_end_user_session_path, class: "glyphicon glyphicon-log-in"%></li>
         <% end %>
+
       </ul>
     </nav>
   </div>

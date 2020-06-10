@@ -1,9 +1,9 @@
 <div class= "container">
 	<div class="row">
 		<div class="col-xs-9">
-		    <h3>ショッピングカート</h3>
+		      <h3><span class="gray">　ショッピングカート　</span></h3>
 	        <div class="cateline">
-		    <%= button_to "カートを空にする", destroy_all_cart_products_path(@cart_product_id), method: :delete, class: "btn btn-danger btn-md" %>
+		    <%= button_to "カートを空にする", destroy_all_cart_products_path(@cart_product_id), method: :delete, "data-confirm"=> "カートを空にしてもよろしいですか？",class: "btn btn-danger btn-md" %>
 		    </div>
 		    <table class="table">
 			<thead>
@@ -20,23 +20,25 @@
 			<% @cart_products.each do |cp| %>
 				<td><%= attachment_image_tag(cp.product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %><%= cp.product.name %></td>
 
-					<td><%= cp.product.price_tax_excluded%></td>
-　　　　　　　　　　　<%= form_for(cp) do |f| %>
-					<td><%= f.number_field :number,  min:1, max:20%>
-						<%= f.submit '変更', class: "btn btn-primary", role: "botton" %></td>
-                 <% end %>
-					<td><%= cp.product.price_tax_excluded*cp.number%></td>
+					<td><%= number_to_currency(cp.product.price_tax_excluded)%></td>
+
+　　　　　　　　　　　<td><%= form_for(cp) do |f| %>
+					<%= f.number_field :number,  min:1, max:20%>
+						<%= f.submit '変更', class: "btn btn-primary", role: "botton" %>
+                  <% end %>
+                  </td>
+					<td><%= number_to_currency(cp.product.price_tax_excluded*cp.number)%></td>
 
 				  	<td><%=link_to "削除する", cart_product_path(cp), method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%></td>
-			</tr>
+			  </tr>
 		    </tbody>
-		    <% end %>
+		  <% end %>
 		</table>
 		<div class="ses">
-		<table align="right">
-		<th>合計金額</th><td><%= @sum %>円</td>
-	    </table>
-	    </br>
+		  <table align="right">
+		    <th>合計金額</th><td><%= number_to_currency(@sum)%></td>
+	      </table>
+	      </br>
 	    </div>
 			<td><%=link_to "買い物を続ける",products_path, class: 'btn btn-primary' %></td>
 		<div class="ses1">
