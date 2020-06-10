@@ -5,39 +5,26 @@ class OrdersController < ApplicationController
 
   end
    def confirm
-    @cart_products = CartProduct.all
-     @sum = 0
-      @cart_products.each do |cp|
-        @sum += cp.product.price_tax_excluded*cp.number.to_i
-    end
-    session[:order] = params[:order]
-    #binding.pry
-    @order = Order.new
-    @order.payment_method = params[:order][:payment_method]
-    if params[:order][:address_status] == "0"
-      @order.address = current_end_user.address
-      @order.post_code = current_end_user.post_code
-      @order.family_name = current_end_user.family_name
-      @order.first_name = current_end_user.first_name
-    elsif  params[:order][:address_status] == "1"
-      @address = Address.find(params[:order][:address])
-      @order.address = @address.address
-      @order.post_code = @address.post_code
-      @order.family_name = current_end_user.family_name
-      @order.first_name = current_end_user.first_name
-    elsif params[:order][:address_status] == "2"
-      @order.address = params[:address]
-      @order.post_code = params[:post_code]
-      @order.name = params[:name]
-    end
-     @postage = "800"
-     @order.amount_price = @postage + @sum
+
   end
 
   def complete
-    @order = Order.new(order_params)
-    @order.end_user_id =current_end_user.id
-    @order.save
+    order = Order.new (session[:order])
+    order.save
+    cart_products = current_end_user.cart_products
+    cart_products.each do |cart|
+      order_product = OrderProduct.new
+      order_product.product_id = cart.product.id
+      order_product.number = cart.number
+      order_product.price_tax_included = (cart.product.price_tax_excluded * 1.1).round
+      order_product.production_status = 0
+      order_product.order_id = order.id
+      order_product.save
+      #  binding.pry
+    end
+    cart_products.destroy_all
+
+
   end
 
   def new
@@ -53,12 +40,40 @@ class OrdersController < ApplicationController
   end
   def show
     @order = Order.find(params[:id])
-    
   end
   def create
-    @order = Order.new(order_params)
-    @order.save
+
+    session[:order] = Order.new
+    #binding.pry
+    session[:order][:payment_method] = params[:payment_method]
+
+    if params[:address_status] == "0"
+      session[:order][:address] = current_end_user.address
+      session[:order][:post_code]= current_end_user.post_code
+      session[:order][:name] = current_end_user.family_name + current_end_user.first_name
+    elsif  params[:address_status] == "1"
+      address = Address.find(params[:address_collection])
+      session[:order][:address] = address.address
+      session[:order][:post_code] = address.post_code
+      session[:order][:name] = address.name
+    elsif params[:address_status] == "2"
+      session[:order][:address] = params[:address]
+      session[:order][:post_code] = params[:post_code]
+      session[:order][:name] = params[:name]
+    end
+    session[:order][:postage] = 800
+    @cart_products = CartProduct.all
+     sum = 0
+    @cart_products.each do |cp|
+      sum += cp.product.price_tax_excluded*cp.number.to_i
+    end
+    session[:order][:amount_price] = session[:order][:postage]+sum
+    session[:order][:end_user_id] = current_end_user.id
+    session[:order][:oeder_status] = "0"
+    redirect_to  confirm_orders_path
+
   end
+
 
 
   private
@@ -66,3 +81,4 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:postage,:amount_price,:oeder_status,:address,:name,:post_code,:payment_method)
   end
 end
+

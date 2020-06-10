@@ -26,7 +26,6 @@
 					<%= f.number_field :number,  min:1, max:20%>
 						<%= f.submit '変更', class: "btn btn-primary", role: "botton" %>
                   <% end %>
-                  	
                   </td>
 					<td><%= number_to_currency(cp.product.price_tax_excluded*cp.number)%></td>
 

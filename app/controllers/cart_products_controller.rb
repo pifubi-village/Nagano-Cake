@@ -2,7 +2,7 @@ class CartProductsController < ApplicationController
    def index
       @cart_products = CartProduct.all
       @products = current_end_user.cart_products
-      @sum = 0 
+      @sum = 0
       @cart_products.each do |cp|
         @sum += cp.product.price_tax_excluded*cp.number.to_i
    end
