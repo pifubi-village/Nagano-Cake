@@ -7,8 +7,8 @@
 					<%= form_with(url:{controller: "orders", action: "create"} ,local:true)  do |f| %>
 						<tr>
 							<%= f.label :支払い方法　%>
-							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method,"0"%> 現金</label>
-							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method,"1"%>クレジットカード</label>
+							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method, :"0" %> 現金</label>
+							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method,:"1" %>クレジットカード</label>
 						</tr>
 						<tr>
 							<%= label_tag :お届け先 %>

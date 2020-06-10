@@ -3,7 +3,7 @@
 		<div class="col-xs-9">
 		      <h3><span class="gray">　ショッピングカート　</span></h3>
 	        <div class="cateline">
-		    <%= button_to "カートを空にする", destroy_all_cart_products_path(@cart_product_id), method: :delete, class: "btn btn-danger btn-md" %>
+		    <%= button_to "カートを空にする", destroy_all_cart_products_path(@cart_product_id), method: :delete, "data-confirm"=> "カートを空にしてもよろしいですか？",class: "btn btn-danger btn-md" %>
 		    </div>
 		    <table class="table">
 			<thead>

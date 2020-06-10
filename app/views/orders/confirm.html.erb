@@ -52,27 +52,17 @@
 
 	<div class="row">
 		<div class="col-md-7">
-			<table>
-				<tr>
-					<th>支払い方法</th>
-					<td><%= session[:order]["payment_method"] %></td>
-				</tr>
-				<tr>
-					<th>お届け先</th>
-					<td>
-					<%= session[:order]["post_code"] %>
-					<%= session[:order]["address"] %>
-					<%= session[:order]["name"] %>
-				    </td>
-				</tr>
-				<div style="margin:0 auto;">
-
-					<%=  link_to "購入を確定する", complete_orders_path %></div>
-			
-		</div>
-		</table>
+					<h4>支払い方法</h4>
+					<p><%= session[:order]["payment_method"] %></p>
+					<h4>お届け先</h4>
+					<p>
+						<%= session[:order]["post_code"] %>
+						<%= session[:order]["address"] %>
+						<%= session[:order]["name"] %>
+				    </p>
+				<div class = "text-center">
+					<%=  link_to "購入を確定する", complete_orders_path,class: 'btn btn-success' %>
+			</div>
 		</div>
 	</div>
-	</div>
-
 </div>

@@ -19,11 +19,10 @@ class OrdersController < ApplicationController
       order_product.price_tax_included = (cart.product.price_tax_excluded * 1.1).round
       order_product.production_status = 0
       order_product.order_id = order.id
+      #binding.pry
       order_product.save
-    end
+  end
     cart_products.destroy_all
-
-
   end
 
   def new
@@ -70,7 +69,6 @@ class OrdersController < ApplicationController
     session[:order][:end_user_id] = current_end_user.id
     session[:order][:oeder_status] = "0"
     redirect_to  confirm_orders_path
-
   end
 
 
