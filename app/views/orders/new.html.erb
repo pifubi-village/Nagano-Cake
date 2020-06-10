@@ -4,20 +4,20 @@
 		<h4>注文情報入力</h4>
 			<table class="table">
 				<tbody>
-					<%= form_for(@order,url: confirm_orders_path, method: :GET) do |f| %>
+					<%= form_with(url:{controller: "orders", action: "create"} ,local:true)  do |f| %>
 						<tr>
 							<%= f.label :支払い方法　%>
-							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method,"0"%> 現金</label>
-							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method,"1"%>クレジットカード</label>
+							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method, :"0" %> 現金</label>
+							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method,:"1" %>クレジットカード</label>
 						</tr>
 						<tr>
 							<%= label_tag :お届け先 %>
-						<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :address_status,"0"%>
+						<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button(:address_status,"0")%>
 						ご自身の住所</label> <%= @end_user.address %>
 
-						<label style =" display:block;position:relative;padding-left:1em;"><%= f.radio_button :address_status,"1"%>登録済住所から選択</label>
-						 <%= f.collection_select(:address, Address.all, :id, :address, include_blank: "選択して下さい") %>
-	  					<label style =" display:block;position:relative;padding-left:1em;"><%= f.radio_button :address_status,"2"%>新しいお届け先</label>
+						<label style =" display:block;position:relative;padding-left:1em;"><%= f.radio_button(:address_status,"1")%>登録済住所から選択</label>
+						 <%= f.collection_select(:address_collection, Address.all, :id, :address, include_blank: "選択して下さい") %>
+	  					<label style =" display:block;position:relative;padding-left:1em;"><%= f.radio_button(:address_status,"2")%>新しいお届け先</label>
 						</tr>
 
 						<tr class="row">

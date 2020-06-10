@@ -34,19 +34,19 @@
             <div class="col-xs-4">
             <table class="col-xs-10">
               <tr>
-                <td><%= @products.name %></td>
+                <td class="noborder"><h2><%= @products.name %></h2></td>
               </tr>
               <tr>
-                <td><%= @products.detail %></td>
+                <td class="noborder"><%= @products.detail %></td>
               </tr>
               <tr>
-                <td>¥<%= number_to_currency(@products.price_tax_excluded)%>(税込)</td>
+                <td class="noborder"><h4>¥<%= number_to_currency(@products.price_tax_excluded)%>(税込)</h4></td>
               </tr>
+              <% if end_user_signed_in? && current_end_user.id %>
               <tr>
-                 <td><%= f.select :number, options_for_select((1..20).to_a), include_blank: "個数選択" %></td>
-              </tr>
-              <tr>
-                <td><%= f.submit 'カートに入れる', class: "btn btn-primary", role: "botton" %></td>
+                 <td class="noborder"><%= f.select :number, options_for_select((1..20).to_a), include_blank: "個数選択" %>
+                 <%= f.submit 'カートに入れる', class: "btn btn-primary", role: "botton" %></td>
+              <% end %>
              </tr>
             </table>
           <% end %>

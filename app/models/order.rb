@@ -16,10 +16,5 @@ class Order < ApplicationRecord
 		発送準備中: 3,
 		発送済み: 4
 	}
-	enum address_status:{
-		ご自身の住所: 0,
-		登録済み住所: 1,
-		新しいお届け先: 2
-
-	}
+	
 end
