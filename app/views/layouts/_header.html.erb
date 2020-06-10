@@ -13,6 +13,10 @@
           <li><%= link_to ' 商品一覧', admin_products_path, class: "glyphicon glyphicon-cutlery" %></li>
           <li><%= link_to ' ジャンル一覧', admin_genres_path, class: "glyphicon glyphicon-tags" %></li>
           <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %></li>
+            <%= form_tag(admin_end_users_path, :method => 'get', class: "text-align") do %>
+              <%= text_field_tag :search %>
+              <%= submit_tag 'Search', :name => nil %>
+            <% end %>
 
         <% elsif end_user_signed_in? %>
             </ul>
