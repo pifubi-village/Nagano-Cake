@@ -20,7 +20,6 @@ class OrdersController < ApplicationController
       order_product.production_status = 0
       order_product.order_id = order.id
       order_product.save
-      #  binding.pry
     end
     cart_products.destroy_all
 

@@ -23,7 +23,7 @@
 				    <td> <%= order.product.name %> </td>
 				    <td> <%= order.product.amount_price %> </td>
 					<td> <%= order.product_status %></td>
-					<td> <%= link_to "注文詳細", order_path %></td>
+					<td> <%= link_to "注文詳細", order_path( @order) %></td>
 				<% end %>
 				<% end %>
 				</tr>
