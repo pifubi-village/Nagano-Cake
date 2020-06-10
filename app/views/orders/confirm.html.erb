@@ -1,8 +1,8 @@
 <div class="container">
 	<div class="row">
-		<h4>注文情報確認</h4>
+		<h3><span class="gray">　注文情報確認　<span></h3>
 
-		<div class="col-md-8">
+		<div class="col-md-9">
 			<table class="table table-hover table-inverse">
 				<thead>
 					<tr>
@@ -15,7 +15,7 @@
 				<tbody>
 					<% current_end_user.cart_products.each do |cp| %>
 					<tr>
-						<td><%= attachment_image_tag(cp.product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %>
+						<td><%= attachment_image_tag(cp.product, :image, size:'60x60', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %>
 						    <%= cp.product.name %>
 						</td>
 						<td><%= cp.product.price_tax_excluded%></td>
@@ -28,7 +28,7 @@
 			</table>
 		</div>
 
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<table class="table">
 				<tbody>
 					　
@@ -51,18 +51,24 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-7">
-					<h4>支払い方法</h4>
-					<p><%= session[:order]["payment_method"] %></p>
-					<h4>お届け先</h4>
-					<p>
+		<div class="col-xs-12">
+			<table>
+			     <tr>
+					<td class="noborder"><h4>支払方法</h4></th>
+					<td class="noborder"><%= session[:order]["payment_method"] %></td>
+				 </tr>
+				 <tr>
+					<td class="noborder"><h4>お届け先</h4></th>
+					<td class="noborder">
 						<%= session[:order]["post_code"] %>
 						<%= session[:order]["address"] %>
 						<%= session[:order]["name"] %>
-				    </p>
-				<div class = "text-center">
-					<%=  link_to "購入を確定する", complete_orders_path,class: 'btn btn-success' %>
-			</div>
+				    </td>
+				  </tr>
+			</table>
+				<div class="text-center">
+					<%=  link_to "購入を確定する", complete_orders_path,class: 'btn btn-success btn-lg' %>
+			   </div>
 		</div>
 	</div>
 </div>

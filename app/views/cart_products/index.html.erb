@@ -18,7 +18,7 @@
 			<tbody>
 			<tr>
 			<% @cart_products.each do |cp| %>
-				<td><%= attachment_image_tag(cp.product, :image, size:'100x100', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %><%= cp.product.name %></td>
+				<td><%= attachment_image_tag(cp.product, :image, size:'80x80', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %><%= cp.product.name %></td>
 
 					<td><%= number_to_currency(cp.product.price_tax_excluded)%></td>
 

@@ -7,28 +7,28 @@
          <div class="col-xs-4">
             <div class="sinupheadline">
               <div class="sinuphead">
-                <h5>名前</h5>
+                <h4>名前</h4>
               </div>
               <div class="sinuphead">
-                <h5>フリガナ</h5>
+                <h4>フリガナ</h4>
               </div>
               <div class="sinuphead">
-                <h5>メールアドレス</h5>
+                <h4>メールアドレス</h4>
               </div>
               <div class="sinuphead">
-                <h5>郵便番号</h5>
+                <h4>郵便番号</h4>
               </div>
               <div class="sinuphead">
-                <h5>住所</h5>
+                <h4>住所</h4>
               </div>
               <div class="sinuphead">
-                <h5>電話番号(ハイフンなし)</h5>
+                <h4>電話番号(ハイフンなし)</h4>
               </div>
               <div class="sinuphead">
-                <h5>パスワード(6文字以上)</h5>
+                <h4>パスワード(6文字以上)</h4>
               </div>
               <div class="sinuphead">
-                <h5>パスワード(確認用)</h5>
+                <h4>パスワード(確認用)</h4>
               </div>
             </div>
               <div class="pu">
@@ -44,21 +44,21 @@
             <div class="tableline">
               <table class="table">
                 <div class="field">
-                  <tr> (姓) </tr>
+                  <%= f.label "(姓)"  %>
                   <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name" %>
                 </div>
                 <div class="field">
-                   <tr> (名) </tr>
+                   <%= f.label "　(名)"  %>
                   <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
                 </div>
               </table>
               <table class="table">
                 <div class="field">
-                   <tr> (セイ) </tr>
+                   <%= f.label "(セイ)"  %>
                   <%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana" %>
                 </div>
                 <div class="field">
-                     <tr> (メイ) </tr>
+                  　<%= f.label "(メイ)"  %>
                   <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
                </div>
              </div>

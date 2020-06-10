@@ -8,6 +8,8 @@ class EndUser < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :cart_products, dependent: :destroy
 
+  validates :first_name,:first_name_kana,:family_name_kana,:phone_number,:post_code,:address,:family_name, presence: true
+
 
   def active_for_authentication?
     super && (self.is_active == true)
