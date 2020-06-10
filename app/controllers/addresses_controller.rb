@@ -13,7 +13,7 @@ class AddressesController < ApplicationController
     if @address.save
       redirect_to addresses_path(@address), notice: "successfully create addresse!"
     else
-      @addresse = Address.all
+      @address = Address.all
       render 'index'
     end
   end

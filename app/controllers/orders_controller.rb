@@ -67,7 +67,7 @@ class OrdersController < ApplicationController
     end
     session[:order][:amount_price] = session[:order][:postage]+sum
     session[:order][:end_user_id] = current_end_user.id
-    session[:order][:oeder_status] = "0"
+    session[:order][:oeder_status] = "入金待ち"
     redirect_to  confirm_orders_path
   end
 
