@@ -1,7 +1,7 @@
 <div class="container">
+	<h1>注文情報確認</h1>
 	<div class="row">
 		<h3><span class="gray">　注文情報確認　<span></h3>
-
 		<div class="col-md-9">
 			<table class="table table-hover table-inverse">
 				<thead>
@@ -23,15 +23,12 @@
 						<td><%= cp.product.price_tax_excluded*cp.number%></td>
 					</tr>
 					<% end %>
-
 				</tbody>
 			</table>
 		</div>
-
 		<div class="col-md-3">
 			<table class="table">
 				<tbody>
-					　
 					<tr>
 						<th>送料</th>
 						<td><%= session[:order]["postage"] %></td>
@@ -47,7 +44,6 @@
 				</tbody>
 			</table>
 		</div>
-
 	</div>
 
 	<div class="row">
@@ -60,7 +56,7 @@
 				 <tr>
 					<td class="noborder"><h4>お届け先</h4></th>
 					<td class="noborder">
-						<%= session[:order]["post_code"] %>
+						〒<%= session[:order]["post_code"] %>
 						<%= session[:order]["address"] %>
 						<%= session[:order]["name"] %>
 				    </td>
