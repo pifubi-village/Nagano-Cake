@@ -42,9 +42,14 @@
 	    </div>
 			<td><%=link_to "買い物を続ける",products_path, class: 'btn btn-primary' %></td>
 		<div class="ses1">
-		</br>
+		</br>	
+		    <% if !@cart_products.blank? %>
 			<td><%=link_to "購入情報に進む",new_order_path, class: 'btn btn-success btn-lg' %></td>
+			<% end %>
 		</div>
+		    <% if @cart_products.blank? %>
+			<h3>買い物カートには何も入っていません</h3>
+			<% end %>
 		</div>
 	</div>
 </div>
