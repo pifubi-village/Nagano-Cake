@@ -26,7 +26,7 @@
 						<td><%= @order.payment_method %></td>
 					</tr>
 					<tr>
-						<%= form_for @order, url:"/admin/order/#{@order.id}" do |f| %>
+						<%= form_for @order, url:"/admin/orders/#{@order.id}" do |f| %>
 						<td>注文ステータス</td>
 						<td><%= f.select :oeder_status, Order.order_statuses.keys, :prompt => "選択してください" %><br><%= f.submit "更新" %></td>
 						<% end %>
