@@ -1,7 +1,12 @@
 class ProductsController < ApplicationController
 
   def index
-  	@products = Product.all.page(params[:page]).per(10).reverse_order
+    if params[:genre_id]
+      # @products = Product.joins(:genre).where(genres: {id: params[:genre_id]}).page(params[:page]).per(10).reverse_order
+      @products = Product.joins(:genre).where(genres: {is_active: true, id: params[:genre_id]}).page(params[:page]).per(10).reverse_order
+    else
+  	 @products = Product.joins(:genre).where(genres: {is_active: true}).page(params[:page]).per(10).reverse_order
+    end
     @genres = Genre.all
   end
 

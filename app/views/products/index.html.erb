@@ -12,7 +12,7 @@
 					<% @genres.each do |genre| %>
 					<tr>
 						<% if genre.is_active? %>
-						<td height="80"><%= link_to genre.name, products_path %></td>
+						<td height="80"><%= link_to genre.name, products_path(genre_id: genre.id) %></td>
 						<% end %>
 					</tr>
 					<% end %>
