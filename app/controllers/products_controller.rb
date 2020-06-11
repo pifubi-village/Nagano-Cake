@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
   def index
   	@products = Product.all.page(params[:page]).per(10).reverse_order
+    @genres = Genre.all
   end
 
   def show

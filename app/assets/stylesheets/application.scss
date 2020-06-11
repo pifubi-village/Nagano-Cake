@@ -22,6 +22,18 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+a:link { /*アクセスしたことのないリンク*/
+color:#333;
+}
+a:visited { /*アクセスしたことのあるリンク*/
+color: grey;
+}
+a:hover {/*マウスが上に乗っている状態*/
+color:#fff;
+background-color: #333;
+}
+
 .userheadline {
 	text-align: center;
 }
