@@ -13,7 +13,7 @@ class AddressesController < ApplicationController
     if @address.save
       redirect_to addresses_path(@address), notice: "successfully create addresse!"
     else
-      @address = Address.all
+      @addresse = Address.all
       render 'index'
     end
   end
@@ -40,5 +40,4 @@ class AddressesController < ApplicationController
     params.require(:address).permit(:address,:post_code,:name)
   end
 end
-
 

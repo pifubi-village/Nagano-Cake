@@ -5,7 +5,7 @@
 <% end %>
 <% if @address.errors.any? %>
   <div class="alert alert-warning">
-     <ul>error
+     <ul>
         <% @address.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
