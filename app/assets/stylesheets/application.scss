@@ -17,6 +17,15 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ @font-face {
+  font-family: 'Bluesky';
+  src: font-url('pugnomincho-mini.otf') format('truetype');
+}
+
+body{
+	font-family: 'Bluesky';
+}
+
  * {
     margin: 0;
     padding: 0;
@@ -127,39 +136,63 @@ table {
 	margin: 20px;
 }
 .box{
+	margin: auto;
 	padding: 10px;
 	width: 570px;
 	background-color: #EEEEEE;
 }
 .box_headline{
-	 border: 1px solid black;
-	 padding: 50px ;
-	 background: -moz-linear-gradient(#ffb03c, #ff708d);
-     background: -webkit-linear-gradient(#ffb03c, #ff708d);
-     background: linear-gradient(to right, #ffb03c, #ff708d);
-     text-shadow: 1px 1px 2px silver
+	 border-radius: 20px;
+	 padding: 50px ;  position: absolute;
+  	 top: 100px;
+  	 left: 250px;
+     z-index: 9999;
+     background-color: rgba(255,255,255,1);
+     color:#ffc0cb;
 }
 .ckdf{
 	padding: 300px;
 }
 header {
 	text-align: center;
-	position: relative;
 	height: 80px;
 }
 .gray{
 	background-color: #EEEEEE;
 }
-.logo{
-	position: absolute;
-	top: 0px;
-	left: 10px;
-}
 li{
 	padding-top :15px;
 }
 
+.c{
+  height: 400px;
+  width :100%;
+}
+.noborder{
+	background-color:white;
+}
 
-
-
-
+a:link { /*アクセスしたことのないリンク*/
+color:black;
+}
+a:visited { /*アクセスしたことのあるリンク*/
+color:black;
+}
+a:hover {/*マウスが上に乗っている状態*/
+color:white;
+background-color: pink;
+}
+h2 {
+  font-family: 'Bluesky';
+}
+header, nav, h1,h2,h3,h4,th,td , footer {
+    font-family: Bluesky, 'Bluesky', Courier, "Segoe Print", sans-serif;
+}
+.social{
+	text-align: center;
+	margin: 0 auto;
+	padding: 15px;
+}
+i {
+	height: 20px;
+}

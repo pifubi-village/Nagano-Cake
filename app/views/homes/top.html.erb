@@ -1,15 +1,15 @@
 <div class= "container">
 	<div class="row">
-		<div class="col-xs-3">
-			<table >
+		<div class="col-xs-2">
+			<table class="col-12">
 				<thead>
 					<tr>
-						<th>ジャンル検索</th>
+						<th>ジャンル<br>検索</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td height="80"><%= link_to "ケーキ" , products_cake_path %></td>
+						<td height="80"><%= link_to "ケーキ " , products_cake_path %> </td>
 					</tr>
 					<tr>
 						<td height="80"><%= link_to "焼き菓子",  products_bakedgoods_path %></td>
@@ -23,13 +23,19 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="col-xs-9">
-			<div class="box">
+		<div class="col-xs-10">
+
+		<div class="a">
+		    <div class="b"><img class="c" src="assets/cake.jpg">
+		    </div>
+		    <div class="b"><img class="c" src="assets/candy.jpg"></div>
+		    <div class="b"><img class="c" src="assets/purin.jpg"></div>
+		     <div class="b"><img class="c" src="assets/yakigashi.jpg"></div>
+		</div>
 			  <h4 class="box_headline">
 				ようこそ、NaganoCakeへ！<br>このサイトは、ケーキの販売サイトになります。<br>
 			    会員でない方も商品の観覧はできますが、<br>購入には会員登録が必要となります。
 		      </h4>
-		    </div>
 		    <h2>オススメ商品</h2>
 			<tbody>
 			 <% @products.each do |product|%>

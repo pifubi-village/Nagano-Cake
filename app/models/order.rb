@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+	validates :name,presence: true
+    validates :post_code,  presence: true
 
 	belongs_to :end_user
 
