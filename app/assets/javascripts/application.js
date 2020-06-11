@@ -15,10 +15,9 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
-$(function() {
-    $('.a').slick({
-        dots: true,
-        autoplay: true,
-        autoplaySpeed: 1000,
-    });
+ $(document).on('turbolinks:load', function(){
+   $('.slick').slick({
+    autoplay:true,  ←自動再生
+    dots:true,      ←ドットの描写
+  });
 });
