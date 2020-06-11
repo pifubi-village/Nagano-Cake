@@ -1,4 +1,5 @@
 class AddressesController < ApplicationController
+   before_action :authenticate_end_user!
 
   def index
     @addresses = Address.all
@@ -40,4 +41,5 @@ class AddressesController < ApplicationController
     params.require(:address).permit(:address,:post_code,:name)
   end
 end
+
 

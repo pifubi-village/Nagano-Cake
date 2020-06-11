@@ -17,6 +17,15 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ @font-face {
+  font-family: 'Bluesky';
+  src: font-url('pugnomincho-mini.otf') format('truetype');
+}
+
+body{
+	font-family: 'Bluesky';
+}
+
  * {
     margin: 0;
     padding: 0;
@@ -151,9 +160,6 @@ header {
 .gray{
 	background-color: #EEEEEE;
 }
-.logo{
-	color: #ffc0cb;
-}
 li{
 	padding-top :15px;
 }
@@ -176,5 +182,17 @@ a:hover {/*マウスが上に乗っている状態*/
 color:white;
 background-color: pink;
 }
-
-
+h2 {
+  font-family: 'Bluesky';
+}
+header, nav, h1,h2,h3,h4,th,td , footer {
+    font-family: Bluesky, 'Bluesky', Courier, "Segoe Print", sans-serif;
+}
+.social{
+	text-align: center;
+	margin: 0 auto;
+	padding: 15px;
+}
+i {
+	height: 20px;
+}

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     namespace :admin do
 
     get 'homes/top'
+
     resources :genres,only: [:index,:edit,:create,:update,:destroy]
     resources :orders,only: [:index,:show,:update]
     patch 'order_products' #制作ステータスのところです。
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
   end
 
   root 'homes#top'
+  get 'homes/about'
   post 'cart_products/add_product'
   delete 'cart_products/destroy_all'
   get "end_users/edit_info" => "end_users#edit", as: "edit_end_user"

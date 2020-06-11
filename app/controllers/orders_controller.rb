@@ -1,7 +1,10 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_end_user!
   def index
-    @orders = Order.all
+    @orders = current_end_user.orders
     @end_user = EndUser.all
+    @end_user = current_end_user
+
 
   end
    def confirm
