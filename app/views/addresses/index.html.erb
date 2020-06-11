@@ -1,9 +1,23 @@
+<% if flash[:notice] %>
+	<div class="flash">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+<% if @address.errors.any? %>
+  <div class="alert alert-warning">
+     <ul>
+        <% @address.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="container">
 	<div class="row">
 		 <div class="col-xs-12">
 		<h3><span class="gray">　配達先登録/一覧　</span></h3>
 		<table style="border-style: none;">
-<!-- 配置考える -->
 		<%= form_for @address do |f| %>
 			<tr class="row">
 				<td style="border-style: none;"> <%= f.label "郵便番号(ハイフンなし)" %> </td>

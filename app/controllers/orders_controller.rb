@@ -1,7 +1,10 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_end_user!
   def index
-    @orders = Order.all
+    @orders = current_end_user.orders
     @end_user = EndUser.all
+    @end_user = current_end_user
+
 
   end
    def confirm
@@ -67,7 +70,7 @@ class OrdersController < ApplicationController
     end
     session[:order][:amount_price] = session[:order][:postage]+sum
     session[:order][:end_user_id] = current_end_user.id
-    session[:order][:oeder_status] = "0"
+    session[:order][:oeder_status] = "入金待ち"
     redirect_to  confirm_orders_path
   end
 
