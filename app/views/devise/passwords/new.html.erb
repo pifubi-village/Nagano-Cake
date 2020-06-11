@@ -1,24 +1,24 @@
 <div class="container"> 
-      <div class="row">
-         <div class="userpage">
-          <div class="top1">
-<h2>パスワード変更</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "送信する",class:"btn btn-primary" %>
-  </div>
-<% end %>
-<p>ご登録済みのパスワードを入力してください。</p>
-<%= link_to "戻る", :back %>
-</div>
-</div>
-</div>
+   <div class="row">
+     <div class="col-xs-7">
+        <tr class="row">
+            <th style="border-style: none;"><h3><span class="gray">　パスワード変更　</span></h3></td>
+        </tr>
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+          <table style="border-style: none;">
+            <tr class="row">
+　　　　       <td style="border-style: none;"><%= f.label :メールアドレス %></td>
+   　       　<td style="border-style: none;"><%= f.email_field :email, autofocus: true, autocomplete: "email"         %></td>
+            </tr>
+            <tr class="row">
+             　<td style="border-style: none;"><%= f.submit "送信する",class:"btn btn-primary" %></td>
+            </tr>
+            <tr class="row">
+              <td style="border-style: none;"><%= link_to "戻る", :back %></td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
 </div>

@@ -2,7 +2,8 @@
   <div class="row">
 	<div class="col-xs-12">
 	  <h3><span class="gray">　配達先編集　</span></h3>
-		<%= form_for @address do |f| %>
+		 <%= form_for @address do |f| %>
+		   <%= render 'layouts/addreserror_message', model: f.object %>
 		   <table style="border-style: none;">
 		    <tr class="row">
 			  <td style="border-style: none;"><%= f.label "郵便番号(ハイフンなし)"%></td>
@@ -18,7 +19,7 @@
 			  <td style="border-style: none;"><%= f.submit "編集する", class: 'btn btn-primary col-xs-12' %></td>
 		    </tr>
 		   </table>
-		<% end %>
-    </div>
+		 <% end %>
+     </div>
   </div>
 </div>

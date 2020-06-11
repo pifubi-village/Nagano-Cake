@@ -30,24 +30,25 @@
          </div>
          <div class="col-xs-8">
           <%= form_for(@end_user, url: end_user_update_path) do |f| %>
-            <div class="tableline">
+          <%= render 'layouts/endusererror_messages', model: f.object %>
+            <div class="tableline3">
               <table class="table">
                 <div class="field">
-                  <tr> (性) </tr>
+                  <%= f.label "(姓)"  %>
                   <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name" %>
                 </div>
                 <div class="field">
-                  <tr> (名) </tr>
+                  <%= f.label"(名)"  %>
                   <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
                 </div>
               </table>
               <table class="table">
                 <div class="field">
-                  <tr> (セイ) </tr>
+                  <%= f.label "(セイ)"  %>
                   <%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana" %>
                 </div>
                 <div class="field">
-                  <tr> (メイ) </tr>
+                  <%= f.label "(メイ)"  %>
                   <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
                </div>
              </table>

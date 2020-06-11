@@ -5,12 +5,15 @@ class EndUsersController < ApplicationController
 	def edit
 		@end_user = current_end_user
 	end
+
 	def update
 		@end_user = current_end_user
-		@end_user.update(end_users_params)
+	 if	@end_user.update(end_users_params)
 		redirect_to end_users_path
-
-	end
+	else
+		render "edit"
+    end
+   end
 
 	def unsubscribed
 		@end_user = current_end_user
