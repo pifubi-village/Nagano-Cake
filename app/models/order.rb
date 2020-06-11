@@ -11,7 +11,7 @@ class Order < ApplicationRecord
 		credit_card: 1
 	}
 
-	enum order_status:{
+	enum oeder_status:{
 		入金待ち: 0,
 		入金確定: 1,
 		制作中自動更新: 2,
