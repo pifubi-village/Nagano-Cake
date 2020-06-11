@@ -27,10 +27,14 @@
 					<% @orders.each do |f| %>
 
 					<tr>
-						<td><%= f.created_at %></td>
+						<td><%= link_to f.created_at, admin_order_path(f.id) %></td>
 						<td><%= f.end_user.family_name %><%= f.end_user.first_name %></td>
-						<td><%= f.order_products.number %></td>
-						<td><%= f.order_status %></td>
+						<% @aaa = 0 %>
+						<% f.order_products.each do |d| %>
+						<% @aaa += d.number.to_i %>
+						<% end %>
+						<td><%= @aaa %></td>
+						<td><%= f.oeder_status %></td>
 					</tr>
 
 					<% end %>

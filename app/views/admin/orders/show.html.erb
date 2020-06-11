@@ -15,7 +15,7 @@
 				<tbody>
 					<tr>
 						<td>購入者</td>
-						<td><%= @order.family_name %> <%= @order.first_name %></td>
+						<td><%= @order.end_user.family_name %> <%= @order.end_user.first_name %></td>
 					</tr>
 					<tr>
 						<td>配送先</td>
@@ -28,7 +28,7 @@
 					<tr>
 						<%= form_for @order, url:"/admin/order/#{@order.id}" do |f| %>
 						<td>注文ステータス</td>
-						<td><%= f.select :order_status, Order.order_statuses.keys, :prompt => "選択してください" %><br><%= f.submit "更新" %></td>
+						<td><%= f.select :oeder_status, Order.order_statuses.keys, :prompt => "選択してください" %><br><%= f.submit "更新" %></td>
 						<% end %>
 					</tr>
 				</tbody>
@@ -57,12 +57,16 @@
 
 					<% @order_products.each do |f| %>
 					<tr>
-						<td><%= f.products_id.name %></td>
+						<td><%= f.product.name %></td>
 						<td><%= f.price_tax_included %></td>
 						<td><%= f.number %></td>
 						<td><%= f.price_tax_included * f.number %></td>
-						<td>着手不可、後ほど追加<!-- enumとform_for --></td>
-						<td>submit、後ほど追加</td>
+
+						<%= form_for f, url:"/admin/orders/#{f.id}" do |d| %>
+						<td><%= d.select :production_status, OrderProduct.production_statuses.keys, :prompt => "選択してください" %></td>
+						<td><%= d.submit "更新", class: "btn btn-primary" %></td>
+						<% end %>
+						
 					</tr>
 					<% end %>
 
