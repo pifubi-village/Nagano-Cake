@@ -7,8 +7,8 @@ class Order < ApplicationRecord
 	has_many :order_products, dependent: :destroy
 
 	enum payment_method:{
-		cash: 0,
-		credit_card: 1
+		銀行振込: 0,
+		クレジットカード: 1
 	}
 
 	enum oeder_status:{
