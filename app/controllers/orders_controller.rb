@@ -4,8 +4,6 @@ class OrdersController < ApplicationController
     @orders = current_end_user.orders
     @end_user = EndUser.all
     @end_user = current_end_user
-
-
   end
    def confirm
 

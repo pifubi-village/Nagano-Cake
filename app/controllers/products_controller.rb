@@ -12,6 +12,12 @@ class ProductsController < ApplicationController
   end
 
   def show
+    if params[:genre_id]
+      @products = Product.joins(:genre).where(genres: {is_active: true, id: params[:genre_id]}).page(params[:page]).per(10).reverse_order
+  else
+     @products = Product.joins(:genre).where(genres: {is_active: true}).page(params[:page]).per(10).reverse_order
+   end
+    @genres = Genre.all
   	@products = Product.find(params[:id])
   	@cart_product = CartProduct.new
   end
