@@ -14,6 +14,16 @@ class OrdersController < ApplicationController
   def complete
     order = Order.new (session[:order])
     order.save
+
+    addresses = current_end_user.address
+      addresses = Address.new
+      address.name = session[:order][:name]
+      address.post_code = session[:order][:post_code]
+      address.address = session[:order][:address]
+      address_id = address_end_user.id
+      address.save
+      byebug
+
     cart_products = current_end_user.cart_products
     cart_products.each do |cart|
       order_product = OrderProduct.new

@@ -2,9 +2,9 @@ class AddressesController < ApplicationController
    before_action :authenticate_end_user!
 
   def index
-    @addresses = Address.all
+    @end_user = current_end_user
+    @addresses = @end_user.addresses
     @address = Address.new
-    @address.end_user_id == current_end_user.id
   end
 
   def create
