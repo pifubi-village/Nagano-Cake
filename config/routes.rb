@@ -19,7 +19,6 @@ Rails.application.routes.draw do
 
     resources :genres,only: [:index,:edit,:create,:update,:destroy]
     resources :orders,only: [:index,:show,:update]
-    patch 'order_products' #制作ステータスのところです。
     resources :end_users,only: [:index,:show,:edit,:update]
     resources :products
   end
@@ -40,7 +39,7 @@ Rails.application.routes.draw do
   resources :addresses
   resource :end_users, only: [:show,:update,:edit]
   resource :passwords, only: [:create,:update]
-  resources :orders,only: [:index,:show,:new,:create,] do
+  resources :orders,only: [:index,:show,:new,:create] do
     collection do
     get :confirm
     get :complete
