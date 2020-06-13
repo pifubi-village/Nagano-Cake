@@ -29,15 +29,15 @@
 				<h4>請求情報</h4>
 					<tr>
 						<th>商品合計</th>
-						<td><%= @order.amount_price - @order.postage %> </td>
+						<td><%= number_to_currency(@order.amount_price - @order.postage) %> </td>
 					</tr>
 					<tr>
 						<th>配達料</th>
-						<td><%= @order.postage %> </td>
+						<td><%= number_to_currency(@order.postage) %> </td>
 					</tr>
 					<tr>
 						<th>ご請求額</th>
-						<td><%= @order.amount_price%> </td>
+						<td><%= number_to_currency(@order.amount_price)%> </td>
 					</tr>
 			</table>
 		</div>
@@ -56,9 +56,9 @@
 					<%  @order.order_products.each do |item| %>
 					<tr>
 						<td><%= item.product.name %></td>
-						<td><%= item.product.price_tax_excluded%></td>
+						<td><%= number_to_currency(item.product.price_tax_excluded)%></td>
 						<td><%= item.number %></td>
-						<td><%= item.product.price_tax_excluded*item.number%></td>
+						<td><%= number_to_currency(item.product.price_tax_excluded*item.number)%></td>
 					</tr>
 					<% end %>
 				</tbody>
