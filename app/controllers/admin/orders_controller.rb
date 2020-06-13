@@ -23,20 +23,7 @@ class Admin::OrdersController < ApplicationController
     else
      redirect_back(fallback_location: root_path)
     end
-
-    # 製作ステータス更新＝＞注文ステータス自動更新
-    # order_product = order.order_products.find(params[:id])
-    # if order_product.update(production_params)
-    #    redirect_back(fallback_location: root_path)
-    # else
-    #  redirect_back(fallback_location: root_path)
-    # end
   end
-    
-
-
-
-
 
   private
   def order_params

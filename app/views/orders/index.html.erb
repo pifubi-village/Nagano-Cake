@@ -29,7 +29,7 @@
 						     <%= item.product.name %><br>
 						     <% end %>
 						    </td>
-						    <td> <%= order.amount_price %> </td>
+						    <td> <%= number_to_currency(order.amount_price) %> </td>
 							<td> <%= order.oeder_status %></td>
 							<td> <%= link_to "注文詳細", order_path(order),class: "btn btn-success"  %></td>
 					</tr>
