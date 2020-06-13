@@ -13,12 +13,8 @@ class Admin::OrderProductsController < ApplicationController
      	redirect_back(fallback_location: root_path)
     　else
     	# 　製作完了＝＞発送準備中
-    	
      redirect_back(fallback_location: root_path)
     end
-    
-
-
 	end
 
 
