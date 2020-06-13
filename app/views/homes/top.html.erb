@@ -1,7 +1,9 @@
 <div class= "container">
 	<div class="row">
+
 		<div class="col-xs-3">
-			<table class="col-12">
+			<table class="col-xs-12">
+
 				<thead>
 					<tr>
 						<th>ジャンル<br>検索</th>
@@ -18,53 +20,58 @@
 				</tbody>
 			</table>
 		</div>
+
 		<div class="col-xs-9">
-			<div id="test-carousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+			<div id="test-carousel" class="carousel slide img-size" data-ride="carousel" data-interval="2000">
 				<!-- data-interval で時間調節-->
 
-			  <ol class="carousel-indicators">
-			    <li data-target="#test-carousel" data-slide-to="0" class="active"></li>
-			    <li data-target="#test-carousel" data-slide-to="1" class=""></li>
-			    <li data-target="#test-carousel" data-slide-to="2" class=""></li>
-			  </ol>
+				  <div class="carousel-inner">
+				    <div class="item active img-size">
+				    	<img class="slide img-size" src="assets/candies.jpg">
+				    </div>
+				    <div class="item img-size">
+				    	<img class="slide img-size"src="assets/cakes.jpg">
+				    </div>
+				    <div class="item img-size">
+				    	<img class="slide img-size"src="assets/pudding.jpg">
+				    </div>
+				    <div class="item img-size">
+				    	<img class="slide img-size"src="assets/cookies.jpg">
+				    </div>
+				  </div>
 
-			  <div class="carousel-inner">
-			    <div class="item active">
-			      <img class="slide" src="assets/candy.jpg">
-			    </div>
-			    <div class="item">
-			      <img class="slide"src="assets/cake.jpg">
-			    </div>
-			    <div class="item">
-			      <img class="slide"src="assets/purin.jpg">
-			    </div>
-			  </div>
+				</div>
 
-			</div>
 			  <h4 class="box_headline">
 				ようこそ、NaganoCakeへ！<br>このサイトは、ケーキの販売サイトになります。<br>
 			    会員でない方も商品の観覧はできますが、<br>購入には会員登録が必要となります。
 		      </h4>
+
 		    <h2>オススメ商品</h2>
+
 			<tbody>
-			 <% @products.each do |product|%>
-           <div class="torunbox">
-             <table>
-               <tr>
-                 <td class="noborder"><%= attachment_image_tag product, :image, format: "jpeg", size: "150x120" %></td>
-               </tr>
-               <tr>
-                 <td class="noborder"><%= link_to product.name, product_path(product.id) %></td>
-               </tr>
-               <tr>
-                 <td class="noborder">¥<%= number_to_currency(product.price_tax_excluded) %></td>
-               </tr>
-         </div>
-       <% end %>
-		</tbody>
-		 <td class="noborder"><div class='p-eu__paginate'>
-		<%= paginate @products %>
-		</div></td>
+				 <% @products.each do |product|%>
+		           <div class="torunbox">
+		             <table>
+		               <tr>
+		                 <td class="noborder"><%= attachment_image_tag product, :image, format: "jpeg", size: "150x120" %></td>
+		               </tr>
+		               <tr>
+		                 <td class="noborder"><%= link_to product.name, product_path(product.id) %></td>
+		               </tr>
+		               <tr>
+		                 <td class="noborder">¥<%= number_to_currency(product.price_tax_excluded) %></td>
+		               </tr>
+		         </div>
+	      		 <% end %>
+			</tbody>
+
+				<td class="noborder">
+					<div class='p-eu__paginate'>
+						<%= paginate @products %>
+					</div>
+				</td>
+
         </table>
 		</div>
 	</div>
