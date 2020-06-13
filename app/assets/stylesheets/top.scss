@@ -1,0 +1,11 @@
+.img-size {
+	width: 100%;
+	max-height: 500px;
+	min-height: 250px;
+}
+
+.img-size img {
+	width: 100%;
+	min-height: 250px;
+	object-fit: cover;
+}
