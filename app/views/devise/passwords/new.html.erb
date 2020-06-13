@@ -2,7 +2,7 @@
    <div class="row">
      <div class="col-xs-7">
         <tr class="row">
-            <th style="border-style: none;"><h3><span class="gray">　パスワード変更　</span></h3></td>
+            <th style="border-style: none;"><h4><span class="gray">　パスワード変更　</span></h4></td>
         </tr>
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
