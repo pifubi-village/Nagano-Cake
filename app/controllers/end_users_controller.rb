@@ -26,6 +26,9 @@ class EndUsersController < ApplicationController
         reset_session
         redirect_to root_path
 	end
+	def zipedit
+  	params.require(:end_user).permit(:postcode, :address)
+	end
 
 	private
 	 def end_users_params

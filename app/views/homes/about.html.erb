@@ -10,3 +10,21 @@
 		〒165-5744 長野県長野市x-x-xx
 
 	</div>
+	<h2>map</h2>
+	<div id='map'></div>
+
+	<style>
+	#map{
+	  height: 400px;
+	}
+	</style>
+
+	<script>
+	function initMap(){
+	  let map = new google.maps.Map(document.getElementById('map'), {
+	  center: {lat: -34.397, lng: 150.644},
+	  zoom: 8
+	  });
+	}
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCHCaSYhX2s0RFQ9ewL9tzSQWtLYzz4hk" async defer></script>
