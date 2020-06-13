@@ -10,14 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require turbolinks
-//= require jquery
-//= require bootstrap-sprockets
 //= require_tree .
- $(document).on('turbolinks:load', function(){
-   $('.slick').slick({
-    autoplay:true,  ←自動再生
-    dots:true,      ←ドットの描写
-  });
-});
+//= require bootstrap-sprockets
+
+
+
+
+
+

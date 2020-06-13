@@ -27,10 +27,14 @@ class EndUsersController < ApplicationController
         redirect_to root_path
 	end
 
+
 	private
 	 def end_users_params
     	params.require(:end_user).permit(:email, :family_name, :first_name,
 	     :family_name_kana, :first_name_kana, :phone_number, :post_code,
 	     :address, :is_active)
   	end
+  	def zipedit
+  	params.require(:end_user).permit(:post_code, :address)
+	end
  end

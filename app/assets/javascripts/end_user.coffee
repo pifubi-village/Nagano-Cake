@@ -3,8 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $("#user_postcode").jpostal({
-    postcode : [ "#end_user_postcode" ],
+  $("#end_user_post_code").jpostal({
+    postcode : [ "#end_user_post_code" ],
     address  : {
                   "#end_user_address" : "%3%4%5%6%7"
                 }
