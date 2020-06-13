@@ -1,4 +1,5 @@
 class Admin::OrderProductsController < ApplicationController
+  before_action :authenticate_admin!
 
 	def update
 		# 製作ステータス更新＝＞注文ステータス自動更新
