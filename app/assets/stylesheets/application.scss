@@ -72,6 +72,10 @@ background-color: #333;
 .pu{
 	padding-top: 50px;
 }
+.pu1{
+	padding-left:  50px;
+	padding-top: 10px;
+}
 .botton{
 	padding-right: 400px;
 }
@@ -85,7 +89,6 @@ background-color: #333;
 }
 .submitlogin {
 	padding-right: 250px;
-	padding-top: 5px;
 }
 .passwordlogin{
 	padding-left: 300px;
@@ -96,10 +99,11 @@ background-color: #333;
 }
 .sinuplogin{
 	padding-right: 580px;
-	padding-bottom: 10px;
+	padding-top: 10px;
 }
 .loginline {
 	padding-right: 250px;
+	padding-top: 10px;
 }
 body {
 	margin-top: 70px;
@@ -208,4 +212,21 @@ i {
 	/*画像をcssで調節*/
 	height: 400px;
 	width: 400px;
+}
+.gray {
+  position: relative;
+  box-shadow: 0px 0px 0px 1px black;
+  border: double 4px black;
+  padding: 0.2em 0.5em;
+  color: black;
+}
+.gray:after {
+  position: absolute;
+  content: '';
+  left: -7px;
+  top: -7px;
+  border-width: 0 0 25px 25px;
+  border-style: solid;
+  border-color: #fff #fff black;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }

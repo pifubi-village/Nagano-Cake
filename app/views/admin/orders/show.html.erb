@@ -63,7 +63,7 @@
 						<td><%= f.price_tax_included * f.number %></td>
 
 						<%= form_for f, url:"/admin/orders/#{f.id}" do |d| %>
-						<td><%= d.select :production_status, options_for_select(OrderProduct.production_statuses.keys, f.production_status), :prompt => "選択してください" %></td>
+						<td><%= d.select :production_status, options_for_select(OrderProduct.production_statuses.keys, f.production), :prompt => "選択してください" %></td>
 						<td><%= d.submit "更新", class: "btn btn-primary" %></td>
 						<% end %>
 					</tr>
