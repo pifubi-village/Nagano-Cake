@@ -10,10 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require turbolinks
-//= require jquery
-//= require bootstrap-sprockets
 //= require_tree .
-var mySwiper = new Swiper('.swiper-container', {
-});
+//= require bootstrap-sprockets
+
+
+
+
+
+

@@ -9,30 +9,41 @@ class Admin::OrdersController < ApplicationController
   end
 
   def update
-
-  	@order = Order.find(params[:id])
-    if @order.update(order_params)
-      if @order.oeder_status == "入金確定"
-        @order_products = @order.order_products
-        @order_products.each do |order_product|
-        order_product.update(production_status: 1)
-        
+      # 注文ステータス更新＝＞製作ステータス自動更新
+  	order = Order.find(params[:id])
+    if order.update(order_params)
+      # 入金確定＝＞製作待ち　
+      if order.oeder_status == "入金確定"
+        order_products = order.order_products
+        order_products.each do |order_product|
+         order_product.update(production_status: "製作待ち")
         end
       end
-      redirect_back(fallback_location: root_path)
+     redirect_back(fallback_location: root_path)
     else
-       redirect_back(fallback_location: root_path)
+     redirect_back(fallback_location: root_path)
     end
-    # 注文ステータスが入金確定になったら製作ステータスが製作待ちになる
-   #  if oeder_status = 1
-   #    production_status
 
-
-  	
+    # 製作ステータス更新＝＞注文ステータス自動更新
+    # order_product = order.order_products.find(params[:id])
+    # if order_product.update(production_params)
+    #    redirect_back(fallback_location: root_path)
+    # else
+    #  redirect_back(fallback_location: root_path)
+    # end
   end
+    
+
+
+
+
 
   private
   def order_params
   	params.require(:order).permit(:oeder_status)
+  end
+
+  def order_product_params
+    params.require(:order_product).permit(:production_status)
   end
 end

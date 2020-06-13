@@ -10,21 +10,39 @@
 		〒165-5744 長野県長野市x-x-xx
 
 	</div>
-	<h2>map</h2>
-	<div id='map'></div>
-
-	<style>
-	#map{
-	  height: 400px;
-	}
-	</style>
-
-	<script>
-	function initMap(){
-	  let map = new google.maps.Map(document.getElementById('map'), {
-	  center: {lat: -34.397, lng: 150.644},
-	  zoom: 8
+	<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['SECRET_KEY'] %> &callback=initMap" async></script>
+	<script type="text/javascript">
+	  var map;
+	  var marker;
+	  var geocoder;
+	  function initMap() {
+	    geocoder = new google.maps.Geocoder();
+	    geocoder.geocode({
+	    'address': '長野県長野市大字鶴賀七瀬南部３５８−３' //住所
+	    }, function(results, status) {
+	      if (status === google.maps.GeocoderStatus.OK) {
+	      map = new google.maps.Map(document.getElementById('gmap'), {
+	        center: results[0].geometry.location,
+	        zoom: 17 //ズーム
+	     });
+	    marker = new google.maps.Marker({
+	    position: results[0].geometry.location,
+	    map: map
+	    });
+	    infoWindow = new google.maps.InfoWindow({
+	    content: '<h4>ツールチップのタイトル</h4>'
+	    });
+	    marker.addListener('click', function() {
+	      infoWindow.open(map, marker);
+	    });
+	    } else {
+	      alert(status);
+	    }
 	  });
 	}
 	</script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCHCaSYhX2s0RFQ9ewL9tzSQWtLYzz4hk" async defer></script>
+	<div id="gmap"></div>
+
+	
+
+	
