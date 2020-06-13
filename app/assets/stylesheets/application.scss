@@ -19,7 +19,11 @@
 
  @font-face {
   font-family: 'Bluesky';
-  src: url('pugnomincho-mini.otf') format('truetype');
+<<<<<<< HEAD
+  src: url('やさしさゴシック手書き.otf') format('truetype');
+=======
+  // src: url('pugnomincho-mini.otf') format('truetype');
+>>>>>>> 84659c291460431f4019efa2ba78886120ff2a1a
 }
 
  * {
@@ -190,7 +194,7 @@ a:hover {/*マウスが上に乗っている状態*/
 color:white;
 background-color: pink;
 }
-header, nav, h1,h2,h3,h4,th,td , footer {
+header, nav, h1,h2,h3,h4,th,td,p,footer {
     font-family: Bluesky, 'Bluesky', Courier, "Segoe Print", sans-serif;
 }
 .social{
