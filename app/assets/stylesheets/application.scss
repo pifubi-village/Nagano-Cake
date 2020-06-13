@@ -19,11 +19,7 @@
 
  @font-face {
   font-family: 'Bluesky';
-  src: font-url('pugnomincho-mini.otf') format('truetype');
-}
-
-body{
-	font-family: 'Bluesky';
+  src: url('pugnomincho-mini.otf') format('truetype');
 }
 
  * {
@@ -190,9 +186,6 @@ a:hover {/*マウスが上に乗っている状態*/
 color:white;
 background-color: pink;
 }
-h2 {
-  font-family: 'Bluesky';
-}
 header, nav, h1,h2,h3,h4,th,td , footer {
     font-family: Bluesky, 'Bluesky', Courier, "Segoe Print", sans-serif;
 }
@@ -208,4 +201,10 @@ i {
 	/*画像をcssで調節*/
 	height: 400px;
 	width: 400px;
+}
+
+#gmap {
+	margin: 0 auto;
+    width:800px;
+   height:500px;
 }
