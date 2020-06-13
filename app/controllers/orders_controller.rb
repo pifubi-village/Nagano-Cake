@@ -15,12 +15,10 @@ class OrdersController < ApplicationController
 
     addresses = current_end_user.address
       addresses = Address.new
-      address.name = session[:order][:name]
-      address.post_code = session[:order][:post_code]
-      address.address = session[:order][:address]
-      address_id = address_end_user.id
-      address.save
-      byebug
+      addresses.name = session[:order][:name]
+      addresses.post_code = session[:order][:post_code]
+      addresses.address = session[:order][:address]
+      addresses.save
 
     cart_products = current_end_user.cart_products
     cart_products.each do |cart|

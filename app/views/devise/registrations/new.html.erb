@@ -79,7 +79,7 @@
           <div class="tableline2">
             <table class="table">
               <div class="field">
-                <%= f.text_field :address, autofocus: true, autocomplete: "address", :size => "45" %>
+                <%= f.text_field :address, autofocus: true, autocomplete: "address", :size => "45", collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県' %><br>
               </div>
             </table>
           </div>
