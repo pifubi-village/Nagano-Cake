@@ -26,7 +26,7 @@
 						<td><%= @order.payment_method %></td>
 					</tr>
 					<tr>
-						<%= form_for @order, url:"/admin/orders/#{@order.id}", method: :patch  do |f| %>
+						<%= form_for @order, url:"/admin/orders/#{@order.id}", method: :patch do |f| %>
 						<td>注文ステータス</td>
 						<td><%= f.select :oeder_status, options_for_select(Order.oeder_statuses.keys, @order.oeder_status), :prompt => "選択してください" %><br><%= f.submit "更新" %></td>
 						<% end %>
@@ -62,8 +62,9 @@
 						<td><%= f.number %></td>
 						<td><%= f.price_tax_included * f.number %></td>
 
-						<%= form_for f, url:"/admin/orders/#{f.id}" do |d| %>
-						<td><%= d.select :production_status, options_for_select(OrderProduct.production_statuses.keys, f.production_status), :prompt => "選択してください" %></td>
+						<%= form_for f, url:"/admin/order_products/#{f.id}", method: :patch do |d| %>
+						<td>
+							<%= d.select :production_status, options_for_select(OrderProduct.production_statuses.keys, d.object.production_status), :prompt => "選択してください" %></td>
 						<td><%= d.submit "更新", class: "btn btn-primary" %></td>
 						<% end %>
 					</tr>
