@@ -23,7 +23,8 @@
             </ul>
             <ul class="nav navbar-nav navbar-center">
               <p style="text-align:right; padding: 35px 0 0 100px; color:#694D49;">
-                ようこそ<%= current_end_user.family_name %><%= current_end_user.first_name %>さん！
+                ようこそ<%= link_to end_users_path  do %>
+                <%= current_end_user.family_name + current_end_user.first_name%>さん！<% end %>
               </p>
             </ul>
 
