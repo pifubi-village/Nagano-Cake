@@ -19,9 +19,8 @@
 
  @font-face {
   font-family: 'Bluesky';
-  // src: url('pugnomincho-mini.otf') format('truetype');
+  src: url('fonts/やさしさゴシック手書き.otf') format('truetype');
 }
-
  * {
     margin: 0;
     padding: 0;
@@ -46,14 +45,14 @@ background-color: #333;
 	display: inline-block;
 }
 .tableline{
-	padding-right: 350px;
+	padding-right: 365px;
 	padding-top: 12px;
 }
 .tableline1{
 	padding-right: 530px;
 }
 .tableline2{
-	padding-right: 330px;
+	padding-right: 355px;
 }
 .sinupheadline{
 	padding-left: 80px;
@@ -69,7 +68,7 @@ background-color: #333;
 	padding-top: 50px;
 }
 .pu1{
-	padding-left:  50px;
+	padding-left:  45px;
 	padding-top: 10px;
 }
 .botton{
@@ -190,7 +189,7 @@ a:hover {/*マウスが上に乗っている状態*/
 color:white;
 background-color: pink;
 }
-header, nav, h1,h2,h3,h4,th,td , footer {
+header, nav, h1,h2,h3,h4,th,td,p,footer {
     font-family: Bluesky, 'Bluesky', Courier, "Segoe Print", sans-serif;
 }
 .social{

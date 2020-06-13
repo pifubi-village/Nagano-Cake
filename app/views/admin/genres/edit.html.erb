@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
-  	<h1>ジャンル編集</h1>
+  	<div class="tyumon">
+  	  <h2><span class="gray">　ジャンル編集　</span></h2>
+  	</div>
 
     <%= form_for @genre, url:"/admin/genres/#{@genre.id}" do |f| %>
 	 <%= f.label :ジャンル %>
