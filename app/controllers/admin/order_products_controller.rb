@@ -5,13 +5,15 @@ class Admin::OrderProductsController < ApplicationController
 		# 製作ステータス更新＝＞注文ステータス自動更新
     order_product = OrderProduct.find(params[:id])
     if order_product.update(order_product_params)
-      # 入金確定＝＞製作待ち　
+      # 制作中＝＞製作中自動更新
       if order_product.production_status == "製作中"
         order = order_product.order
          order.update(oeder_status: "制作中自動更新")
       end
-     redirect_back(fallback_location: root_path)
-    else
+     	redirect_back(fallback_location: root_path)
+    　else
+    	# 　製作完了＝＞発送準備中
+    	
      redirect_back(fallback_location: root_path)
     end
     
