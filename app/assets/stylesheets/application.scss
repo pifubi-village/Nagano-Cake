@@ -19,7 +19,7 @@
 
  @font-face {
   font-family: 'Bluesky';
-  src: url('pugnomincho-mini.otf') format('truetype');
+  src: url('やさしさゴシック手書き.otf') format('truetype');
 }
 
  * {
@@ -190,7 +190,7 @@ a:hover {/*マウスが上に乗っている状態*/
 color:white;
 background-color: pink;
 }
-header, nav, h1,h2,h3,h4,th,td , footer {
+header, nav, h1,h2,h3,h4,th,td,p,footer {
     font-family: Bluesky, 'Bluesky', Courier, "Segoe Print", sans-serif;
 }
 .social{
