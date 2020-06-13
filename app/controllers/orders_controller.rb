@@ -15,10 +15,12 @@ class OrdersController < ApplicationController
 
     addresses = current_end_user.address
       addresses = Address.new
-      addresses.name = session[:order][:name]
-      addresses.post_code = session[:order][:post_code]
-      addresses.address = session[:order][:address]
+      addresses.name = session[:order]["name"]
+      addresses.post_code = session[:order]["post_code"]
+      addresses.address = session[:order]["address"]
+      addresses.end_user_id = current_end_user.id
       addresses.save
+
 
     cart_products = current_end_user.cart_products
     cart_products.each do |cart|
@@ -28,7 +30,6 @@ class OrdersController < ApplicationController
       order_product.price_tax_included = (cart.product.price_tax_excluded * 1.1).round
       order_product.production_status = 0
       order_product.order_id = order.id
-      #binding.pry
       order_product.save
   end
     cart_products.destroy_all
