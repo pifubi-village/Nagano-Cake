@@ -19,9 +19,9 @@
 						<td><%= attachment_image_tag(cp.product, :image, size:'60x60', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %>
 						    <%= cp.product.name %>
 						</td>
-						<td><%= cp.product.price_tax_excluded%></td>
+						<td><%= number_to_currency((cp.product.price_tax_excluded*1.1).round) %></td>
 						<td><%= cp.number %></td>
-						<td><%= cp.product.price_tax_excluded*cp.number%></td>
+						<td><%= number_to_currency((cp.product.price_tax_excluded*1.1*cp.number).round) %></td>
 					</tr>
 					<% end %>
 				</tbody>
@@ -32,15 +32,15 @@
 				<tbody>
 					<tr>
 						<th>送料</th>
-						<td><%= session[:order]["postage"] %></td>
+						<td><%= number_to_currency(session[:order]["postage"]) %></td>
 					</tr>
 					<tr>
 						<th>商品合計</th>
-						<td><%= session[:order]["amount_price"].to_i - session[:order]["postage"].to_i %></td>
+						<td><%= number_to_currency(((session[:order]["amount_price"].to_i - session[:order]["postage"].to_i)*1.1).round) %></td>
 					</tr>
 					<tr>
 						<th>請求金額</th>
-						<td><%= session[:order]["amount_price"] %></td>
+						<td><%= number_to_currency(((session[:order]["amount_price"].to_i - session[:order]["postage"].to_i)*1.1 +session[:order]["postage"]).round) %></td>
 					</tr>
 				</tbody>
 			</table>
