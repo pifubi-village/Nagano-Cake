@@ -7,7 +7,7 @@ class Admin::ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @price_tax_included = (@product.price_tax_excluded*1.1).round(0)
+    @price_tax_included = (@product.price_tax_excluded)
   end
 
   def new
