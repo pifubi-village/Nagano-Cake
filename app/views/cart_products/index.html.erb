@@ -20,14 +20,14 @@
 			<% @cart_products.each do |cp| %>
 				<td><%= attachment_image_tag(cp.product, :image, size:'80x80', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg") %><%= cp.product.name %></td>
 
-					<td><%= number_to_currency(cp.product.price_tax_excluded)%></td>
+					<td><%= number_to_currency(cp.product.price_tax_excluded*1.1)%></td>
 
 　　　　　　　　　　　<td><%= form_for(cp) do |f| %>
 					<%= f.number_field :number,  min:1, max:20%>
 						<%= f.submit '変更', class: "btn btn-primary", role: "botton" %>
                   <% end %>
                   </td>
-					<td><%= number_to_currency(cp.product.price_tax_excluded*cp.number)%></td>
+					<td><%= number_to_currency(cp.product.price_tax_excluded*1.1*cp.number)%></td>
 
 				  	<td><%=link_to "削除する", cart_product_path(cp), method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger"%></td>
 			  </tr>
@@ -36,7 +36,7 @@
 		</table>
 		<div class="ses">
 		  <table align="right">
-		    <th>合計金額</th><td><%= number_to_currency(@sum)%></td>
+		    <th>合計金額</th><td><%= number_to_currency(@sum*1.1)%></td>
 	      </table>
 	      </br>
 	    </div>

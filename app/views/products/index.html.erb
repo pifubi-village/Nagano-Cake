@@ -35,7 +35,7 @@
                  <td class="noborder"><%= link_to product.name, product_path(product.id) %></td>
                </tr>
                <tr>
-                 <td class="noborder">¥<%= number_to_currency(product.price_tax_excluded) %></td>
+                 <td class="noborder">¥<%= number_to_currency(product.price_tax_excluded*1.1) %>(税込)</td>
                </tr>
           </table>
          </div>

@@ -35,7 +35,7 @@
                 <td class="noborder"><%= @products.detail %></td>
               </tr>
               <tr>
-                <td class="noborder"><h4>¥<%= number_to_currency(@products.price_tax_excluded)%>(税込)</h4></td>
+                <td class="noborder"><h4>¥<%= number_to_currency(@products.price_tax_excluded*1.1)%>(税込)</h4></td>
               </tr>
               <% if end_user_signed_in? && current_end_user.id %>
               <tr>

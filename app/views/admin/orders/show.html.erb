@@ -58,9 +58,9 @@
 					<% @order_products.each do |f| %>
 					<tr>
 						<td><%= f.product.name %></td>
-						<td><%= f.price_tax_included %></td>
+						<td><%= number_to_currency(f.price_tax_included) %></td>
 						<td><%= f.number %></td>
-						<td><%= f.price_tax_included * f.number %></td>
+						<td><%= number_to_currency(f.price_tax_included * f.number) %></td>
 
 						<%= form_for f, url:"/admin/order_products/#{f.id}", method: :patch do |d| %>
 						<td>
@@ -80,15 +80,15 @@
 				<thead>
 					<tr>
 						<td>商品合計</td>
-						<td><%= @order.amount_price - @order.postage  %></td>
+						<td><%= number_to_currency((@order.amount_price - @order.postage)*1.1)  %></td>
 					</tr>
 					<tr>
 						<td>送料</td>
-						<td><%= @order.postage %></td>
+						<td><%= number_to_currency(@order.postage) %></td>
 					</tr>
 					<tr>
 						<td>請求金額合計</td>
-						<td><%= @order.amount_price %></td>
+						<td><%= number_to_currency(((@order.amount_price - @order.postage)*1.1)+(@order.postage)) %></td>
 					</tr>
 				</thead>
 			</table>
