@@ -1,10 +1,23 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_end_user!,except: [:index,:show]
 
   def index
-  	@products = Product.all.page(params[:page]).per(5).reverse_order
+    if params[:genre_id]
+      # @products = Product.joins(:genre).where(genres: {id: params[:genre_id]}).page(params[:page]).per(10).reverse_order
+      @products = Product.joins(:genre).where(genres: {is_active: true, id: params[:genre_id]}).page(params[:page]).per(10).reverse_order
+    else
+  	 @products = Product.joins(:genre).where(genres: {is_active: true}).page(params[:page]).per(10).reverse_order
+    end
+    @genres = Genre.all
   end
 
   def show
+    if params[:genre_id]
+      @products = Product.joins(:genre).where(genres: {is_active: true, id: params[:genre_id]}).page(params[:page]).per(10).reverse_order
+  else
+     @products = Product.joins(:genre).where(genres: {is_active: true}).page(params[:page]).per(10).reverse_order
+   end
+    @genres = Genre.all
   	@products = Product.find(params[:id])
   	@cart_product = CartProduct.new
   end
@@ -16,19 +29,19 @@ class ProductsController < ApplicationController
   end
 
   def cake
-  	@products = Product.where(genre_id: 1).page(params[:page]).per(5).reverse_order
+  	@products = Product.where(genre_id: 1).page(params[:page]).per(10).reverse_order
   end
 
   def pudding
-    @products = Product.where(genre_id: 2).page(params[:page]).per(5).reverse_order
+    @products = Product.where(genre_id: 2).page(params[:page]).per(10).reverse_order
   end
 
   def candy
-    @products = Product.where(genre_id: 3).page(params[:page]).per(5).reverse_order
+    @products = Product.where(genre_id: 3).page(params[:page]).per(10).reverse_order
   end
 
   def bakedgoods
-    @products = Product.where(genre_id: 4).page(params[:page]).per(5).reverse_order
+    @products = Product.where(genre_id: 4).page(params[:page]).per(10).reverse_order
   end
 
   private

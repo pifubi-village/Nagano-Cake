@@ -1,5 +1,5 @@
  <div class="up">
-     <h3>登録情報編集</h3>
+      <h3><span class="gray">　登録情報編集　</span></h3>
    </div>
    <div class="userheadline">
      <div class="container"> 
@@ -7,22 +7,22 @@
          <div class="col-xs-3">
             <div class="sinupheadline">
               <div class="sinuphead">
-                <h4>名前</h4>
+                <h5>名前</h5>
               </div>
               <div class="sinuphead">
-                <h4>フリガナ</h4>
+                <h5>フリガナ</h5>
               </div>
               <div class="sinuphead">
-                <h4>メールアドレス</h4>
+                <h5>メールアドレス</h5>
               </div>
               <div class="sinuphead">
-                <h4>郵便番号</h4>
+                <h5>郵便番号(ハイフンなし)</h5>
               </div>
               <div class="sinuphead">
-                <h4>住所</h4>
+                <h5>住所</h5>
               </div>
               <div class="sinuphead">
-                <h4>電話番号</h4>
+                <h5>電話番号(ハイフンなし)</h5>
               </div>
             </div>
               <div class="pu"> 
@@ -30,24 +30,25 @@
          </div>
          <div class="col-xs-9">
           <%= form_for(@end_user, url: end_user_update_path) do |f| %>
-            <div class="tableline">
+          <%= render 'layouts/endusererror_messages', model: f.object %>
+            <div class="tableline3">
               <table class="table">
                 <div class="field">
-                  <%= f.label :姓 %>
+                  <%= f.label "(姓)"  %>
                   <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name" %>
                 </div>
                 <div class="field">
-                  <%= f.label :名 %>
+                  <%= f.label"(名)"  %>
                   <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
                 </div>
               </table>
               <table class="table">
                 <div class="field">
-                  <%= f.label :セイ %>
+                  <%= f.label "(セイ)"  %>
                   <%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana" %>
                 </div>
                 <div class="field">
-                  <%= f.label :メイ %>
+                  <%= f.label "(メイ)"  %>
                   <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
                </div>
              </table>

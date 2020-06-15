@@ -10,20 +10,21 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     passwords: 'admins/passwords',
-    registrations: 'admins/registrations'
+    # registrations: 'admins/registrations'
   }
 
     namespace :admin do
 
     get 'homes/top'
+    resources :order_products,only: [:update]
     resources :genres,only: [:index,:edit,:create,:update,:destroy]
     resources :orders,only: [:index,:show,:update]
-    patch 'order_products' #制作ステータスのところです。
     resources :end_users,only: [:index,:show,:edit,:update]
     resources :products
   end
 
   root 'homes#top'
+  get 'homes/about'
   post 'cart_products/add_product'
   delete 'cart_products/destroy_all'
   get "end_users/edit_info" => "end_users#edit", as: "edit_end_user"
@@ -38,10 +39,10 @@ Rails.application.routes.draw do
   resources :addresses
   resource :end_users, only: [:show,:update,:edit]
   resource :passwords, only: [:create,:update]
-  resources :orders,only: [:index,:show,:new,:create,] do
+  resources :orders,only: [:index,:show,:new,:create] do
     collection do
     get :confirm
-    post :complete
+    get :complete
  end
 end
 

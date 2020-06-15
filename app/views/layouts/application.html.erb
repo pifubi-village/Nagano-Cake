@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WorkGithub</title>
+    <title>NaganoCake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
     <%= stylesheet_link_tag 'application', media: 'all','data-turbolinks-track':'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track':'reload' %>
+
+     <%= javascript_include_tag 'application', 'data-turbolinks-track':'reload' %>
+
+     <link rel="stylesheet" href="assets/top.scss">
 
     <script src="https://kit.fontawesome.com/f4a34d9917.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
     <%= render 'layouts/header' %>
-    
     <br>
     <br>
 
     <%= yield %>
-    
     <br>
     <br>
 
     <%= render 'layouts/footer' %>
   </body>
 </html>
+
+

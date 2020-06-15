@@ -17,11 +17,27 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ @font-face {
+  font-family: 'Bluesky';
+  src: url('azuki.ttf') format('truetype');
+}
  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+a:link { /*アクセスしたことのないリンク*/
+color:#333;
+}
+a:visited { /*アクセスしたことのあるリンク*/
+color: grey;
+}
+a:hover {/*マウスが上に乗っている状態*/
+color:#fff;
+background-color: #333;
+}
+
 .userheadline {
 	text-align: center;
 }
@@ -29,29 +45,31 @@
 	display: inline-block;
 }
 .tableline{
-	padding-right: 350px;
+	padding-right: 365px;
+	padding-top: 12px;
 }
 .tableline1{
-	padding-right: 500px;
+	padding-right: 530px;
 }
 .tableline2{
-	padding-right: 325px;
+	padding-right: 355px;
 }
 .sinupheadline{
-	padding-left: 100px;
+	padding-left: 80px;
 }
 .sinuphead{
-	padding-top: 13px;
+	padding-top: 17px;
 }
 .up{
 	padding-left: 200px;
-	padding-top: 20px;
+	padding-top: 18px;
 }
 .pu{
 	padding-top: 50px;
 }
 .pu1{
-	padding-left: 30px;
+	padding-left:  45px;
+	padding-top: 10px;
 }
 .botton{
 	padding-right: 400px;
@@ -66,7 +84,6 @@
 }
 .submitlogin {
 	padding-right: 250px;
-	padding-top: 5px;
 }
 .passwordlogin{
 	padding-left: 300px;
@@ -77,10 +94,11 @@
 }
 .sinuplogin{
 	padding-right: 580px;
-	padding-bottom: 10px;
+	padding-top: 10px;
 }
 .loginline {
 	padding-right: 250px;
+	padding-top: 10px;
 }
 body {
 	margin-top: 70px;
@@ -96,10 +114,7 @@ table td {
 	background-color: #EEEEEE;
 }
 table {
-	width: 40%;
-}
-.top{
-	margin-top: 20px;
+	width: 50%;
 }
 .userpage {
 	display: inline-block;
@@ -128,21 +143,92 @@ table {
 	margin: 20px;
 }
 .box{
-	padding:80px;
+	margin: auto;
+	padding: 10px;
+	width: 570px;
+	background-color: #EEEEEE;
 }
 .box_headline{
-	 border: 1px solid black;
-	 padding:50px 0 ;
+	 border-radius: 20px;
+	 padding: 50px ;  position: absolute;
+  	 top: 100px;
+  	 left: 250px;
+     // z-index: 9998;
+     background-color: rgba(255,0,255,1);
+     color:#ff3399;
 }
 .ckdf{
 	padding: 300px;
 }
 header {
+	top: 0px;
+  	 left: 0px;
+	 z-index: 9999;
+	 position: fixed;
 	text-align: center;
-	position: relative;
 	height: 80px;
 }
-.logo{
-	top: 1px;
-	right: 1px;
+.gray{
+	background-color: #EEEEEE;
+}
+li{
+	padding-top :15px;
+}
+
+.c{
+  height: 400px;
+  width :100%;
+}
+.noborder{
+	background-color:white;
+}
+
+a:link { /*アクセスしたことのないリンク*/
+color:black;
+}
+a:visited { /*アクセスしたことのあるリンク*/
+color:black;
+}
+a:hover {/*マウスが上に乗っている状態*/
+color:white;
+background-color: pink;
+}
+header, nav, h1,h2,h3,h4,th,td,p,footer {
+    font-family: Bluesky, 'Bluesky', Courier, "Segoe Print", sans-serif;
+}
+.social{
+	text-align: center;
+	margin: 0 auto;
+	padding: 15px;
+}
+i {
+	height: 20px;
+}
+.slide{
+	/*画像をcssで調節*/
+	height: 400px;
+	width: 400px;
+}
+.gray {
+  position: relative;
+  box-shadow: 0px 0px 0px 1px black;
+  border: double 4px black;
+  padding: 0.2em 0.5em;
+  color: black;
+}
+.gray:after {
+  position: absolute;
+  content: '';
+  left: -7px;
+  top: -7px;
+  border-width: 0 0 25px 25px;
+  border-style: solid;
+  border-color: #fff #fff black;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+#gmap {
+	margin: 0 auto;
+    width:800px;
+   height:500px;
 }

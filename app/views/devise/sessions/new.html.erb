@@ -1,11 +1,13 @@
-<h2><%= flash[:error] %></h2>
+<div class="container">
+  <div class="row">
+<h2><font color="red"><%= flash[:error] %></font></h2>
 <div class="loginheadline">
   <div class="logintext">
-      <h3>会員の方はこちらからログイン</h3>
+      <h4><span class="gray">　会員の方はこちらからログイン　</span></h4>
   </div>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+   <%= render "devise/shared/error_messages", resource: resource %>
     <div class="emaillogin">
       <div class="field">
         <%= f.label :メールアドレス  %>
@@ -29,7 +31,7 @@
     </div>
   <% end %>
   <div class="sinuplogin">
-    <h3>登録がお済みでない方</h3>
+     <h4><span class="gray">　登録がお済みでない方　</span></h4>
   </div>
   <div class="loginline">
     <h4><%= link_to "こちら", new_end_user_registration_path %> から新規登録を行ってください.</h4>

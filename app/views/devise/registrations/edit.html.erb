@@ -1,39 +1,33 @@
 <div class="container"> 
       <div class="row">
-         <div class="userpage">
-          <div class="top1">
-<h2>パスワード変更</h2>
+          <div class="col-xs-8">
+             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+             <%= render "devise/shared/error_messages", resource: resource %>
+             <table style="border-style: none;">
+               <tr class="row">
+                 <th style="border-style: none;"><h4><span class="gray">　パスワード変更</span></h4></td>
+               </tr>
+               <tr class="row">
+                 <td style="border-style: none;"><%= f.label :新パスワード%></td>
+                 <td style="border-style: none;"><%= f.password_field :password, autocomplete: "new-password" %></br><% if @minimum_password_length %><em><%= @minimum_password_length %>文字以上</em></td>
+                <% end %>
+              </tr>
+              <tr class="row">
+                <td style="border-style: none;"><%= f.label :パスワード確認%></td>
+                <td style="border-style: none;"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+              </tr>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :新パスワード %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %>文字以上</em>
-    <% end %>
-  </div>
-
-  <div class="">
-    <%= f.label :パスワード確認%><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="">
-    <%= f.label :旧パスワード %><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-  <div class="backbottun">
-  <div class="actions">
-    <%= f.submit "編集内容を保存する", class:"btn btn-primary" %>
-  </div>
-</div>
-<% end %>
-
-<%= link_to "戻る", :back %>
-</div>
-</div>
-</div>
+              <tr class="row">
+                <td style="border-style: none;"><%= f.label :旧パスワード %></td>
+                <td style="border-style: none;"> <%= f.password_field :current_password, autocomplete: "current-password" %></td>
+              <tr class="row">
+                <td style="border-style: none;"><%= f.submit "編集内容を保存する", class:"btn btn-primary" %></td>
+              </tr>
+              <tr class="row">
+                <td style="border-style: none;"><%= link_to "戻る", :back %></td>
+             </tr>
+           </table>
+          <% end %>
+        </div>
+    </div>
 </div>

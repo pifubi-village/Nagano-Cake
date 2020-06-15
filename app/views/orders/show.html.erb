@@ -1,2 +1,69 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
+<div class="container">
+	<div class="row">
+	   <div class="tyumon">
+		<h2><span class="gray">　注文履歴詳細　</span></h2>
+	   </div>
+		<div class="col-xs-8">
+			<table class="table table-hover table-inverse">
+				<h4>注文情報</h4>
+					<tr>
+						<th>注文日</th>
+						<td><%= @order.updated_at.strftime("%Y年%m月%d日") %></td>
+					</tr>
+					<tr>
+						<th>配達先</th>
+						<td><%= @order.address %></td>
+					</tr>
+					<tr>
+						<th>支払い方法</th>
+						<td><%= @order.payment_method %></td>
+					</tr>
+					<tr>
+						<th>ステータス</th>
+						<td><%= @order.oeder_status %></td>
+					</tr>
+			</table>
+		</div>
+		<div class="col-xs-4">
+			<table class="table table-hover table-inverse">
+				<h4>請求情報</h4>
+					<tr>
+						<th>商品合計</th>
+						<td><%= number_to_currency(@order.amount_price - @order.postage) %> </td>
+					</tr>
+					<tr>
+						<th>配達料</th>
+						<td><%= number_to_currency(@order.postage) %> </td>
+					</tr>
+					<tr>
+						<th>ご請求額</th>
+						<td><%= number_to_currency(@order.amount_price)%> </td>
+					</tr>
+			</table>
+		</div>
+		<div class="col-md-10">
+			<h4>注文内容</h4>
+			<table class="table table-hover table-inverse">
+				<thead>
+					<tr>
+						<th>商品</th>
+						<th>単価（税込）</th>
+						<th>数量</th>
+						<th>小計</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%  @order.order_products.each do |item| %>
+					<tr>
+						<td><%= item.product.name %></td>
+						<td><%= number_to_currency(item.product.price_tax_excluded)%></td>
+						<td><%= item.number %></td>
+						<td><%= number_to_currency(item.product.price_tax_excluded*item.number)%></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+

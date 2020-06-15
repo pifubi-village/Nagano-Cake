@@ -1,11 +1,13 @@
 class Admin::ProductsController < ApplicationController
+  before_action :authenticate_admin!
+  
   def index
     @products = Product.page(params[:page])
   end
 
   def show
     @product = Product.find(params[:id])
-    @price_tax_included = (@product.price_tax_excluded*1.1).round(0)
+    @price_tax_included = (@product.price_tax_excluded)
   end
 
   def new

@@ -1,10 +1,19 @@
 <div class="container">
   <div class="row">
-  	<h1>ジャンル一覧・追加</h1>
+  	<div class="tyumon">
+  	  <h2><span class="gray">　ジャンル一覧・追加　</span></h2>
+  	</div>
 
-
+ 	<% if flash[:notice] %>
+      <p class="success-notice"><%= flash[:notice] %></p>
+    <% end %>
 <div class="col-xs-10 col-xs-offset-1">
-<%= form_for(@genre,:url => admin_genres_path) do |f| %>
+<%= form_for(@genre,:url => admin_genres_path, local: true) do |f| %>
+
+<div>
+	<%= render 'render/error', model: f.object %>
+</div>
+
 	<%= f.label :ジャンル %>
 	<%= f.text_field :name %>
 	<label>

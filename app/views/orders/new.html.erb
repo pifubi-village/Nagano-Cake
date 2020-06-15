@@ -1,40 +1,44 @@
 <div class= "container">
 	<div class="row">
-      <div class="col-xs-9">
-		<h4>注文情報入力</h4>
-			<table class="table">
-				<tbody>
-					<%= form_for(@order,url: confirm_orders_path, method: :GET) do |f| %>
+      <div class="col-xs-11">
+      	 <div class="tyumon">
+		   <h3><span class="gray">　注文情報入力　</span></h3>
+         </div>
+					<%= form_with(url:{controller: "orders", action: "create"} ,local:true)  do |f| %>
+					<table style="border-style: none;">
+				      <tbody>
 						<tr>
-							<%= f.label :支払い方法　%>
-							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method,"0"%> 現金</label>
-							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method,"1"%>クレジットカード</label>
+							<h4><%= f.label :支払い方法　%></h4>
+							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method, :"銀行振込" %> 銀行振込</label>
+							<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :payment_method,:"クレジットカード" %>クレジットカード</label>
 						</tr>
 						<tr>
-							<%= label_tag :お届け先 %>
-						<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button :address_status,"0"%>
-						ご自身の住所</label> <%= @end_user.address %>
-
-						<label style =" display:block;position:relative;padding-left:1em;"><%= f.radio_button :address_status,"1"%>登録済住所から選択</label>
-						 <%= f.collection_select(:address, Address.all, :id, :address, include_blank: "選択して下さい") %>
-	  					<label style =" display:block;position:relative;padding-left:1em;"><%= f.radio_button :address_status,"2"%>新しいお届け先</label>
+							<h4><%= label_tag :お届け先 %></h4>
+						<label style = " display:block;position:relative;padding-left:1em;"><%= f.radio_button(:address_status,"0")%>
+						ご自身の住所</label>
+						<%= @end_user.address %>
+						<label style =" display:block;position:relative;padding-left:1em;"><%= f.radio_button(:address_status,"1")%>登録済住所から選択</label>
+						 <%= f.collection_select(:address_collection, Address.all, :id, :address, include_blank: "選択して下さい") %>
+						<label style =" display:block;position:relative;padding-left:1em;"><%= f.radio_button(:address_status,"2")%>新しいお届け先</label>
 						</tr>
 
 						<tr class="row">
-							<th> <%= f.label "郵便番号(ハイフンなし)" %> </th>
-							<td ><%= text_field_tag :post_code %></td>
+							<td class="noborder"> <%= f.label "郵便番号(ハイフンなし)" %></td>
+							<td class="noborder" ><%= text_field_tag :post_code %></td>
 						</tr>
 						<tr class="row">
-							<th><%= f.label :住所 %> </th>
-							<td><%= text_field_tag :address %></td>
+							<td class="noborder"><%= f.label :住所 %> </td>
+							<td class="noborder"><%= text_field_tag :address, "", {size:"37"}%></td>
 						</tr>
 						<tr class="row">
-							<th> <%= f.label :宛名 %> </th>
-							<td><%= text_field_tag :name %></td>
+							<td class="noborder"> <%= f.label :宛名 %> </td>
+							<td class="noborder"><%= text_field_tag :name %></td>
 						</tr>
-				</tbody>
+			    </tbody>
 			</table>
-			<%= f.submit "確認画面に進む",class: 'btn btn-primary' %>
+			 <div class="text-center">
+			     <%= f.submit "確認画面へ進む",class: 'btn btn-primary btn-lg' %>
+			 </div>
 			<% end %>
 		</div>
 	</div>

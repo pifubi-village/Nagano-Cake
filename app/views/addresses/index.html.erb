@@ -1,21 +1,22 @@
 <div class="container">
 	<div class="row">
-		<h2>配達先登録/一覧</h2>
-		<table style="border-style: none;">
-<!-- 配置考える -->
+		 <div class="col-xs-12">
+		<h3><span class="gray">　配達先登録/一覧　</span></h3>
 		<%= form_for @address do |f| %>
+		<%= render 'layouts/addreserror_message', model: f.object %>
+		<table style="border-style: none;">
 			<tr class="row">
-				<th style="border-style: none;"> <%= f.label "郵便番号(ハイフンなし)" %> </th>
+				<td style="border-style: none;"> <%= f.label "郵便番号(ハイフンなし)" %> </td>
 				<td style="border-style: none;"><%= f.text_field :post_code %></td>
 			</tr>
 			<tr class="row">
-				<th style="border-style: none;"> <%= f.label :住所 %> </th>
-				<td style="border-style: none;"><%= f.text_field :address %></td>
+				<td style="border-style: none;"> <%= f.label :住所 %> </td>
+				<td style="border-style: none;"><%= f.text_field :address, :size=>"30" %></td>
 			</tr>
 			<tr class="row">
-				<th style="border-style: none;"> <%= f.label :宛名 %> </th>
+				<td style="border-style: none;"> <%= f.label :宛名 %> </td>
 				<td style="border-style: none;"><%= f.text_field :name %></td>
-				<td style="border-style: none;"><%= f.submit class: 'btn btn-primary col-xs-12' %></td>
+				<td style="border-style: none;"><%= f.submit class: 'btn btn-success col-xs-12' %></td>
 			</tr>
 
 			    </div>
@@ -24,17 +25,18 @@
 		<%end%>
 	</div>
 </div>
-
+</div>
 <div class="body">
 <div class="container">
 	<div class="row">
+　　　　	 <div class="col-xs-9">
 		<table class="table table-hover table-inverse">
 			<thead>
 				<tr>
 					<th>郵便番号</th>
 					<th>住所</th>
 					<th>宛名</th>
-					<th width="110"></th>
+					<th width="170"></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -43,12 +45,13 @@
 					<td><%= address.post_code %></td>
 					<td><%= address.address %></td>
 					<td><%= address.name %></td>
-					<td><%= link_to 'edit', edit_address_path(address.id),class: "btn-sm btn-success" %>
-					<%= link_to '削除', address_path(address.id), method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger" %></td>
+					<td><%= link_to '編集する', edit_address_path(address.id),class: "btn-sm btn-success" %>
+					    <%= link_to '削除する', address_path(address.id), method: :delete, "data-confirm"=> "本当に削除してもよろしいですか？", class: "btn-sm btn-danger" %></td>
 				</tr>
 				<% end %>
 			</tbody>
 		</table>
+	</div>
 	</div>
 	</div>
 </div>

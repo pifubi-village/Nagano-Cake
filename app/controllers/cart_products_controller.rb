@@ -1,8 +1,9 @@
 class CartProductsController < ApplicationController
+  before_action :authenticate_end_user!
    def index
       @cart_products = CartProduct.all
       @products = current_end_user.cart_products
-      @sum = 0 
+      @sum = 0
       @cart_products.each do |cp|
         @sum += cp.product.price_tax_excluded*cp.number.to_i
    end
@@ -42,7 +43,7 @@ end
       @cart_product.end_user_id = current_end_user.id
       @cart_product.update(cart_product_params)
       redirect_to cart_products_path
-    end
+  end
 
   def destroy
     @cart_product = CartProduct.find(params[:id])

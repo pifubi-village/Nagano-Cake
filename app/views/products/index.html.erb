@@ -9,40 +9,37 @@
 					</tr>
 				</thead>
 				<tbody>
+					<% @genres.each do |genre| %>
 					<tr>
-						<td><%= link_to "ケーキ" , products_cake_path %></td>
+						<% if genre.is_active? %>
+						<td height="80"><%= link_to genre.name, products_path(genre_id: genre.id) %></td>
+						<% end %>
 					</tr>
-					<tr>
-						<td><%= link_to "焼き菓子",  products_bakedgoods_path %></td>
-					</tr>
-					<tr>
-                        <td><%= link_to "キャンディ",  products_candy_path %></td>
-					</tr>
-					<tr>
-						<td><%= link_to "プリン",  products_pudding_path %></td>
-					</tr>
+					<% end %>
 				</tbody>
 			</table>
 		 </div>
 		</div>
 		<div class="productline">
-       <h1>商品一覧(全×全)</h1>
+		<div class="tyumon">
+         <h2><span class="gray">　Product　</span></h2>
+        </div>
          <div class="col-xs9">
            <% @products.each do |product|%>
            <div class="torunbox">
              <table>
                <tr>
-                 <td class="noborder"><%= attachment_image_tag product, :image, format: "jpeg", size: "100x100" %></td>
+                 <td class="noborder"><%= attachment_image_tag product, :image, format: "jpeg", size: "120x100" %></td>
                </tr>
                <tr>
                  <td class="noborder"><%= link_to product.name, product_path(product.id) %></td>
                </tr>
                <tr>
-                 <td class="noborder">¥<%= product.price_tax_excluded %></td>
+                 <td class="noborder">¥<%= number_to_currency(product.price_tax_excluded*1.1) %>(税込)</td>
                </tr>
-            <% end %>
-        </table>
-    </div>
+          </table>
+         </div>
+       <% end %>
         </div>
      </div>
       <div class='p-eu__paginate'>

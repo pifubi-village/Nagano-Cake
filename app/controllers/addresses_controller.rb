@@ -1,9 +1,10 @@
 class AddressesController < ApplicationController
+   before_action :authenticate_end_user!
 
   def index
-    @addresses = Address.all
+    @end_user = current_end_user
+    @addresses = @end_user.addresses
     @address = Address.new
-    @address.end_user_id == current_end_user.id
   end
 
   def create
@@ -25,8 +26,11 @@ class AddressesController < ApplicationController
 
   def update
     @address = Address.find(params[:id])
-    @address.update(address_params)
-    redirect_to addresses_path
+    if @address.update(address_params)
+       redirect_to addresses_path
+    else
+        render 'edit'
+    end
   end
 
   def destroy

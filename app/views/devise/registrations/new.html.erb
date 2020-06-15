@@ -1,5 +1,5 @@
     <div class="up">
-     <h3>新規会員登録</h3>
+      <h3><span class="gray">　新規会員登録　</span></h3>
    </div>
    <div class="userheadline">
      <div class="container"> 
@@ -7,32 +7,32 @@
          <div class="col-xs-3">
             <div class="sinupheadline">
               <div class="sinuphead">
-                <h4>名前</h4>
+                <h5>名前</h5>
               </div>
               <div class="sinuphead">
-                <h4>フリガナ</h4>
+                <h5>フリガナ</h5>
               </div>
               <div class="sinuphead">
-                <h4>メールアドレス</h4>
+                <h5>メールアドレス</h5>
               </div>
               <div class="sinuphead">
-                <h4>郵便番号</h4>
+                <h5>郵便番号</h5>
               </div>
               <div class="sinuphead">
-                <h4>住所</h4>
+                <h5>住所</h5>
               </div>
               <div class="sinuphead">
-                <h4>電話番号</h4>
+                <h5>電話番号(ハイフンなし)</h5>
               </div>
               <div class="sinuphead">
-                <h4>パスワード(6文字)</h4>
+                <h5>パスワード(6文字以上)</h5>
               </div>
               <div class="sinuphead">
-                <h4>パスワード(確認用)</h4>
+                <h5>パスワード(確認用)</h5>
               </div>
             </div>
               <div class="pu">
-               <h3>既に登録済みの方</h3>
+               <h4><span class="gray">　既に登録済みの方　</span></h4>
                 <div class=pu1>
                   <P><%= link_to "こちら", new_end_user_session_path %> からログインしてください。</P>
                 </div>
@@ -44,23 +44,24 @@
             <div class="tableline">
               <table class="table">
                 <div class="field">
-                  <%= f.label :姓 %>
+                  <%= f.label "(姓)"  %>
                   <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name" %>
                 </div>
                 <div class="field">
-                  <%= f.label :名 %>
+                   <%= f.label "　(名)"  %>
                   <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
                 </div>
               </table>
               <table class="table">
                 <div class="field">
-                  <%= f.label :セイ %>
+                   <%= f.label "(セイ)"  %>
                   <%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana" %>
                 </div>
                 <div class="field">
-                  <%= f.label :メイ %>
+                  　<%= f.label "(メイ)"  %>
                   <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
                </div>
+             </div>
              </table>
            </div>
            <div class="tableline1">
@@ -78,7 +79,7 @@
           <div class="tableline2">
             <table class="table">
               <div class="field">
-                <%= f.text_field :address, autofocus: true, autocomplete: "address", :size => "45" %>
+                <%= f.text_field :address, autofocus: true, autocomplete: "address", :size => "45", collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県' %><br>
               </div>
             </table>
           </div>
