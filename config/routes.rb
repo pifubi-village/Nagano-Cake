@@ -35,7 +35,9 @@ Rails.application.routes.draw do
   get 'products/candy'
   get 'products/bakedgoods'
   get 'products/pudding'
-  resources :products,only: [:index,:show,:create]
+  resources :products,only: [:index,:show,:create] do
+    resource :favorites, only: [:create, :destroy]
+  end
   resources :addresses
   resource :end_users, only: [:show,:update,:edit]
   resource :passwords, only: [:create,:update]
