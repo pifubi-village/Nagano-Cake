@@ -12,6 +12,10 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
+    @products = Product.all
+
+
     if params[:genre_id]
       @products = Product.joins(:genre).where(genres: {is_active: true, id: params[:genre_id]}).page(params[:page]).per(10).reverse_order
   else
