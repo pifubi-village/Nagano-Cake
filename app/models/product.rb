@@ -4,9 +4,6 @@ class Product < ApplicationRecord
 	has_many :order_products, dependent: :destroy
 	has_many :favorites, dependent: :destroy
 
-	def favorited_by?(end_user)
-		favorites.where(end_user_id: end_user.id).exists?
-	end
 
 	belongs_to :end_user
 	belongs_to :genre

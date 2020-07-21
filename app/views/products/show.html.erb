@@ -37,24 +37,6 @@
               <tr>
                 <td class="noborder"><h4>¥<%= number_to_currency(@products.price_tax_excluded*1.1)%>(税込)</h4></td>
               </tr>
-              <tr>
-              	<td> <i class="fa fa-calendar"></i><%= @product.created_at.strftime('%Y/%m/%d') %>
-              		<% if @product.favorited_by?(current_end_user) %>
-					<li>
-					  <%= link_to product_favorites_path(@product), method: :delete do %>
-					    <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-					    <%= @product.favorites.count %> いいね
-					  <% end %>
-					</li>
-					<% else %>
-					<li>
-					  <%= link_to product_favorites_path(@product), method: :post do %>
-					    <i class="fa fa-heart-o" aria-hidden="true"></i>
-					    <%= @product.favorites.count %> いいね
-					  <% end %>
-					</li>
-					<% end %></td>
-			  </tr>
               <% if end_user_signed_in? && current_end_user.id %>
               <tr>
                  <td class="noborder"><%= f.select :number, options_for_select((1..20).to_a), include_blank: "個数選択" %>
