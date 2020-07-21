@@ -20,4 +20,14 @@
 
 
 
-
+$(document).on('turbolinks:load', function(){
+	$('#product_image').on('change', function (e) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+          $('#preview_image').css('display', 'block')
+          $("#preview_image").attr('src', e.target.result);
+          $("#item_image img").css('display','none');
+      }
+      reader.readAsDataURL(e.target.files[0]);
+   });
+});

@@ -5,13 +5,16 @@
 
 <%= form_for(@product,:url => admin_products_path) do |f| %>
 <div class="col-xs-4">
+	<img id="preview_image">
+	<div id ="item_image">
 		<%= attachment_image_tag @product, :image, size:'300x300',  fallback: "no_image.jpg" %>
+	</div>
 		<%= f.attachment_field :image %>
 </div>
 
 <div class="col-xs-7">
 <table class="col-xs-12">
-	
+
 	<tr>
 		<th><%= f.label :商品名 %></th>
 		<th><%= f.text_field :name %></th>
